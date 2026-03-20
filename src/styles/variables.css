@@ -1,0 +1,35 @@
+:root {
+  /* Typography */
+  --font-heading: 'Fira Code Bold', 'Fira Code', monospace;
+  --font-body: 'Fira Code Light Regular', 'Fira Code', monospace;
+  --font-ui: 'Outfit', sans-serif;
+  --font-secondary: 'Inter', sans-serif;
+
+  /* Colours — extracted from Zyrosite computed styles */
+  --color-bg: #fafafa;
+  --color-bg-dark: #1d1e20;
+  --color-text: #66605c;
+  --color-text-dark: #1d1e20;
+  --color-text-light: #ffffff;
+  --color-accent: #66605c;
+  --color-border: #dadce0;
+  --color-gray: #727586;
+  --color-gray-light: #f2f3f6;
+
+  /* Layout */
+  --header-height: 73px;
+  --header-height-mobile: 39px;
+  --max-width: 1240px;
+  --section-padding: 80px 16px;
+  --section-padding-mobile: 48px 16px;
+
+  /* Button */
+  --btn-radius: 28px;
+  --btn-bg: #fafafa;
+  --btn-color: #66605c;
+  --btn-bg-hover: #66605c;
+  --btn-color-hover: #ffffff;
+
+  /* Transitions */
+  --transition: 0.3s ease;
+}
