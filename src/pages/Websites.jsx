@@ -5,21 +5,29 @@ import Footer from '../components/layout/Footer'
 import { useScrollReveal } from '../hooks/useScrollReveal'
 import styles from './Websites.module.css'
 
-const WEBSITES = [
+const PORTFOLIO = [
   {
     name: 'Central Kastoria Houses',
     url: 'https://centralkastoriahouses.gr',
     domain: 'centralkastoriahouses.gr',
-    description: 'Εξατομικευμένη ιστοσελίδα για ενοικιαζόμενα καταλύματα στην Καστοριά. Διπλόγλωσση (ελληνικά / αγγλικά) με gallery και σελίδα επικοινωνίας.',
+    description: 'Δίγλωσση ιστοσελίδα για ενοικιαζόμενα καταλύματα στην Καστοριά. Gallery, σελίδα κρατήσεων και πλήρης SEO βελτιστοποίηση.',
     image: '/assets/images/kastoria-preview.jpg',
   },
   {
-    name: 'Athens View',
-    url: 'https://athensview.frameflat.gr',
-    domain: 'athensview.frameflat.gr',
-    description: 'Ιστοσελίδα παρουσίασης Airbnb στο κέντρο της Αθήνας με θέα στην Ακρόπολη. Μινιμαλιστικό design, gallery και σύνδεσμος κράτησης.',
-    image: '/assets/images/portfolio-showcase.jpg',
+    name: 'Έδρανο',
+    url: 'https://lightgreen-shrew-218540.hostingersite.com/',
+    domain: 'edrano.gr',
+    description: 'Ιστοσελίδα για κατάστημα επίπλων με παρουσίαση προϊόντων για οικιακούς, επαγγελματικούς και εξωτερικούς χώρους.',
+    image: '/assets/images/edrano-preview.jpg',
   },
+]
+
+const FEATURES = [
+  { title: 'Κατασκευή από το Μηδέν', desc: 'Σχεδιάζουμε και αναπτύσσουμε την ιστοσελίδα σας εξ ολοκλήρου — δωρεάν στο πλαίσιο της συνδρομής σας.' },
+  { title: 'Ανανέωση & Redesign', desc: 'Έχετε ήδη ιστοσελίδα αλλά δείχνει παλιά; Την εκσυγχρονίζουμε πλήρως χωρίς επιπλέον κόστος.' },
+  { title: 'Domain & Hosting', desc: 'Δικό σας domain (.gr ή .com) και hosting υψηλής ταχύτητας — όλα περιλαμβάνονται στη συνδρομή.' },
+  { title: 'SSL & Ασφάλεια', desc: 'Πιστοποιητικό SSL, τακτικά backups και προστασία από απειλές — χωρίς κρυφές χρεώσεις.' },
+  { title: 'SEO Βελτιστοποίηση', desc: 'On-page SEO, δομημένα δεδομένα και τεχνική βελτιστοποίηση ώστε να σας βρίσκουν στο Google.' },
 ]
 
 export default function Websites() {
@@ -29,30 +37,30 @@ export default function Websites() {
     <div className="page">
       <Helmet>
         <html lang="el" />
-        <title>Ιστοσελίδες Ακινήτων | Frameflat</title>
+        <title>Υπηρεσίες Κατασκευής Ιστοσελίδων | Frameflat</title>
         <meta
           name="description"
-          content="Δείτε τις εξατομικευμένες ιστοσελίδες ακινήτων που έχουμε δημιουργήσει. Central Kastoria Houses, Athens View και άλλα projects της Frameflat."
+          content="Κατασκευή ιστοσελίδων από 29,99€/μήνα + ΦΠΑ. Domain, hosting, SSL και συντήρηση περιλαμβάνονται. Δωρεάν κατασκευή ή ανανέωση υπάρχουσας ιστοσελίδας."
         />
         <meta
           name="keywords"
-          content="ιστοσελίδα ακινήτου, κατασκευή ιστοσελίδας airbnb, website ακίνητο Ελλάδα, frameflat websites"
+          content="κατασκευή ιστοσελίδων, κατασκευή website, ιστοσελίδα τιμή, φθηνή ιστοσελίδα, συνδρομητικό πακέτο website, κατασκευή site Ελλάδα, web design Ελλάδα, frameflat"
         />
-        <link rel="canonical" href="https://frameflat.gr/websites" />
+        <link rel="canonical" href="https://frameflat.gr/ypiresies" />
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="Ιστοσελίδες Ακινήτων | Frameflat" />
+        <meta property="og:title" content="Υπηρεσίες Κατασκευής Ιστοσελίδων | Frameflat" />
         <meta
           property="og:description"
-          content="Εξατομικευμένες ιστοσελίδες ακινήτων από τη Frameflat."
+          content="Επαγγελματική ιστοσελίδα από 29,99€/μήνα + ΦΠΑ. Domain, hosting και συντήρηση περιλαμβάνονται."
         />
-        <meta property="og:url" content="https://frameflat.gr/websites" />
+        <meta property="og:url" content="https://frameflat.gr/ypiresies" />
         <meta property="og:image" content="/assets/images/kastoria-preview.jpg" />
         <meta property="og:locale" content="el_GR" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Ιστοσελίδες Ακινήτων | Frameflat" />
+        <meta name="twitter:title" content="Υπηρεσίες Κατασκευής Ιστοσελίδων | Frameflat" />
         <meta
           name="twitter:description"
-          content="Εξατομικευμένες ιστοσελίδες ακινήτων από τη Frameflat."
+          content="Επαγγελματική ιστοσελίδα από 29,99€/μήνα + ΦΠΑ. Domain, hosting και συντήρηση περιλαμβάνονται."
         />
         <meta name="twitter:image" content="/assets/images/kastoria-preview.jpg" />
       </Helmet>
@@ -61,15 +69,43 @@ export default function Websites() {
 
       <div className={styles.page}>
         <div className={styles.hero}>
-          <h1 className="fade-up">Websites</h1>
+          <h1 className="fade-up">Υπηρεσίες</h1>
           <p className="fade-up">
-            Εξατομικευμένες ιστοσελίδες για ακίνητα και καταλύματα — σχεδιασμένες να αναδεικνύουν
-            κάθε property και να μετατρέπουν τους επισκέπτες σε κρατήσεις.
+            Αποκτήστε επαγγελματική ιστοσελίδα με συνδρομητικό πακέτο — κατασκευή ή
+            ανανέωση δωρεάν, domain, hosting και συντήρηση περιλαμβάνονται.
           </p>
         </div>
 
+        {/* Pricing card */}
+        <div className={`${styles.pricingBlock} fade-up`}>
+          <div className={styles.priceCard}>
+            <h2>Ένα πακέτο — τα πάντα περιλαμβάνονται</h2>
+            <div className={styles.priceRow}>
+              <span className={styles.priceAmount}>29,99€</span>
+              <span className={styles.pricePer}>/μήνα + ΦΠΑ</span>
+            </div>
+            <p>
+              Δωρεάν κατασκευή ιστοσελίδας από το μηδέν ή πλήρης ανανέωση (redesign) της υπάρχουσας.
+              Domain, hosting υψηλής ταχύτητας, SSL και SEO βελτιστοποίηση — όλα
+              μέσα στη μηνιαία συνδρομή σας.
+            </p>
+            <ul className={styles.priceFeatures}>
+              {FEATURES.map((f) => (
+                <li key={f.title}>{f.title}</li>
+              ))}
+            </ul>
+            <Link to="/epikoinwnia" className="btn">Ξεκινήστε Τώρα</Link>
+          </div>
+        </div>
+
+        {/* Portfolio section */}
+        <div className={styles.sectionHeader}>
+          <h2 className="fade-up">Δουλειές μας</h2>
+          <p className="fade-up">Ιστοσελίδες που έχουμε σχεδιάσει και κατασκευάσει για πελάτες μας.</p>
+        </div>
+
         <div className={styles.grid}>
-          {WEBSITES.map((site) => (
+          {PORTFOLIO.map((site) => (
             <a
               key={site.domain}
               href={site.url}
@@ -98,8 +134,8 @@ export default function Websites() {
         </div>
 
         <div className={`${styles.cta} fade-up`}>
-          <h2>Θέλετε ιστοσελίδα για το ακίνητό σας;</h2>
-          <p>Επικοινωνήστε μαζί μας και θα δημιουργήσουμε μαζί την ιδανική παρουσίαση για το property σας.</p>
+          <h2>Θέλετε επαγγελματική ιστοσελίδα;</h2>
+          <p>Επικοινωνήστε μαζί μας και ξεκινάμε αμέσως — χωρίς αρχικό κόστος κατασκευής.</p>
           <Link to="/epikoinwnia" className="btn">Επικοινωνία</Link>
         </div>
       </div>

@@ -36,134 +36,178 @@ export default function Home() {
       <Header />
 
       <main>
-        {/* Hero */}
+        {/* Hero — side by side layout */}
         <section className={styles.hero}>
-          <img
-            src="/assets/images/hero-front.jpg"
-            alt="Επαγγελματική φωτογράφιση ακινήτων"
-            className={styles.heroBg}
-            loading="eager"
-          />
-          <div className={styles.heroOverlay} />
-          <div className={styles.heroContent}>
-            <h1 className={styles.heroTitle}>
-              Αναδείξτε το ακίνητό σας με επαγγελματικές φωτογραφίες και εξατομικευμένες ιστοσελίδες.
-            </h1>
-            <Link to="/projects" className="btn">Εξερευνήστε</Link>
-          </div>
-        </section>
-
-        {/* Why Frameflat */}
-        <section className={styles.why}>
-          <div className={`${styles.whyText} fade-up`}>
-            <h2>Γιατί να επιλέξετε την frameflat</h2>
-            <p>
-              Στη Frameflat, προσφέρουμε κορυφαία φωτογράφιση ακινήτων, αναδεικνύοντας τις
-              ιδιοκτησίες σας με τον καλύτερο τρόπο. Είτε είστε μεσίτης είτε ιδιοκτήτης,
-              οι εικόνες μας μαγνητίζουν και προσελκύουν άμεσα αγοραστές ή ενοικιαστές.
-            </p>
-            <p>
-              Στη Frameflat, πιστεύουμε στη δύναμη του μινιμαλισμού και των καθαρών εικόνων.
-              Αναδεικνύουμε την ομορφιά μέσα από την απλότητα των γραμμών, επιτρέποντας στο
-              αντικείμενο να ξεχωρίσει χωρίς περιττές λεπτομέρειες.
-            </p>
-          </div>
-          <div className={`${styles.whyImage} fade-up`}>
-            <img
-              src="/assets/images/portfolio-photo-14.jpg"
-              alt="Frameflat photography aesthetic"
-              loading="lazy"
-            />
-          </div>
-        </section>
-
-        {/* Aesthetic tag */}
-        <div className={styles.aesthetic}>
-          <h3>Αισθητική frameflat</h3>
-        </div>
-
-        {/* Services */}
-        <section className={styles.services}>
-          <div className={`${styles.serviceCard} fade-up`}>
-            <img src="/assets/images/service-camera.png" alt="Φωτογράφιση" />
-            <h3>Φωτογράφιση</h3>
-          </div>
-          <div className={`${styles.serviceCard} fade-up`}>
-            <img src="/assets/images/service-drone.png" alt="Drone" />
-            <h3>Drone</h3>
-          </div>
-          <div className={`${styles.serviceCard} fade-up`}>
-            <img src="/assets/images/service-web.png" alt="Ιστοσελίδα" />
-            <h3>Ιστοσελίδα</h3>
-          </div>
-        </section>
-
-        {/* Drone section */}
-        <section className={styles.drone}>
-          <img
-            src="/assets/images/portfolio-drone.jpg"
-            alt="Αεροφωτογράφιση ακινήτων"
-            className={styles.droneBg}
-            loading="lazy"
-          />
-          <div className={styles.droneOverlay} />
-          <div className={styles.droneContent}>
-            <h2>Αποκτήστε εντυπωσιακές φωτογραφίες και βίντεο από Drone</h2>
-            <p>
-              Οι αεροφωτογραφίες προσφέρουν μια μοναδική προοπτική και αποτυπώνουν την απόλυτη
-              ομορφιά του ακινήτου σας, εντυπωσιάζοντας τους πιθανούς αγοραστές.
-            </p>
-          </div>
-        </section>
-
-        {/* Website promo */}
-        <section className={styles.websitePromo}>
-          <a
-            href="https://centralkastoriahouses.gr"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={`${styles.websitePreviewFrame} fade-up`}
-          >
-            <div className={styles.websitePreviewBar}>
-              <span className={styles.dot} />
-              <span className={styles.dot} />
-              <span className={styles.dot} />
-              <span className={styles.websitePreviewUrl}>centralkastoriahouses.gr</span>
+          <p className={styles.heroTag}>Web Design & Maintenance</p>
+          <h1 className={styles.heroTitle}>
+            Η ιστοσελίδα που χρειάζεται η επιχείρησή σας — σχεδιασμός, κατασκευή και συντήρηση σε ένα πακέτο.
+          </h1>
+          <div className={styles.heroSplit}>
+            <div className={styles.heroContent}>
+              <div className={styles.heroCard}>
+                <div className={styles.heroPrice}>
+                  <span className={styles.priceAmount}>29,99€</span>
+                  <span className={styles.pricePer}>/μήνα + ΦΠΑ</span>
+                </div>
+                <p className={styles.heroSub}>
+                  Δωρεάν κατασκευή ή redesign. Domain, hosting, SEO και SSL περιλαμβάνονται.
+                </p>
+                <div className={styles.heroBtns}>
+                  <Link to="/ypiresies" className="btn">Δείτε τα Πακέτα</Link>
+                  <Link to="/epikoinwnia" className={`btn ${styles.btnOutline}`}>Επικοινωνία</Link>
+                </div>
+              </div>
             </div>
-            <img
-              src="/assets/images/kastoria-preview.jpg"
-              alt="Central Kastoria Houses — Website by frameflat"
-              loading="lazy"
-            />
-          </a>
-          <div className={`${styles.websitePromoText} fade-up`}>
-            <h2>Αναδείξτε το ακίνητο σας με μια εξατομικευμένη ιστοσελίδα!</h2>
-            <p>
-              Central Kastoria Houses, Website by frameflat
-            </p>
-            <div className={styles.websitePromoBtns}>
-              <a
-                href="https://centralkastoriahouses.gr"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn"
-              >
-                Δείτε την ιστοσελίδα
-              </a>
-              <Link to="/epikoinwnia" className="btn">Επικοινωνία</Link>
+            <div className={styles.heroMockup}>
+              <Link to="/portfolio" className={styles.mockupLink}>
+                <div className={styles.mockupBrowser}>
+                  <div className={styles.mockupBar}>
+                    <span className={styles.mockupDot} />
+                    <span className={styles.mockupDot} />
+                    <span className={styles.mockupDot} />
+                    <span className={styles.mockupUrl}>edrano.gr</span>
+                  </div>
+                  <img
+                    src="/assets/images/edrano-preview.jpg"
+                    alt="Δείγμα ιστοσελίδας — Έδρανο, κατασκευασμένη από Frameflat"
+                    loading="eager"
+                  />
+                </div>
+              </Link>
             </div>
           </div>
         </section>
 
-        {/* Showcase */}
-        <section className={styles.showcase}>
-          <img
-            src="/assets/images/portfolio-hdr-2.jpg"
-            alt="Επαγγελματική φωτογράφιση ακινήτων"
-            className={styles.showcaseBg}
-            loading="lazy"
-          />
-          <div className={styles.showcaseOverlay} />
+        {/* What's included */}
+        <section className={styles.included}>
+          <div className={styles.includedInner}>
+            <h2 className="fade-up">Τι περιλαμβάνεται</h2>
+            <div className={styles.includedGrid}>
+              <div className={`${styles.includedItem} fade-up`}>
+                <span className={styles.checkIcon}>✓</span>
+                <div>
+                  <h3>Κατασκευή Ιστοσελίδας</h3>
+                  <p>Δωρεάν κατασκευή από το μηδέν ή πλήρης ανανέωση της υπάρχουσας.</p>
+                </div>
+              </div>
+              <div className={`${styles.includedItem} fade-up`}>
+                <span className={styles.checkIcon}>✓</span>
+                <div>
+                  <h3>Domain & Hosting</h3>
+                  <p>Δικό σας domain (.gr / .com) και hosting υψηλής ταχύτητας.</p>
+                </div>
+              </div>
+              <div className={`${styles.includedItem} fade-up`}>
+                <span className={styles.checkIcon}>✓</span>
+                <div>
+                  <h3>SSL & Ασφάλεια</h3>
+                  <p>Πιστοποιητικό SSL, backups και προστασία από απειλές.</p>
+                </div>
+              </div>
+              <div className={`${styles.includedItem} fade-up`}>
+                <span className={styles.checkIcon}>✓</span>
+                <div>
+                  <h3>SEO Βελτιστοποίηση</h3>
+                  <p>On-page SEO και δομημένα δεδομένα για κατάταξη στο Google.</p>
+                </div>
+              </div>
+              <div className={`${styles.includedItem} fade-up`}>
+                <span className={styles.checkIcon}>✓</span>
+                <div>
+                  <h3>Mobile-First Σχεδιασμός</h3>
+                  <p>Responsive σχεδιασμός που δουλεύει τέλεια σε κάθε συσκευή.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* How it works */}
+        <section className={styles.process}>
+          <h2 className="fade-up">Πώς δουλεύουμε</h2>
+          <div className={styles.processGrid}>
+            <div className={`${styles.processStep} fade-up`}>
+              <span className={styles.stepNum}>01</span>
+              <h3>Συζήτηση & Σχεδιασμός</h3>
+              <p>Μαθαίνουμε τις ανάγκες της επιχείρησής σας και σχεδιάζουμε τη δομή και την αισθητική της ιστοσελίδας.</p>
+            </div>
+            <div className={`${styles.processStep} fade-up`}>
+              <span className={styles.stepNum}>02</span>
+              <h3>Κατασκευή & Ανάπτυξη</h3>
+              <p>Δημιουργούμε την ιστοσελίδα σας με καθαρό κώδικα, responsive σχεδιασμό και βελτιστοποίηση SEO.</p>
+            </div>
+            <div className={`${styles.processStep} fade-up`}>
+              <span className={styles.stepNum}>03</span>
+              <h3>Παράδοση & Συντήρηση</h3>
+              <p>Η ιστοσελίδα σας γίνεται live και εμείς αναλαμβάνουμε τη συνεχή συντήρηση.</p>
+            </div>
+          </div>
+        </section>
+
+        {/* Website portfolio showcase */}
+        <section className={styles.portfolioSection}>
+          <h2 className="fade-up">Ιστοσελίδες που κατασκευάσαμε</h2>
+          <div className={styles.portfolioGrid}>
+            <a
+              href="https://centralkastoriahouses.gr"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`${styles.portfolioCard} fade-up`}
+            >
+              <div className={styles.browserBar}>
+                <span className={styles.dot} />
+                <span className={styles.dot} />
+                <span className={styles.dot} />
+                <span className={styles.browserUrl}>centralkastoriahouses.gr</span>
+              </div>
+              <img
+                src="/assets/images/kastoria-preview.jpg"
+                alt="Central Kastoria Houses — Website by Frameflat"
+                loading="lazy"
+              />
+              <div className={styles.portfolioInfo}>
+                <h3>Central Kastoria Houses</h3>
+                <p>Ενοικιαζόμενα καταλύματα — Καστοριά</p>
+              </div>
+            </a>
+            <a
+              href="https://lightgreen-shrew-218540.hostingersite.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`${styles.portfolioCard} fade-up`}
+            >
+              <div className={styles.browserBar}>
+                <span className={styles.dot} />
+                <span className={styles.dot} />
+                <span className={styles.dot} />
+                <span className={styles.browserUrl}>edrano.gr</span>
+              </div>
+              <img
+                src="/assets/images/edrano-preview.jpg"
+                alt="Έδρανο — Website by Frameflat"
+                loading="lazy"
+              />
+              <div className={styles.portfolioInfo}>
+                <h3>Έδρανο</h3>
+                <p>Κατάστημα επίπλων</p>
+              </div>
+            </a>
+          </div>
+          <div className={styles.portfolioCta}>
+            <Link to="/portfolio" className={`btn ${styles.btnOutline}`}>Δείτε Όλα τα Projects</Link>
+          </div>
+        </section>
+
+        {/* CTA */}
+        <section className={styles.ctaSection}>
+          <div className={`${styles.ctaContent} fade-up`}>
+            <h2>Έτοιμοι να ξεκινήσετε;</h2>
+            <p>
+              Επικοινωνήστε μαζί μας σήμερα και αποκτήστε επαγγελματική ιστοσελίδα
+              χωρίς αρχικό κόστος κατασκευής.
+            </p>
+            <Link to="/epikoinwnia" className="btn">Επικοινωνία</Link>
+          </div>
         </section>
       </main>
 

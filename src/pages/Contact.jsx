@@ -44,10 +44,10 @@ export default function Contact() {
 
       <div className={styles.page}>
         <div className={styles.inner}>
-          <h1>Contact Us</h1>
+          <h1>Επικοινωνία</h1>
           <p className={styles.subtitle}>
-            Μη διστάσετε να επικοινωνήσετε μαζί μας για οποιεσδήποτε ερωτήσεις ή πληροφορίες.
-            Είμαστε εδώ για να βοηθήσουμε!
+            Μη διστάσετε να επικοινωνήσετε μαζί μας για κατασκευή ιστοσελίδας, συντήρηση,
+            redesign ή φωτογράφιση ακινήτων. Είμαστε εδώ για να βοηθήσουμε!
           </p>
 
           {status === 'sent' ? (
@@ -57,7 +57,7 @@ export default function Contact() {
           ) : (
             <form className={styles.form} onSubmit={handleSubmit}>
               <div className={styles.field}>
-                <label htmlFor="email">Enter your email address *</label>
+                <label htmlFor="email">Διεύθυνση email *</label>
                 <input
                   id="email"
                   type="email"
@@ -68,7 +68,7 @@ export default function Contact() {
                 />
               </div>
               <div className={styles.field}>
-                <label htmlFor="message">Enter your message *</label>
+                <label htmlFor="message">Το μήνυμά σας *</label>
                 <textarea
                   id="message"
                   required
@@ -83,17 +83,17 @@ export default function Contact() {
                 className="btn"
                 disabled={status === 'sending'}
               >
-                {status === 'sending' ? 'Αποστολή...' : 'Submit your message'}
+                {status === 'sending' ? 'Αποστολή...' : 'Αποστολή μηνύματος'}
               </button>
             </form>
           )}
 
           {/* Follow Us */}
           <div className={styles.followSection}>
-            <h2>Follow Us</h2>
+            <h2>Ακολουθήστε μας</h2>
             <p className={styles.followDesc}>
-              Η παρουσία μας στον κόσμο του διαδικτύου είναι παντού. Η απόλυτη αναβάθμιση των
-              φωτογραφιών των ακινήτων σας είναι μόνο ένα μήνυμα μακριά.
+              Η επαγγελματική σας ιστοσελίδα είναι μόνο ένα μήνυμα μακριά.
+              Βρείτε μας και στα social media.
             </p>
 
             <div className={styles.contactDetails}>

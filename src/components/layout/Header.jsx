@@ -4,9 +4,10 @@ import styles from './Header.module.css'
 
 const NAV_LINKS = [
   { to: '/', label: 'Αρχική' },
-  { to: '/projects', label: 'Portfolio' },
-  { to: '/websites', label: 'Websites' },
-  { to: '/blog', label: 'Blog' },
+  { to: '/ypiresies', label: 'Υπηρεσίες' },
+  { to: '/portfolio', label: 'Έργα μας' },
+  { to: '/fotografia', label: 'Φωτογράφιση' },
+  { to: '/blog', label: 'Άρθρα' },
   { to: '/epikoinwnia', label: 'Επικοινωνία' },
 ]
 

@@ -38,7 +38,8 @@ export default function ProjectPage({ title, description, images, seoTitle, seoD
 
       <div className={styles.page}>
         <div className={styles.hero}>
-          <Link to="/projects" className={styles.backLink}>← Πίσω στα Projects</Link>
+          <Link to="/fotografia" className={styles.backLink}>← Πίσω στη Φωτογράφιση</Link>
+          <span className={styles.badge}>Επαγγελματική Φωτογράφιση</span>
           <h1>{title}</h1>
           {description && <p>{description}</p>}
         </div>

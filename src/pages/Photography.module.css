@@ -1,0 +1,200 @@
+.page {
+  padding-top: var(--header-height);
+}
+
+.hero {
+  padding: 60px 24px 40px;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: clamp(24px, 3vw, 40px);
+  margin-bottom: 12px;
+}
+
+.hero p {
+  font-size: 15px;
+  color: var(--color-text);
+  max-width: 560px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.75;
+}
+
+
+/* Pricing block */
+.pricingBlock {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px 60px;
+}
+
+.priceCard {
+  max-width: 520px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 40px 32px;
+  border: 1px solid var(--color-border, #eee);
+  border-radius: 10px;
+  background: var(--color-bg-alt, #f7f5f2);
+}
+
+.priceCard h2 {
+  font-size: 22px;
+  margin-bottom: 16px;
+}
+
+.priceRange {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.priceFrom {
+  font-size: 14px;
+  color: var(--color-text);
+}
+
+.priceAmount {
+  font-family: var(--font-heading);
+  font-size: 42px;
+  font-weight: 700;
+  color: var(--color-text-dark, #1a1a1a);
+  line-height: 1;
+}
+
+.priceTo {
+  font-family: var(--font-heading);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--color-text-dark, #1a1a1a);
+}
+
+.priceCard > p {
+  font-size: 14px;
+  color: var(--color-text);
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+
+.priceFeatures {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 28px;
+  text-align: left;
+  max-width: 360px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.priceFeatures li {
+  font-size: 14px;
+  line-height: 2.2;
+  padding-left: 24px;
+  position: relative;
+}
+
+.priceFeatures li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--color-accent, #c9a96e);
+  font-weight: 700;
+}
+
+/* Photography projects */
+.projectsSection {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px 60px;
+}
+
+.projectsSection h2 {
+  font-size: clamp(18px, 2.5vw, 28px);
+  margin-bottom: 24px;
+}
+
+.projectsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.projectCard {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4/3;
+  border-radius: 6px;
+}
+
+.projectCard img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.projectCard:hover img {
+  transform: scale(1.04);
+}
+
+.projectOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 20px;
+}
+
+.projectCard:hover .projectOverlay {
+  opacity: 1;
+}
+
+.projectTitle {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  color: var(--color-text-light);
+}
+
+.projectDesc {
+  font-size: 13px;
+  color: rgba(255,255,255,0.8);
+  margin-top: 4px;
+}
+
+/* CTA */
+.cta {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 40px 24px 80px;
+  text-align: center;
+}
+
+.cta h2 {
+  font-size: clamp(18px, 2.5vw, 28px);
+  margin-bottom: 10px;
+}
+
+.cta p {
+  font-size: 14px;
+  color: var(--color-text);
+  margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+  .projectsGrid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 480px) {
+  .projectsGrid { grid-template-columns: 1fr; }
+  .page { padding-top: var(--header-height-mobile); }
+}

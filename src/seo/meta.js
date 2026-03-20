@@ -1,111 +1,127 @@
 export const SEO = {
   home: {
     el: {
-      title: 'Επαγγελματική Φωτογράφιση Ακινήτων | Frameflat Photography',
+      title: 'Κατασκευή & Συντήρηση Ιστοσελίδων από 29,99€/μήνα | Frameflat',
       description:
-        'Αναζητάτε επαγγελματική φωτογράφιση ακινήτων; Η Frameflat αναδεικνύει κάθε ακίνητο με μινιμαλιστική αισθητική, drone λήψεις και εξατομικευμένες ιστοσελίδες. Επικοινωνήστε μαζί μας.',
+        'Σχεδιασμός, κατασκευή και συντήρηση ιστοσελίδων από 29,99€/μήνα + ΦΠΑ. Domain, hosting και SSL περιλαμβάνονται. Δωρεάν κατασκευή ή redesign. Προσφέρουμε επίσης επαγγελματική φωτογράφιση ακινήτων.',
       keywords:
-        'επαγγελματική φωτογράφιση ακινήτων, φωτογράφιση airbnb, φωτογράφιση σπιτιού Αθήνα, drone φωτογράφιση ακινήτων, φωτογράφιση ακινήτων τιμές, μεσιτική φωτογράφιση',
+        'κατασκευή ιστοσελίδων, συντήρηση ιστοσελίδας, κατασκευή website, web design Ελλάδα, φθηνή ιστοσελίδα, website πακέτο, SEO βελτιστοποίηση, φωτογράφιση ακινήτων, frameflat',
     },
     en: {
-      title: 'Professional Real Estate Photography | Frameflat',
+      title: 'Website Design & Maintenance from €29.99/mo | Frameflat',
       description:
-        'Frameflat delivers minimalist, high-impact real estate photography, drone footage, and custom property websites in Greece. Elevate your listing today.',
+        'Professional website design, hosting, and maintenance from €29.99/month + VAT. Domain, SSL, and ongoing support included. Free website build or redesign. Property photography also available.',
       keywords:
-        'real estate photography Greece, Airbnb photography Athens, drone property photography, professional property photos',
+        'website design Greece, website maintenance Greece, web design subscription, cheap website Greece, property photography, frameflat',
     },
   },
   projects: {
     el: {
-      title: 'Portfolio Φωτογράφισης Ακινήτων | Frameflat Projects',
+      title: 'Portfolio — Ιστοσελίδες που Κατασκευάσαμε | Frameflat',
       description:
-        'Δείτε το portfolio μας στην επαγγελματική φωτογράφιση ακινήτων. Cretan Fleur, Urban Suites, Athens View — εξαιρετικές εικόνες για Airbnb και ακίνητα.',
+        'Δείτε ιστοσελίδες που έχουμε σχεδιάσει και κατασκευάσει. Central Kastoria Houses, Έδρανο και άλλα projects.',
       keywords:
-        'portfolio φωτογράφισης ακινήτων, φωτογράφιση Airbnb portfolio, επαγγελματικές φωτογραφίες ακινήτων Ελλάδα',
+        'portfolio ιστοσελίδων, web design portfolio, κατασκευή ιστοσελίδων παραδείγματα, frameflat',
     },
     en: {
-      title: 'Real Estate Photography Portfolio | Frameflat',
+      title: 'Portfolio — Websites We Built | Frameflat',
       description:
-        'Browse our photography portfolio: Cretan Fleur, Urban Suites, Athens View. Minimalist real estate and Airbnb photography in Greece.',
+        'Browse websites we have designed and built. Central Kastoria Houses, Edrano, and more.',
       keywords:
-        'real estate photography portfolio Greece, Airbnb photography examples',
+        'website design portfolio Greece, web design examples',
+    },
+  },
+  photography: {
+    el: {
+      title: 'Επαγγελματική Φωτογράφιση | Frameflat',
+      description:
+        'Επαγγελματική φωτογράφιση χώρων, προϊόντων και επιχειρήσεων από 150€. Drone λήψεις και φωτογραφικό υλικό υψηλής ποιότητας.',
+      keywords:
+        'επαγγελματική φωτογράφιση, φωτογράφιση χώρων, φωτογράφιση προϊόντων, drone φωτογράφιση, Frameflat',
+    },
+    en: {
+      title: 'Professional Photography | Frameflat',
+      description:
+        'Professional photography for spaces, products and businesses from €150. Drone shots and high-quality visual content.',
+      keywords:
+        'professional photography Greece, drone photography, product photography',
     },
   },
   contact: {
     el: {
-      title: 'Επικοινωνία | Frameflat Φωτογράφιση Ακινήτων',
+      title: 'Επικοινωνία | Frameflat — Κατασκευή & Συντήρηση Ιστοσελίδων',
       description:
-        'Επικοινωνήστε με την Frameflat για επαγγελματική φωτογράφιση ακινήτων, drone λήψεις ή εξατομικευμένη ιστοσελίδα για το ακίνητό σας. Τηλ: 694-253-3482.',
+        'Επικοινωνήστε με τη Frameflat για κατασκευή ιστοσελίδας, συντήρηση, redesign ή φωτογράφιση ακινήτων. Τηλ: 694-253-3482.',
       keywords:
-        'επικοινωνία frameflat, φωτογράφιση ακινήτων τηλέφωνο, κράτηση φωτογράφισης ακινήτων',
+        'επικοινωνία frameflat, κατασκευή ιστοσελίδας επικοινωνία, web design επικοινωνία',
     },
     en: {
-      title: 'Contact | Frameflat Real Estate Photography',
+      title: 'Contact | Frameflat — Web Design & Maintenance',
       description:
-        'Get in touch with Frameflat for real estate photography, drone services, or a custom property website. Call 694-253-3482 or send us a message.',
-      keywords: 'contact frameflat, book real estate photographer Greece',
+        'Get in touch with Frameflat for website design, maintenance, redesign, or property photography. Call 694-253-3482 or send us a message.',
+      keywords: 'contact frameflat, web design Greece contact',
     },
   },
   cretanFleur: {
     el: {
       title: 'Cretan Fleur — Φωτογράφιση Ακινήτου Ελαφόνησος | Frameflat',
       description:
-        'Επαγγελματική φωτογράφιση του Cretan Fleur στην Ελαφόνησο. Ανάδειξη μοντέρνας αρχιτεκτονικής, φυσικής φωτεινότητας και μαγευτικής θέας.',
+        'Επαγγελματική φωτογράφιση ακινήτου στην Ελαφόνησο από τη Frameflat. Φωτογραφικό υλικό για ιστοσελίδα και πλατφόρμες ενοικίασης.',
       keywords:
-        'φωτογράφιση Ελαφόνησος, Cretan Fleur, φωτογράφιση airbnb Ελαφόνησος, επαγγελματική φωτογράφιση Κρήτη',
+        'φωτογράφιση ακινήτου Ελαφόνησος, Cretan Fleur, property photography Greece, Frameflat',
     },
     en: {
       title: 'Cretan Fleur — Property Photography in Elafonisos | Frameflat',
       description:
-        'Professional photography of the Cretan Fleur holiday home in Elafonisos. Minimalist real estate photography highlighting architecture and sea views.',
-      keywords: 'Cretan Fleur Elafonisos photography, Airbnb photography Greece',
+        'Professional property photography in Elafonisos by Frameflat. Visual content for websites and rental platforms.',
+      keywords: 'Cretan Fleur Elafonisos, property photography Greece',
     },
   },
   urbanSuites: {
     el: {
       title: 'Urban Suites Άλιμος — Φωτογράφιση Ακινήτου | Frameflat',
       description:
-        'Επαγγελματική φωτογράφιση του Urban Suites στον Άλιμο Αθήνας. Πολυτελείς εσωτερικοί χώροι και θέα στη θάλασσα σε εικόνες υψηλής αισθητικής.',
+        'Επαγγελματική φωτογράφιση πολυτελούς ακινήτου στον Άλιμο Αθήνας από τη Frameflat.',
       keywords:
-        'φωτογράφιση ακινήτων Άλιμος, Urban Suites, φωτογράφιση πολυτελή ακίνητα Αθήνα, θαλάσσια θέα φωτογράφιση',
+        'φωτογράφιση ακινήτου Άλιμος, Urban Suites, property photography Athens, Frameflat',
     },
     en: {
       title: 'Urban Suites Alimos — Property Photography | Frameflat',
       description:
-        'Luxury apartment photography at Urban Suites, Alimos Athens. Sea-view interiors captured with precision and minimalist aesthetic.',
-      keywords: 'luxury apartment photography Athens, Alimos real estate photography',
+        'Professional luxury property photography in Alimos Athens by Frameflat.',
+      keywords: 'Urban Suites Alimos, luxury property photography Athens',
     },
   },
   athensView: {
     el: {
-      title: 'Athens View — Airbnb Φωτογράφιση Κέντρο Αθήνας | Frameflat',
+      title: 'Athens View — Φωτογράφιση Airbnb Κέντρο Αθήνας | Frameflat',
       description:
-        'Φωτογράφιση μοντέρνου Airbnb στο κέντρο της Αθήνας με θέα στην Ακρόπολη. Φυσική φωτεινότητα, κομψή αρχιτεκτονική και υψηλή αισθητική.',
+        'Επαγγελματική φωτογράφιση Airbnb στο κέντρο της Αθήνας με θέα στην Ακρόπολη. Φωτογραφικό υλικό από τη Frameflat.',
       keywords:
-        'airbnb φωτογράφιση Αθήνα κέντρο, φωτογράφιση θέα Ακρόπολη, airbnb φωτογράφιση τιμή Αθήνα',
+        'φωτογράφιση airbnb Αθήνα, property photography Athens, Frameflat Athens View',
     },
     en: {
-      title: 'Athens View — Airbnb Photography with Acropolis View | Frameflat',
+      title: 'Athens View — Airbnb Photography in Central Athens | Frameflat',
       description:
-        'Professional Airbnb photography in central Athens featuring Acropolis views. Natural light, elegant architecture, minimalist style.',
+        'Professional Airbnb photography in central Athens with Acropolis views by Frameflat.',
       keywords:
-        'Airbnb photography Athens Acropolis view, professional Airbnb photos Athens',
+        'Airbnb photography Athens, property photography Acropolis view',
     },
   },
   blog: {
     el: {
-      title: 'Blog — Συμβουλές Φωτογράφισης Ακινήτων | Frameflat',
+      title: 'Άρθρα — Συμβουλές για Ιστοσελίδες & SEO | Frameflat',
       description:
-        'Άρθρα και συμβουλές για επαγγελματική φωτογράφιση ακινήτων, Airbnb, drone λήψεις και παρουσίαση ακινήτων. Από την ομάδα της Frameflat.',
+        'Άρθρα και συμβουλές για κατασκευή ιστοσελίδων, SEO, web design και online παρουσία επιχειρήσεων. Από την ομάδα της Frameflat.',
       keywords:
-        'συμβουλές φωτογράφισης ακινήτων, airbnb φωτογράφιση tips, drone ακίνητα, παρουσίαση ακινήτου',
+        'συμβουλές ιστοσελίδα, SEO tips, κατασκευή website άρθρα, web design blog, online παρουσία επιχείρησης',
     },
     en: {
-      title: 'Blog — Real Estate Photography Tips | Frameflat',
+      title: 'Blog — Website Design & SEO Tips | Frameflat',
       description:
-        'Articles and tips on professional real estate photography, Airbnb listings, drone footage, and property presentation. From the Frameflat team.',
+        'Articles and tips on website design, SEO, and online business presence. From the Frameflat team.',
       keywords:
-        'real estate photography tips, Airbnb photography guide, drone property photography Greece',
+        'website design tips, SEO guide Greece, web design blog',
     },
   },
 }

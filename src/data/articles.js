@@ -1,140 +1,259 @@
 export const articles = [
   {
-    slug: 'giati-i-epaggelmatiki-fotografisi-auxanei-tin-axia-airbnb',
+    slug: 'giati-i-epicheirisi-sas-chreiazeta-istoselida-to-2025',
     lang: 'el',
-    title: 'Γιατί η επαγγελματική φωτογράφιση αυξάνει την αξία του Airbnb σας',
+    title: 'Γιατί η επιχείρησή σας χρειάζεται ιστοσελίδα το 2025',
     excerpt:
-      'Μάθετε πώς ποιοτικές φωτογραφίες επηρεάζουν άμεσα τον αριθμό των κρατήσεων και την τιμή ανά διανυκτέρευση για το ακίνητό σας στο Airbnb.',
-    datePublished: '2024-10-15',
-    category: 'Airbnb',
+      'Μάθετε γιατί μια επαγγελματική ιστοσελίδα είναι πλέον απαραίτητη για κάθε επιχείρηση — μικρή ή μεγάλη — και πώς επηρεάζει τις πωλήσεις σας.',
+    datePublished: '2025-01-10',
+    category: 'Ιστοσελίδες',
     coverImage: '/assets/images/athens-view-3.jpg',
     body: `
-<p>Σε έναν κόσμο όπου η πρώτη εντύπωση γίνεται ψηφιακά, οι φωτογραφίες του ακινήτου σας είναι το πιο ισχυρό εργαλείο μάρκετινγκ που διαθέτετε. Έρευνες της Airbnb δείχνουν ότι καταλύματα με επαγγελματικές φωτογραφίες λαμβάνουν έως και <strong>40% περισσότερες κρατήσεις</strong> σε σχέση με αυτά που χρησιμοποιούν ερασιτεχνικές εικόνες.</p>
+<p>Στην εποχή μας, πάνω από το <strong>85% των καταναλωτών</strong> αναζητά πληροφορίες online πριν αγοράσει ένα προϊόν ή επιλέξει μια υπηρεσία. Αν η επιχείρησή σας δεν έχει ιστοσελίδα, ουσιαστικά δεν υπάρχει για τη μεγάλη πλειοψηφία των πιθανών πελατών σας.</p>
 
-<h2>Η ψυχολογία της πρώτης εντύπωσης</h2>
-<p>Ο επισκέπτης αποφασίζει αν θα κλικάρει τη λίστα σας μέσα σε λιγότερο από 2 δευτερόλεπτα. Σε αυτό το χρόνο, μόνο η κεντρική φωτογραφία μιλά. Μια εικόνα που αναδεικνύει το φυσικό φως, τον χώρο και τις λεπτομέρειες του διαμερίσματος δημιουργεί αμέσως εμπιστοσύνη και επιθυμία.</p>
+<h2>Η ιστοσελίδα είναι το ψηφιακό σας κατάστημα</h2>
+<p>Σκεφτείτε την ιστοσελίδα σαν την βιτρίνα σας στο internet. Δουλεύει 24 ώρες το 24ωρο, 7 ημέρες την εβδομάδα, χωρίς ενοίκιο και χωρίς ωράριο. Ένας πελάτης μπορεί να μάθει για τις υπηρεσίες σας, να δει δείγματα δουλειάς σας και να επικοινωνήσει μαζί σας — ακόμα και τα μεσάνυχτα.</p>
 
-<h2>Φως: το μυστικό της επαγγελματικής φωτογράφισης</h2>
-<p>Το φυσικό φως είναι η ψυχή κάθε καλής φωτογραφίας εσωτερικού χώρου. Ένας επαγγελματίας φωτογράφος ξέρει ακριβώς σε ποια ώρα της ημέρας να πυροβολήσει κάθε δωμάτιο, ώστε το φως να πέφτει σωστά, να μην υπάρχουν σκληρές σκιές και ο χώρος να φαίνεται άνετος και φιλόξενος.</p>
+<h2>Αξιοπιστία και εμπιστοσύνη</h2>
+<p>Μια καλοσχεδιασμένη ιστοσελίδα δημιουργεί εμπιστοσύνη. Οι πελάτες εμπιστεύονται περισσότερο επιχειρήσεις που έχουν επαγγελματική online παρουσία. Αντίθετα, η απουσία ιστοσελίδας ή μια παλιά, αργή σελίδα μπορεί να τους αποτρέψει.</p>
 
-<h2>Σταδιοποίηση: ετοιμάστε το χώρο πριν τη λήψη</h2>
-<p>Μια απλή αλλά καίρια συμβουλή: αφαιρέστε τα προσωπικά αντικείμενα, τακτοποιήστε τα μαξιλάρια, βάλτε φρέσκα λουλούδια και βεβαιωθείτε ότι όλα τα φώτα λειτουργούν. Ο χώρος πρέπει να δείχνει σαν ξενοδοχείο — καθαρός, τακτοποιημένος, ελκυστικός.</p>
+<h2>SEO: να σας βρίσκουν στο Google</h2>
+<p>Μια σωστά βελτιστοποιημένη ιστοσελίδα εμφανίζεται στα αποτελέσματα αναζήτησης του Google. Αυτό σημαίνει δωρεάν, οργανική κίνηση — πελάτες που ψάχνουν ακριβώς αυτό που προσφέρετε και φτάνουν σε εσάς χωρίς πληρωμένες διαφημίσεις.</p>
 
-<h2>ROI: αξίζει η επένδυση;</h2>
-<p>Ο μέσος όρος κόστους μιας επαγγελματικής φωτογράφισης κυμαίνεται μεταξύ €150–€350 ανάλογα με το μέγεθος του χώρου. Αν μια καλή φωτογράφιση αυξήσει τον αριθμό των κρατήσεων κατά 2–3 ανά μήνα, η επένδυση αποσβένεται μέσα στον πρώτο μήνα.</p>
-
-<p>Στη Frameflat, κάθε λήψη γίνεται με στόχο να αναδείξει την αλήθεια του χώρου — όχι να την παραποιήσει, αλλά να δείξει τα καλύτερά του στοιχεία. <a href="/epikoinwnia">Επικοινωνήστε μαζί μας</a> για ένα δωρεάν quote.</p>
+<h2>Πόσο κοστίζει;</h2>
+<p>Στη Frameflat, προσφέρουμε πλήρη κατασκευή ιστοσελίδας από <strong>29,99€/μήνα + ΦΠΑ</strong> — με domain, hosting και συντήρηση περιλαμβανόμενα. Κανένα αρχικό κόστος κατασκευής. <a href="/epikoinwnia">Επικοινωνήστε μαζί μας</a> για να ξεκινήσουμε.</p>
     `.trim(),
   },
   {
-    slug: 'drone-fotografia-sto-real-estate-i-nea-dimiourgikotita',
+    slug: 'ti-perilamvanei-to-syndromitiko-paketo-frameflat',
     lang: 'el',
-    title: 'Drone φωτογραφία στα ακίνητα: η νέα δημιουργικότητα στη μεσιτική αγορά',
+    title: 'Τι περιλαμβάνει το συνδρομητικό πακέτο της Frameflat',
     excerpt:
-      'Η αεροφωτογράφιση ανοίγει νέες προοπτικές για την παρουσίαση ακινήτων. Πότε αξίζει και πώς μεγιστοποιεί τη δυναμική της λίστας σας.',
-    datePublished: '2024-10-28',
-    category: 'Drone',
+      'Αναλυτικά όλα όσα παίρνετε με τη μηνιαία συνδρομή — από domain και hosting μέχρι SEO και ασφάλεια.',
+    datePublished: '2025-01-25',
+    category: 'Υπηρεσίες',
     coverImage: '/assets/images/portfolio-drone.jpg',
     body: `
-<p>Μέχρι πριν από λίγα χρόνια, οι αεροφωτογραφίες ήταν προνόμιο μόνο των πολυτελών πολυκατοικιών και των μεγάλων εμπορικών ακινήτων. Σήμερα, με την εξάπλωση των επαγγελματικών drone, η αεροφωτογράφιση είναι προσιτή σε κάθε τύπο ακινήτου — και μπορεί να κάνει τη διαφορά ανάμεσα σε μια λίστα που χάνεται στο πλήθος και μια που ξεχωρίζει.</p>
+<p>Η Frameflat δεν χρεώνει χιλιάδες ευρώ για κατασκευή ιστοσελίδας. Αντ' αυτού, προσφέρουμε ένα <strong>συνδρομητικό μοντέλο</strong> που περιλαμβάνει τα πάντα σε μία μηνιαία χρέωση — 29,99€ + ΦΠΑ.</p>
 
-<h2>Τι αναδεικνύει η αεροφωτογράφιση</h2>
-<p>Η κάμερα ενός drone μπορεί να αποτυπώσει στοιχεία που είναι αδύνατο να φανούν από το εσωτερικό: τη γειτνίαση με τη θάλασσα, το πάρκο ή την πόλη, τον περιβάλλοντα χώρο, τον κήπο ή την πισίνα σε πλήρη έκταση, και τη σχέση του κτιρίου με τη γειτονιά του. Αυτά τα στοιχεία είναι συχνά ισχυρά κίνητρα αγοράς.</p>
+<h2>Δωρεάν κατασκευή ή ανανέωση</h2>
+<p>Η κατασκευή της ιστοσελίδας σας από το μηδέν ή η πλήρης ανανέωση (redesign) της υπάρχουσας γίνεται <strong>δωρεάν</strong> στο πλαίσιο της συνδρομής. Σχεδιάζουμε, αναπτύσσουμε και παραδίδουμε — εσείς πληρώνετε μόνο τη μηνιαία συνδρομή.</p>
 
-<h2>Πότε αξίζει το drone</h2>
-<ul>
-<li>Ακίνητα με θέα (θάλασσα, Ακρόπολη, βουνό)</li>
-<li>Μεζονέτες και μονοκατοικίες με κήπο ή αυλή</li>
-<li>Ακίνητα κοντά σε αξιοθέατα ή παραλία</li>
-<li>Εμπορικά ακίνητα με μεγάλο χώρο στάθμευσης ή αποθήκευσης</li>
-<li>Luxury listings όπου ο περιβάλλων χώρος αποτελεί value proposition</li>
-</ul>
+<h2>Domain (.gr / .com)</h2>
+<p>Αναλαμβάνουμε την καταχώρηση και ανανέωση του domain σας. Μπορείτε να επιλέξετε .gr, .com ή άλλη κατάληξη — το κόστος καλύπτεται από τη συνδρομή.</p>
 
-<h2>Τεχνικές προϋποθέσεις</h2>
-<p>Η επαγγελματική αεροφωτογράφιση απαιτεί πιλότο με πιστοποίηση A2 CofC ή ανώτερη, καθώς και άδεια πτήσης ειδικά για αστικές περιοχές. Στη Frameflat, διασφαλίζουμε πλήρη νομιμότητα κάθε λήψης.</p>
+<h2>Hosting υψηλής ταχύτητας</h2>
+<p>Η ιστοσελίδα σας φιλοξενείται σε servers υψηλών επιδόσεων με ελάχιστο χρόνο φόρτωσης. Γρήγορη ιστοσελίδα = καλύτερη εμπειρία χρήστη = υψηλότερη κατάταξη στο Google.</p>
 
-<p>Αν ενδιαφέρεστε να συμπεριλάβετε drone λήψεις στο επόμενο σας project, <a href="/epikoinwnia">μιλήστε μαζί μας</a>.</p>
+<h2>SSL, ασφάλεια & backups</h2>
+<p>Κάθε ιστοσελίδα μας συνοδεύεται από πιστοποιητικό SSL (το πράσινο λουκέτο), τακτικά backups και προστασία από κακόβουλες επιθέσεις.</p>
+
+<h2>SEO Βελτιστοποίηση</h2>
+<p>Φροντίζουμε για on-page SEO, δομημένα δεδομένα, ταχύτητα φόρτωσης και mobile-friendliness.</p>
+
+<p>Θέλετε να μάθετε περισσότερα; <a href="/epikoinwnia">Στείλτε μας μήνυμα</a> ή καλέστε μας στο 694-253-3482.</p>
     `.trim(),
   },
   {
-    slug: '5-tips-staging-property-before-photo-shoot',
-    lang: 'en',
-    title: '5 Tips for Staging Your Property Before a Professional Photo Shoot',
+    slug: 'pos-na-epilexete-to-swsto-domain-gia-tin-epicheirisi-sas',
+    lang: 'el',
+    title: 'Πώς να επιλέξετε το σωστό domain για την επιχείρησή σας',
     excerpt:
-      'Preparation is everything. Follow these five staging tips to make sure your property looks its absolute best on camera.',
-    datePublished: '2024-11-10',
-    category: 'Tips',
+      'Ο πλήρης οδηγός για την επιλογή domain name — τι να προσέξετε, ποια κατάληξη να επιλέξετε και πώς επηρεάζει το SEO.',
+    datePublished: '2025-02-08',
+    category: 'Συμβουλές',
     coverImage: '/assets/images/urban-suites-3.jpg',
     body: `
-<p>A professional photographer can do a lot — but even the best camera cannot overcome a cluttered room or poor staging. Spending 2–3 hours preparing your property before a shoot can dramatically improve the final results. Here are five actionable tips from the Frameflat team.</p>
+<p>Το domain name είναι η διεύθυνσή σας στο internet. Είναι αυτό που πληκτρολογούν οι πελάτες σας στον browser ή βλέπουν σε μια διαφήμιση. Η σωστή επιλογή μπορεί να κάνει τη διαφορά για την αναγνωρισιμότητα της επιχείρησής σας.</p>
 
-<h2>1. Declutter every surface</h2>
-<p>Remove anything that doesn't belong: mail, personal items, unnecessary furniture. A minimalist space photographs larger and cleaner. In the kitchen, clear the counters completely. In the bathroom, keep only decorative items visible — no toiletries.</p>
+<h2>Κρατήστε το απλό και μνημονεύσιμο</h2>
+<p>Αποφύγετε μεγάλα ονόματα, αριθμούς και παύλες. Ιδανικά, το domain πρέπει να είναι εύκολο να προφερθεί, να γραφτεί και να θυμηθεί. Σκεφτείτε πώς θα ακούγεται αν το πείτε σε κάποιον τηλεφωνικά.</p>
 
-<h2>2. Let the light in</h2>
-<p>Open all curtains and blinds to maximise natural light. Replace any burnt-out bulbs. Ensure all light sources use the same colour temperature (warm or neutral — never mix). Our photographers will choose the optimal time of day for each room, but the more natural light available, the better.</p>
+<h2>.gr ή .com;</h2>
+<p>Αν η επιχείρησή σας απευθύνεται κυρίως σε ελληνικό κοινό, το <strong>.gr</strong> είναι η ιδανική επιλογή — δείχνει τοπικότητα και αυξάνει την εμπιστοσύνη. Αν στοχεύετε διεθνώς, επιλέξτε <strong>.com</strong>. Ακόμα καλύτερα, κατοχυρώστε και τα δύο.</p>
 
-<h2>3. Style your beds like a hotel</h2>
-<p>Fresh, crisp white linen makes any bedroom look luxurious. Add coordinated throw pillows and a folded blanket at the foot of the bed. This one change creates the "hotel room" feeling that guests search for on Airbnb.</p>
+<h2>SEO και domain name</h2>
+<p>Το Google δεν δίνει πλέον τεράστιο πλεονέκτημα σε exact-match domains (π.χ. «υδραυλικος-αθηνα.gr»), αλλά ένα σχετικό domain βοηθά τους χρήστες να καταλάβουν αμέσως τι κάνετε. Η καλύτερη στρατηγική είναι ένα brandable domain + σωστό SEO content.</p>
 
-<h2>4. Add a single natural element to each room</h2>
-<p>A small vase of fresh flowers on the dining table, a bowl of lemons in the kitchen, or a potted plant by the window — these small touches add warmth and life to photos without looking staged or artificial.</p>
-
-<h2>5. Check the exterior</h2>
-<p>If your property has an outdoor space, mow the lawn, clear the patio furniture of debris, and add a small plant or two near the entrance. First impressions start before the viewer even sees the interior.</p>
-
-<p>Ready to book a shoot? <a href="/epikoinwnia">Contact us</a> and we'll handle the rest.</p>
+<h2>Εμείς αναλαμβάνουμε τα πάντα</h2>
+<p>Στη Frameflat, η καταχώρηση και ανανέωση του domain περιλαμβάνεται στο μηνιαίο πακέτο σας. Δεν χρειάζεται να ασχοληθείτε με registrars, DNS ή τεχνικές ρυθμίσεις. <a href="/epikoinwnia">Επικοινωνήστε μαζί μας</a> και φροντίζουμε εμείς.</p>
     `.trim(),
   },
   {
-    slug: 'pos-i-fotografisi-veltionei-tin-ektimisi-akiniton',
+    slug: 'giati-i-tachytita-tis-istoselidas-metraei',
     lang: 'el',
-    title: 'Πώς η επαγγελματική φωτογράφιση βελτιώνει την εκτίμηση ενός ακινήτου',
+    title: 'Γιατί η ταχύτητα της ιστοσελίδας σας μετράει περισσότερο από ποτέ',
     excerpt:
-      'Τα ακίνητα που παρουσιάζονται με επαγγελματικές φωτογραφίες πωλούνται ταχύτερα και σε υψηλότερες τιμές. Δείτε τα δεδομένα και τη λογική πίσω από αυτό.',
-    datePublished: '2024-11-22',
-    category: 'Αγορά Ακινήτων',
+      'Η αργή ιστοσελίδα χάνει πελάτες και θέσεις στο Google. Δείτε πώς η ταχύτητα επηρεάζει τα πάντα — από τις πωλήσεις μέχρι το SEO.',
+    datePublished: '2025-02-22',
+    category: 'SEO',
     coverImage: '/assets/images/cretan-fleur-5.jpg',
     body: `
-<p>Στη μεσιτική αγορά, το οπτικό υλικό δεν είναι πλέον "nice to have" — είναι στρατηγική αναγκαιότητα. Σύμφωνα με μελέτες της National Association of Realtors, πάνω από το <strong>95% των αγοραστών</strong> ξεκινά την έρευνά τους online. Αυτό σημαίνει ότι οι φωτογραφίες είναι η πρώτη επαφή — και συχνά η μοναδική ευκαιρία για να δημιουργήσετε ενδιαφέρον.</p>
+<p>Σύμφωνα με έρευνα της Google, πάνω από το <strong>53% των χρηστών mobile</strong> εγκαταλείπει μια ιστοσελίδα αν αργεί περισσότερο από 3 δευτερόλεπτα να φορτώσει. Αυτό σημαίνει ότι αν η ιστοσελίδα σας είναι αργή, χάνετε πάνω από τους μισούς πιθανούς πελάτες σας πριν καν δουν τι προσφέρετε.</p>
 
-<h2>Ο αριθμός μιλά</h2>
-<p>Ακίνητα που φωτογραφίζονται επαγγελματικά πωλούνται κατά μέσο όρο <strong>32% ταχύτερα</strong> και σε τιμές <strong>3–11% υψηλότερες</strong> από αυτά με ερασιτεχνικές εικόνες. Αυτή η διαφορά μεταφράζεται σε χιλιάδες ευρώ για κάθε συναλλαγή.</p>
+<h2>Ταχύτητα και SEO</h2>
+<p>Η Google χρησιμοποιεί την ταχύτητα φόρτωσης ως κριτήριο κατάταξης. Τα Core Web Vitals — μετρικές όπως LCP, FID και CLS — επηρεάζουν άμεσα τη θέση σας στα αποτελέσματα αναζήτησης. Μια γρήγορη ιστοσελίδα ανεβαίνει στο Google, μια αργή πέφτει.</p>
 
-<h2>Αναδεικνύοντας τα πλεονεκτήματα</h2>
-<p>Ένας έμπειρος φωτογράφος ακινήτων δεν απλώς τραβά φωτογραφίες — επιλέγει γωνίες που κάνουν τους χώρους να φαίνονται πιο ευρύχωρoι, χρησιμοποιεί φωτισμό που δίνει ζεστασιά, και αναδεικνύει τα μοναδικά χαρακτηριστικά (θέα, ύψος οροφής, ποιοτικά υλικά) που κάνουν το ακίνητο να ξεχωρίζει.</p>
+<h2>Ταχύτητα και μετατροπές</h2>
+<p>Κάθε δευτερόλεπτο καθυστέρηση μειώνει τις μετατροπές (conversions) κατά περίπου <strong>7%</strong>. Αν πουλάτε προϊόντα ή υπηρεσίες online, η ταχύτητα μεταφράζεται απευθείας σε χρήμα.</p>
 
-<h2>Ψηφιακή παρουσία και SEO λίστας</h2>
-<p>Στις πλατφόρμες όπως το Airbnb και το Booking, ο αλγόριθμος ευνοεί τις λίστες με υψηλότερη απόδοση (CTR, booking rate). Φωτογραφίες που κάνουν χρήστες να κλικάρουν περισσότερο βελτιώνουν άμεσα την κατάταξη της λίστας — δηλαδή, η επένδυση στη φωτογράφιση έχει και έμμεσο SEO αποτέλεσμα.</p>
+<h2>Τι κάνει μια ιστοσελίδα αργή;</h2>
+<ul>
+<li>Μεγάλες, μη βελτιστοποιημένες εικόνες</li>
+<li>Κακή ποιότητα hosting</li>
+<li>Υπερβολικά plugins (ειδικά σε WordPress)</li>
+<li>Μη σωστά δομημένος κώδικας</li>
+<li>Απουσία caching</li>
+</ul>
 
-<p>Θέλετε να ανεβάσετε την παρουσίαση του ακινήτου σας; <a href="/epikoinwnia">Επικοινωνήστε μαζί μας</a> για μια δωρεάν αξιολόγηση.</p>
+<h2>Η λύση της Frameflat</h2>
+<p>Οι ιστοσελίδες που κατασκευάζουμε είναι βελτιστοποιημένες για ταχύτητα εξ αρχής — καθαρός κώδικας, βελτιστοποιημένες εικόνες, γρήγορο hosting. Και η συντήρηση που περιλαμβάνεται στο πακέτο μας εξασφαλίζει ότι θα παραμείνουν γρήγορες. <a href="/ypiresies">Δείτε τα πακέτα μας</a>.</p>
     `.trim(),
   },
   {
-    slug: 'minimalism-in-real-estate-photography',
-    lang: 'en',
-    title: 'The Power of Minimalism in Real Estate Photography',
+    slug: 'istoselida-i-social-media-ti-chreiazeste',
+    lang: 'el',
+    title: 'Ιστοσελίδα ή Social Media; Τι χρειάζεται πραγματικά η επιχείρησή σας',
     excerpt:
-      'Less is more. How a minimalist approach to property photography creates aspirational images that sell faster and attract higher-quality tenants.',
-    datePublished: '2024-12-05',
-    category: 'Aesthetic',
+      'Πολλοί πιστεύουν ότι μια σελίδα στο Facebook ή Instagram αρκεί. Μάθετε γιατί η ιστοσελίδα παραμένει απαραίτητη.',
+    datePublished: '2025-03-10',
+    category: 'Στρατηγική',
     coverImage: '/assets/images/athens-view-7.jpg',
     body: `
-<p>At Frameflat, minimalism is not a trend — it's a philosophy. We believe that the most compelling property photographs are those that let the space breathe: no clutter, no distractions, just the architecture, the light, and the honest beauty of the place.</p>
+<p>Τα social media είναι ένα εξαιρετικό εργαλείο μάρκετινγκ — αλλά δεν αντικαθιστούν μια ιστοσελίδα. Η βασική διαφορά; <strong>Τα social media δεν σας ανήκουν.</strong> Ο αλγόριθμος μπορεί να αλλάξει αύριο, ο λογαριασμός σας μπορεί να κλειδωθεί, και η οργανική προβολή μειώνεται χρόνο με τον χρόνο.</p>
 
-<h2>Why minimalism works in photography</h2>
-<p>The human eye is naturally drawn to simplicity. In a minimalist photo, the viewer's attention goes immediately to what matters — the flow of natural light across the floor, the clean lines of the kitchen counter, the view through the window. When a room is overdecorated or cluttered, the eye doesn't know where to go and the photo feels tiring.</p>
+<h2>Η ιστοσελίδα είναι δική σας</h2>
+<p>Σε αντίθεση με τα social media, η ιστοσελίδα σας ανήκει αποκλειστικά σε εσάς. Εσείς ελέγχετε το περιεχόμενο, τον σχεδιασμό και τον τρόπο που παρουσιάζεστε. Κανένας αλγόριθμος δεν αποφασίζει πόσοι θα δουν τη δουλειά σας.</p>
 
-<h2>Minimalism and the Airbnb guest</h2>
-<p>The typical Airbnb guest books based on a feeling — the aspiration of what their stay will be like. A minimalist property photo communicates calm, cleanliness, and quality. It suggests a space where the guest can relax and recharge, rather than feeling surrounded by someone else's belongings.</p>
+<h2>Google vs Instagram</h2>
+<p>Όταν κάποιος ψάχνει «ηλεκτρολόγος Αθήνα» ή «λογιστικό γραφείο Θεσσαλονίκη» στο Google, δεν εμφανίζονται σελίδες Instagram. Εμφανίζονται ιστοσελίδες. Αν δεν έχετε ιστοσελίδα, δεν υπάρχετε στην αναζήτηση — και αυτό σημαίνει χαμένους πελάτες.</p>
 
-<h2>The Frameflat approach</h2>
-<p>Our shooting process starts before we pick up the camera. We work with the host or owner to stage each room in line with minimalist principles: clear surfaces, neutral tones, single focal points. We then time our shoots to capture the best natural light for each orientation. The result is images that feel natural — not staged, not over-edited, just honest and beautiful.</p>
+<h2>Η ιδανική στρατηγική</h2>
+<p>Η σωστή προσέγγιση δεν είναι «ιστοσελίδα ή social media» αλλά <strong>«ιστοσελίδα και social media»</strong>. Η ιστοσελίδα είναι η βάση — εκεί κατευθύνετε τους πελάτες σας. Τα social media είναι το εργαλείο προβολής που φέρνει κόσμο στη βάση σας.</p>
 
-<h2>Post-processing: less is more</h2>
-<p>We avoid heavy HDR processing, artificial colour grading, or sky replacement. Our edits are subtle: colour balance, exposure correction, and light correction. The goal is an image that looks exactly like what you'd see if you walked into the room on a perfect morning.</p>
+<h2>Ξεκινήστε εύκολα με τη Frameflat</h2>
+<p>Με μόλις 29,99€/μήνα + ΦΠΑ αποκτάτε μια πλήρη, επαγγελματική ιστοσελίδα — χωρίς αρχικό κόστος κατασκευής. <a href="/epikoinwnia">Επικοινωνήστε μαζί μας</a> και ξεκινήστε σήμερα.</p>
+    `.trim(),
+  },
+  {
+    slug: 'mobile-first-schediasmos-giati-einai-aparaititos',
+    lang: 'el',
+    title: 'Mobile-First Σχεδιασμός: Γιατί η ιστοσελίδα σας πρέπει να δουλεύει τέλεια στο κινητό',
+    excerpt:
+      'Πάνω από 70% της κίνησης στο internet γίνεται από κινητά. Αν η ιστοσελίδα σας δεν είναι mobile-friendly, χάνετε πελάτες.',
+    datePublished: '2025-03-18',
+    category: 'Σχεδιασμός',
+    coverImage: '/assets/images/portfolio-photo-14.jpg',
+    body: `
+<p>Η εποχή που οι ιστοσελίδες σχεδιάζονταν πρώτα για desktop έχει περάσει ανεπιστρεπτί. Σήμερα, πάνω από <strong>70% των επισκέψεων</strong> σε ιστοσελίδες γίνεται από smartphone ή tablet. Αν η ιστοσελίδα σας δεν λειτουργεί σωστά στο κινητό, χάνετε την πλειοψηφία των πιθανών πελατών σας.</p>
 
-<p>See our approach in action in our <a href="/projects">project portfolio</a>. Ready to start? <a href="/epikoinwnia">Book a shoot today</a>.</p>
+<h2>Τι σημαίνει Mobile-First;</h2>
+<p>Mobile-first σημαίνει ότι ο σχεδιασμός ξεκινά από την οθόνη του κινητού και μετά προσαρμόζεται για μεγαλύτερες οθόνες — όχι το αντίστροφο. Αυτό εξασφαλίζει ότι η εμπειρία στο κινητό είναι άριστη, γιατί εκεί βρίσκεται η πλειοψηφία των χρηστών.</p>
+
+<h2>Google και Mobile-First Indexing</h2>
+<p>Η Google χρησιμοποιεί mobile-first indexing — δηλαδή αξιολογεί πρώτα την mobile έκδοση της ιστοσελίδας σας για κατάταξη στα αποτελέσματα. Αν η mobile εμπειρία είναι κακή, η κατάταξή σας πέφτει.</p>
+
+<h2>Σημάδια ότι η ιστοσελίδα σας δεν είναι mobile-friendly</h2>
+<ul>
+<li>Πρέπει να κάνετε zoom για να διαβάσετε κείμενο</li>
+<li>Τα κουμπιά είναι πολύ μικρά για να πατηθούν</li>
+<li>Οι εικόνες ξεχειλίζουν εκτός οθόνης</li>
+<li>Η πλοήγηση δεν λειτουργεί σωστά</li>
+<li>Η σελίδα φορτώνει αργά στο 4G/5G</li>
+</ul>
+
+<h2>Η Frameflat λύση</h2>
+<p>Κάθε ιστοσελίδα που κατασκευάζουμε είναι mobile-first εξ αρχής. Responsive σχεδιασμός, βελτιστοποιημένες εικόνες και γρήγοροι χρόνοι φόρτωσης — ώστε η ιστοσελίδα σας να δουλεύει τέλεια σε κάθε συσκευή. <a href="/ypiresies">Δείτε τα πακέτα μας</a>.</p>
+    `.trim(),
+  },
+  {
+    slug: 'wordpress-i-custom-website-ti-na-epilexete',
+    lang: 'el',
+    title: 'WordPress ή Custom Website; Τι να επιλέξετε για την επιχείρησή σας',
+    excerpt:
+      'Σύγκριση WordPress και custom ιστοσελίδων — πλεονεκτήματα, μειονεκτήματα και ποια λύση ταιριάζει στις ανάγκες σας.',
+    datePublished: '2025-04-05',
+    category: 'Τεχνολογία',
+    coverImage: '/assets/images/urban-suites-5.jpg',
+    body: `
+<p>Όταν αποφασίσετε να φτιάξετε ιστοσελίδα, η πρώτη ερώτηση που θα αντιμετωπίσετε είναι: <strong>WordPress ή custom;</strong> Και οι δύο επιλογές έχουν πλεονεκτήματα και μειονεκτήματα. Ας τα δούμε αναλυτικά.</p>
+
+<h2>WordPress: η δημοφιλής επιλογή</h2>
+<p>Το WordPress τροφοδοτεί πάνω από το 40% των ιστοσελίδων παγκοσμίως. Είναι εύκολο στη χρήση, έχει χιλιάδες themes και plugins, και μπορεί να καλύψει πολλές ανάγκες γρήγορα.</p>
+<p>Ωστόσο, τα μειονεκτήματα δεν είναι αμελητέα:</p>
+<ul>
+<li>Ανάγκη για συνεχείς ενημερώσεις plugins και core</li>
+<li>Ευπάθειες ασφαλείας λόγω δημοφιλών plugins</li>
+<li>Βραδύτερη ταχύτητα αν δεν βελτιστοποιηθεί σωστά</li>
+<li>Εξάρτηση από τρίτους για themes και λειτουργικότητα</li>
+</ul>
+
+<h2>Custom website: πλήρης έλεγχος</h2>
+<p>Μια custom ιστοσελίδα γράφεται εξ αρχής για τις ανάγκες σας. Δεν φορτώνει άχρηστο κώδικα, είναι πιο γρήγορη, πιο ασφαλής και πλήρως προσαρμοσμένη.</p>
+
+<h2>Τι προτείνουμε;</h2>
+<p>Στη Frameflat, κατασκευάζουμε custom ιστοσελίδες γιατί πιστεύουμε στην ταχύτητα, την ασφάλεια και τον καθαρό κώδικα. Και επειδή αναλαμβάνουμε τη συντήρηση, δεν χρειάζεται να ανησυχείτε για ενημερώσεις ή ευπάθειες. <a href="/ypiresies">Δείτε τα πακέτα μας</a>.</p>
+    `.trim(),
+  },
+  {
+    slug: 'ti-einai-to-seo-kai-giati-einai-simantiko',
+    lang: 'el',
+    title: 'Τι είναι το SEO και γιατί είναι σημαντικό για την επιχείρησή σας',
+    excerpt:
+      'Ο πλήρης οδηγός για αρχάριους στο SEO — τι σημαίνει, πώς λειτουργεί και πώς μπορεί να φέρει πελάτες χωρίς διαφημίσεις.',
+    datePublished: '2025-04-20',
+    category: 'SEO',
+    coverImage: '/assets/images/cretan-fleur-9.jpg',
+    body: `
+<p>Το SEO (Search Engine Optimization) είναι η διαδικασία βελτιστοποίησης της ιστοσελίδας σας ώστε να εμφανίζεται υψηλότερα στα αποτελέσματα αναζήτησης του Google. Σε απλά λόγια: <strong>κάνει την ιστοσελίδα σας ορατή σε ανθρώπους που ψάχνουν αυτό που προσφέρετε.</strong></p>
+
+<h2>Πώς λειτουργεί το Google;</h2>
+<p>Η Google στέλνει «αράχνες» (crawlers) που σαρώνουν τις ιστοσελίδες, κατανοούν το περιεχόμενό τους και τις κατατάσσουν με βάση εκατοντάδες κριτήρια. Τα πιο σημαντικά είναι:</p>
+<ul>
+<li>Ποιοτικό, σχετικό περιεχόμενο</li>
+<li>Ταχύτητα φόρτωσης</li>
+<li>Mobile-friendliness</li>
+<li>Σωστή δομή (headings, meta tags, σχήμα)</li>
+<li>Backlinks από αξιόπιστες σελίδες</li>
+</ul>
+
+<h2>On-page vs Off-page SEO</h2>
+<p><strong>On-page SEO</strong> αφορά ό,τι ελέγχετε εσείς: τίτλοι, περιγραφές, headings, εικόνες, ταχύτητα. <strong>Off-page SEO</strong> αφορά εξωτερικούς παράγοντες, κυρίως backlinks — δηλαδή πόσες άλλες ιστοσελίδες παραπέμπουν σε εσάς.</p>
+
+<h2>Γιατί αξίζει η επένδυση;</h2>
+<p>Σε αντίθεση με τις διαφημίσεις, το SEO φέρνει <strong>δωρεάν, οργανική κίνηση</strong> μακροπρόθεσμα. Μόλις η ιστοσελίδα σας κατακτήσει μια καλή θέση, συνεχίζει να φέρνει πελάτες χωρίς μηνιαίο κόστος διαφήμισης.</p>
+
+<p>Στη Frameflat, κάθε ιστοσελίδα που κατασκευάζουμε περιλαμβάνει SEO βελτιστοποίηση εξ αρχής. <a href="/epikoinwnia">Επικοινωνήστε μαζί μας</a> για να ξεκινήσουμε.</p>
+    `.trim(),
+  },
+  {
+    slug: 'pos-na-metrísete-tin-epitichia-tis-istoselidas-sas',
+    lang: 'el',
+    title: 'Πώς να μετρήσετε την επιτυχία της ιστοσελίδας σας με Google Analytics',
+    excerpt:
+      'Μάθετε ποια metrics πρέπει να παρακολουθείτε, πώς να τα ερμηνεύετε και πώς να βελτιώνετε συνεχώς την ιστοσελίδα σας.',
+    datePublished: '2025-05-08',
+    category: 'Ανάλυση',
+    coverImage: '/assets/images/athens-view-12.jpg',
+    body: `
+<p>Η κατασκευή μιας ιστοσελίδας είναι μόνο η αρχή. Για να μεγαλώσει η επιχείρησή σας online, πρέπει να <strong>μετράτε, να αναλύετε και να βελτιώνετε</strong>. Και το καλύτερο εργαλείο για αυτό είναι το Google Analytics.</p>
+
+<h2>Τα βασικά metrics</h2>
+<ul>
+<li><strong>Χρήστες (Users):</strong> πόσοι μοναδικοί επισκέπτες έρχονται στη σελίδα σας</li>
+<li><strong>Προβολές σελίδων (Pageviews):</strong> πόσες σελίδες βλέπουν συνολικά</li>
+<li><strong>Bounce rate:</strong> το ποσοστό που φεύγει χωρίς να αλληλεπιδράσει</li>
+<li><strong>Μέσος χρόνος στη σελίδα:</strong> πόσο χρόνο ξοδεύουν οι επισκέπτες</li>
+<li><strong>Πηγές κίνησης:</strong> πώς σας βρίσκουν (Google, social media, direct)</li>
+</ul>
+
+<h2>Τι να προσέξετε</h2>
+<p>Ένα υψηλό bounce rate μπορεί να σημαίνει ότι η σελίδα σας δεν ανταποκρίνεται στις προσδοκίες των επισκεπτών ή ότι φορτώνει αργά. Αν οι περισσότεροι επισκέπτες έρχονται από social media αλλά δεν μετατρέπονται σε πελάτες, ίσως χρειάζεστε καλύτερο SEO για πιο στοχευμένη κίνηση.</p>
+
+<h2>Στόχοι (Goals)</h2>
+<p>Ρυθμίστε στόχους στο Google Analytics — π.χ. αποστολή φόρμας επικοινωνίας, κλικ σε τηλέφωνο ή ολοκλήρωση αγοράς. Έτσι θα ξέρετε ακριβώς πόσους πελάτες φέρνει η ιστοσελίδα σας.</p>
+
+<p>Στη Frameflat, δεν κατασκευάζουμε απλά ιστοσελίδες — σας βοηθάμε να κατανοήσετε πώς αποδίδουν και πώς μπορούν να γίνουν καλύτερες. <a href="/epikoinwnia">Επικοινωνήστε μαζί μας</a>.</p>
     `.trim(),
   },
 ]

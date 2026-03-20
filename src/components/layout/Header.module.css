@@ -139,7 +139,7 @@
   transition: transform var(--transition), opacity var(--transition);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .header { height: var(--header-height-mobile); }
   .nav { display: none; }
   .hamburger { display: flex; }

@@ -12,8 +12,8 @@ export default function Footer() {
         </Link>
 
         <p className={styles.cta}>
-          Ανακαλύψτε την απόλυτη εμπειρία στην επαγγελματική φωτογραφία ακινήτων.
-          Επικοινωνήστε μαζί μας σήμερα!
+          Σχεδιασμός, κατασκευή και συντήρηση ιστοσελίδων — domain, hosting και
+          συντήρηση σε ένα πακέτο. Επικοινωνήστε μαζί μας σήμερα!
         </p>
 
         <Link to="/epikoinwnia" className={styles.ctaBtn}>

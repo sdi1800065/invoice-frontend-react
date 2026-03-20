@@ -37,8 +37,8 @@ export default function Blog() {
 
       <div className={styles.page}>
         <div className={styles.hero}>
-          <h1>Blog & Άρθρα</h1>
-          <p>Συμβουλές, insights και έμπνευση για επαγγελματική φωτογράφιση ακινήτων και Airbnb.</p>
+          <h1>Άρθρα</h1>
+          <p>Συμβουλές και γνώσεις για ιστοσελίδες, SEO, web design και online παρουσία επιχειρήσεων.</p>
         </div>
 
         <div className={styles.grid}>

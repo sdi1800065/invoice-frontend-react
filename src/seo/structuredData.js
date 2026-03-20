@@ -3,9 +3,9 @@ const BASE = 'https://frameflat.gr'
 export const homeBusiness = {
   '@context': 'https://schema.org',
   '@type': 'LocalBusiness',
-  name: 'Frameflat Photography',
+  name: 'Frameflat',
   description:
-    'Επαγγελματική φωτογράφιση ακινήτων, drone λήψεις και εξατομικευμένες ιστοσελίδες για ακίνητα και Airbnb στην Ελλάδα.',
+    'Σχεδιασμός, κατασκευή και συντήρηση ιστοσελίδων από 29,99€/μήνα + ΦΠΑ. Domain, hosting και SSL περιλαμβάνονται. Επίσης προσφέρουμε επαγγελματική φωτογράφιση ακινήτων.',
   url: BASE,
   telephone: '+306942533482',
   email: 'frameflatcompany@gmail.com',
@@ -16,7 +16,7 @@ export const homeBusiness = {
     'https://www.instagram.com/frame_flat/',
     'https://www.tiktok.com/@frameflat',
   ],
-  priceRange: '€€',
+  priceRange: '€',
   areaServed: {
     '@type': 'Country',
     name: 'Greece',
@@ -27,15 +27,19 @@ export const homeBusiness = {
     itemListElement: [
       {
         '@type': 'Offer',
-        itemOffered: { '@type': 'Service', name: 'Φωτογράφιση ακινήτων' },
+        itemOffered: { '@type': 'Service', name: 'Κατασκευή ιστοσελίδων' },
       },
       {
         '@type': 'Offer',
-        itemOffered: { '@type': 'Service', name: 'Drone φωτογράφιση και βίντεο' },
+        itemOffered: { '@type': 'Service', name: 'Ανανέωση & redesign ιστοσελίδας' },
       },
       {
         '@type': 'Offer',
-        itemOffered: { '@type': 'Service', name: 'Εξατομικευμένη ιστοσελίδα ακινήτου' },
+        itemOffered: { '@type': 'Service', name: 'Συντήρηση, hosting & SEO βελτιστοποίηση' },
+      },
+      {
+        '@type': 'Offer',
+        itemOffered: { '@type': 'Service', name: 'Επαγγελματική φωτογράφιση & drone λήψεις' },
       },
     ],
   },
@@ -43,19 +47,19 @@ export const homeBusiness = {
 
 export const projectsGallery = {
   '@context': 'https://schema.org',
-  '@type': 'ImageGallery',
-  name: 'Frameflat Photography Portfolio',
-  url: `${BASE}/projects`,
-  description: 'Portfolio επαγγελματικής φωτογράφισης ακινήτων — Cretan Fleur, Urban Suites, Athens View',
-  author: { '@type': 'Organization', name: 'Frameflat Photography', url: BASE },
+  '@type': 'CollectionPage',
+  name: 'Frameflat — Portfolio',
+  url: `${BASE}/portfolio`,
+  description: 'Ιστοσελίδες που έχουμε σχεδιάσει, κατασκευάσει και συντηρούμε.',
+  author: { '@type': 'Organization', name: 'Frameflat', url: BASE },
 }
 
 export const contactPage = {
   '@context': 'https://schema.org',
   '@type': 'ContactPage',
-  name: 'Επικοινωνία — Frameflat Photography',
+  name: 'Επικοινωνία — Frameflat',
   url: `${BASE}/epikoinwnia`,
-  description: 'Επικοινωνήστε με την Frameflat για επαγγελματική φωτογράφιση ακινήτων',
+  description: 'Επικοινωνήστε με τη Frameflat για κατασκευή ιστοσελίδας, συντήρηση, redesign ή φωτογράφιση ακινήτων.',
 }
 
 export function articleSchema({ title, description, datePublished, image, slug }) {
@@ -68,10 +72,10 @@ export function articleSchema({ title, description, datePublished, image, slug }
     datePublished,
     dateModified: datePublished,
     url: `${BASE}/blog/${slug}`,
-    author: { '@type': 'Organization', name: 'Frameflat Photography', url: BASE },
+    author: { '@type': 'Organization', name: 'Frameflat', url: BASE },
     publisher: {
       '@type': 'Organization',
-      name: 'Frameflat Photography',
+      name: 'Frameflat',
       logo: { '@type': 'ImageObject', url: `${BASE}/assets/images/logo.png` },
     },
   }
@@ -81,7 +85,7 @@ export function blogListSchema(articles) {
   return {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    name: 'Frameflat Blog',
+    name: 'Frameflat Άρθρα',
     url: `${BASE}/blog`,
     itemListElement: articles.map((a, i) => ({
       '@type': 'ListItem',
