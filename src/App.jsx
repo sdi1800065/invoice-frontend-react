@@ -17,6 +17,9 @@ import Blog from './pages/Blog'
 import BlogPost from './pages/BlogPost'
 import Websites from './pages/Websites'
 import Photography from './pages/Photography'
+import Checkout from './pages/Checkout'
+import CheckoutSuccess from './pages/CheckoutSuccess'
+import Admin from './pages/admin/Admin'
 
 export default function App() {
   return (
@@ -35,6 +38,9 @@ export default function App() {
           <Route path="/fotografia" element={<Photography />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
+          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/checkout/success" element={<CheckoutSuccess />} />
+          <Route path="/admin" element={<Admin />} />
         </Routes>
       </BrowserRouter>
     </HelmetProvider>

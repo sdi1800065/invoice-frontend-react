@@ -122,6 +122,19 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Ηλεκτρονική Τιμολόγηση highlight */}
+        <section className={styles.invoicingHighlight}>
+          <div className={styles.invoicingInner}>
+            <h2 className="fade-up">Ηλεκτρονική Τιμολόγηση</h2>
+            <p className="fade-up">
+              Αυτόματη έκδοση τιμολογίων και αποδείξεων μέσω πιστοποιημένου παρόχου ΑΑΔΕ (etimologiera
+              — ο οικονομικότερος στην αγορά). Stripe πληρωμές, admin dashboard,
+              PDF με QR code και αποστολή email — από <strong>19,99€/μήνα + ΦΠΑ</strong>.
+            </p>
+            <Link to="/ypiresies" className="btn">Μάθετε Περισσότερα</Link>
+          </div>
+        </section>
+
         {/* How it works */}
         <section className={styles.process}>
           <h2 className="fade-up">Πώς δουλεύουμε</h2>

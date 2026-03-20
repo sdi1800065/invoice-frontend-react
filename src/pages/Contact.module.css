@@ -73,6 +73,16 @@
   margin-bottom: 16px;
 }
 
+.error {
+  padding: 12px;
+  background: #fff5f5;
+  border: 1px solid #fc8181;
+  color: #c53030;
+  font-size: 14px;
+  margin-bottom: 16px;
+  border-radius: 4px;
+}
+
 .followSection {
   margin-top: 60px;
 }

@@ -37,30 +37,30 @@ export default function Websites() {
     <div className="page">
       <Helmet>
         <html lang="el" />
-        <title>Υπηρεσίες Κατασκευής Ιστοσελίδων | Frameflat</title>
+        <title>Υπηρεσίες — Ιστοσελίδες & Ηλεκτρονική Τιμολόγηση | Frameflat</title>
         <meta
           name="description"
-          content="Κατασκευή ιστοσελίδων από 29,99€/μήνα + ΦΠΑ. Domain, hosting, SSL και συντήρηση περιλαμβάνονται. Δωρεάν κατασκευή ή ανανέωση υπάρχουσας ιστοσελίδας."
+          content="Κατασκευή ιστοσελίδων από 29,99€/μήνα + ΦΠΑ και ηλεκτρονική τιμολόγηση από 19,99€/μήνα + ΦΠΑ. Domain, hosting, SSL, ΑΑΔΕ MyData, admin dashboard."
         />
         <meta
           name="keywords"
-          content="κατασκευή ιστοσελίδων, κατασκευή website, ιστοσελίδα τιμή, φθηνή ιστοσελίδα, συνδρομητικό πακέτο website, κατασκευή site Ελλάδα, web design Ελλάδα, frameflat"
+          content="κατασκευή ιστοσελίδων, κατασκευή website, ιστοσελίδα τιμή, φθηνή ιστοσελίδα, ηλεκτρονική τιμολόγηση, e-invoicing, ΑΑΔΕ MyData, etimologiera, web design Ελλάδα, frameflat"
         />
         <link rel="canonical" href="https://frameflat.gr/ypiresies" />
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="Υπηρεσίες Κατασκευής Ιστοσελίδων | Frameflat" />
+        <meta property="og:title" content="Υπηρεσίες — Ιστοσελίδες & Ηλεκτρονική Τιμολόγηση | Frameflat" />
         <meta
           property="og:description"
-          content="Επαγγελματική ιστοσελίδα από 29,99€/μήνα + ΦΠΑ. Domain, hosting και συντήρηση περιλαμβάνονται."
+          content="Ιστοσελίδες από 29,99€/μήνα και ηλεκτρονική τιμολόγηση από 19,99€/μήνα + ΦΠΑ."
         />
         <meta property="og:url" content="https://frameflat.gr/ypiresies" />
         <meta property="og:image" content="/assets/images/kastoria-preview.jpg" />
         <meta property="og:locale" content="el_GR" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Υπηρεσίες Κατασκευής Ιστοσελίδων | Frameflat" />
+        <meta name="twitter:title" content="Υπηρεσίες — Ιστοσελίδες & Ηλεκτρονική Τιμολόγηση | Frameflat" />
         <meta
           name="twitter:description"
-          content="Επαγγελματική ιστοσελίδα από 29,99€/μήνα + ΦΠΑ. Domain, hosting και συντήρηση περιλαμβάνονται."
+          content="Ιστοσελίδες από 29,99€/μήνα και ηλεκτρονική τιμολόγηση από 19,99€/μήνα + ΦΠΑ."
         />
         <meta name="twitter:image" content="/assets/images/kastoria-preview.jpg" />
       </Helmet>
@@ -76,10 +76,10 @@ export default function Websites() {
           </p>
         </div>
 
-        {/* Pricing card */}
-        <div className={`${styles.pricingBlock} fade-up`}>
+        {/* Pricing cards — side by side */}
+        <div className={`${styles.pricingGrid} fade-up`}>
           <div className={styles.priceCard}>
-            <h2>Ένα πακέτο — τα πάντα περιλαμβάνονται</h2>
+            <h2>Κατασκευή Ιστοσελίδας</h2>
             <div className={styles.priceRow}>
               <span className={styles.priceAmount}>29,99€</span>
               <span className={styles.pricePer}>/μήνα + ΦΠΑ</span>
@@ -93,6 +93,30 @@ export default function Websites() {
               {FEATURES.map((f) => (
                 <li key={f.title}>{f.title}</li>
               ))}
+            </ul>
+            <Link to="/checkout" className="btn">Ξεκινήστε Τώρα</Link>
+          </div>
+
+          <div className={styles.priceCard}>
+            <h2>Ηλεκτρονική Τιμολόγηση</h2>
+            <div className={styles.priceRow}>
+              <span className={styles.priceAmount}>19,99€</span>
+              <span className={styles.pricePer}>/μήνα + ΦΠΑ</span>
+            </div>
+            <p>
+              Αυτόματη έκδοση τιμολογίων και αποδείξεων μέσω πιστοποιημένου παρόχου
+              (etimologiera), διαβίβαση στο ΑΑΔΕ MyData, δημιουργία PDF και αποστολή email.
+              Πλήρες admin dashboard για τη διαχείριση πελατών και παραστατικών.
+            </p>
+            <p className={styles.providerNote}>
+              * Η etimologiera χρεώνει ξεχωριστά ως πιστοποιημένος πάροχος — είναι η οικονομικότερη επιλογή στην αγορά.
+            </p>
+            <ul className={styles.priceFeatures}>
+              <li>Αυτόματη Τιμολόγηση</li>
+              <li>Πιστοποιημένος Πάροχος ΑΑΔΕ</li>
+              <li>Stripe Πληρωμές</li>
+              <li>Admin Dashboard</li>
+              <li>PDF & Email Αποστολή</li>
             </ul>
             <Link to="/epikoinwnia" className="btn">Ξεκινήστε Τώρα</Link>
           </div>
@@ -134,7 +158,7 @@ export default function Websites() {
         </div>
 
         <div className={`${styles.cta} fade-up`}>
-          <h2>Θέλετε επαγγελματική ιστοσελίδα;</h2>
+          <h2>Θέλετε επαγγελματική ιστοσελίδα ή αυτόματη τιμολόγηση;</h2>
           <p>Επικοινωνήστε μαζί μας και ξεκινάμε αμέσως — χωρίς αρχικό κόστος κατασκευής.</p>
           <Link to="/epikoinwnia" className="btn">Επικοινωνία</Link>
         </div>

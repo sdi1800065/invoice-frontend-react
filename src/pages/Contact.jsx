@@ -12,11 +12,25 @@ export default function Contact() {
   const [message, setMessage] = useState('')
   const [status, setStatus] = useState('idle') // 'idle' | 'sending' | 'sent'
 
-  const handleSubmit = (e) => {
+  const [error, setError] = useState('')
+
+  const handleSubmit = async (e) => {
     e.preventDefault()
     setStatus('sending')
-    // TODO: connect to backend/email service (e.g. EmailJS, Formspree, or custom API)
-    setTimeout(() => setStatus('sent'), 800)
+    setError('')
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: email.trim(), message: message.trim() }),
+      })
+      const data = await res.json()
+      if (!res.ok) throw new Error(data.error || 'Αποτυχία αποστολής.')
+      setStatus('sent')
+    } catch (err) {
+      setError(err.message)
+      setStatus('idle')
+    }
   }
 
   return (
@@ -78,6 +92,7 @@ export default function Contact() {
                   rows={5}
                 />
               </div>
+              {error && <p className={styles.error}>{error}</p>}
               <button
                 type="submit"
                 className="btn"

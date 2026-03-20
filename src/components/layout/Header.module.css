@@ -59,6 +59,22 @@
   opacity: 0.7;
 }
 
+/* CTA button */
+.ctaBtn {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 20px;
+  background: var(--color-text-dark);
+  color: #fff;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 6px;
+  letter-spacing: 0.02em;
+  transition: opacity var(--transition);
+}
+.ctaBtn:hover { opacity: 0.85; }
+
 /* Hamburger */
 .hamburger {
   display: none;
@@ -123,6 +139,22 @@
 }
 .dropdownLink:hover { opacity: 0.6; }
 .dropdownLink.active { opacity: 0.6; }
+
+.dropdownCta {
+  display: block;
+  margin: 8px 16px 0;
+  padding: 10px 20px;
+  background: var(--color-text-dark);
+  color: #fff;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 6px;
+  text-align: center;
+  letter-spacing: 0.02em;
+  transition: opacity var(--transition);
+}
+.dropdownCta:hover { opacity: 0.85; }
 
 /* Hamburger open state → X */
 .hamburgerOpen span:nth-child(1) {

@@ -237,6 +237,31 @@
   color: var(--color-text);
 }
 
+/* ── Ηλεκτρονική Τιμολόγηση highlight ── */
+.invoicingHighlight {
+  padding: var(--section-padding);
+  background: var(--color-bg-alt, #f7f5f2);
+}
+
+.invoicingInner {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 0 24px;
+  text-align: center;
+}
+
+.invoicingHighlight h2 {
+  font-size: clamp(20px, 2.5vw, 32px);
+  margin-bottom: 16px;
+}
+
+.invoicingHighlight p {
+  font-size: 15px;
+  color: var(--color-text);
+  line-height: 1.75;
+  margin-bottom: 28px;
+}
+
 /* ── How it works ── */
 .process {
   padding: var(--section-padding);

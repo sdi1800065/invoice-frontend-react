@@ -45,6 +45,7 @@ return (
               {label}
             </NavLink>
           ))}
+          <Link to="/checkout" className={styles.ctaBtn}>Εγγραφή</Link>
         </nav>
 
         <button
@@ -74,6 +75,9 @@ return (
             {label}
           </NavLink>
         ))}
+        <Link to="/checkout" className={styles.dropdownCta} onClick={() => setMenuOpen(false)}>
+          Εγγραφή
+        </Link>
       </div>
     </header>
   )
