@@ -1186,6 +1186,52 @@ function Settings({ toast }) {
     stripe_price_webdesign: 'Web Design & Maintenance',
     stripe_price_invoicing: 'Ηλεκτρονική Τιμολόγηση',
     stripe_price_bundle: 'Πακέτο (και τα δύο)',
+    stripe_portal_url: 'Stripe Cancellation Portal',
+    stripe_cancellation_portal_url: 'Stripe Cancellation Portal',
+  }
+
+  const priceSettings = data.data.filter(s => s.setting_key.startsWith('stripe_price_'))
+  const portalSettings = data.data.filter(s => s.setting_key === 'stripe_cancellation_portal_url' || s.setting_key === 'stripe_portal_url')
+
+  const startEdit = (key, value) => setEditing(prev => ({ ...prev, [key]: value }))
+  const cancelEdit = (key) => setEditing(prev => {
+    const next = { ...prev }
+    delete next[key]
+    return next
+  })
+
+  const renderSettingRow = (s, placeholder = '') => {
+    const isEditing = s.setting_key in editing
+
+    return (
+      <div key={s.setting_key} style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '14px 20px', borderBottom: '1px solid var(--gray-100)' }}>
+        <div style={{ flex: 1, minWidth: 0 }}>
+          <div style={{ fontWeight: 600, fontSize: 14 }}>{esc(LABELS[s.setting_key] || s.setting_key)}</div>
+          <div style={{ fontSize: 11, color: 'var(--gray-400)', marginTop: 2 }}>{esc(s.setting_key)}</div>
+          {s.description && <div style={{ fontSize: 12, color: 'var(--gray-600)', marginTop: 4 }}>{esc(s.description)}</div>}
+        </div>
+        {isEditing ? (
+          <>
+            <input
+              type="text"
+              value={editing[s.setting_key]}
+              onChange={e => setEditing(prev => ({ ...prev, [s.setting_key]: e.target.value }))}
+              placeholder={placeholder}
+              style={{ flex: 1, padding: '6px 10px', border: '1px solid var(--gray-200)', borderRadius: 6, fontSize: 13, fontFamily: 'monospace' }}
+            />
+            <button className="abtn abtn-primary abtn-sm" onClick={() => save(s.setting_key)}>Αποθήκευση</button>
+            <button className="abtn abtn-outline abtn-sm" onClick={() => cancelEdit(s.setting_key)}>Ακύρωση</button>
+          </>
+        ) : (
+          <>
+            <code style={{ fontSize: 12, color: s.setting_value ? 'var(--gray-700)' : 'var(--red)', background: 'var(--gray-50)', padding: '4px 8px', borderRadius: 4, maxWidth: 320, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+              {s.setting_value || '(δεν έχει οριστεί)'}
+            </code>
+            <button className="abtn abtn-outline abtn-sm" onClick={() => startEdit(s.setting_key, s.setting_value)}>Επεξεργασία</button>
+          </>
+        )}
+      </div>
+    )
   }
 
   return (
@@ -1193,39 +1239,18 @@ function Settings({ toast }) {
       <div className="card" style={{ marginTop: 24 }}>
         <div className="card-header"><h2>Stripe Τιμές</h2><small style={{ color: 'var(--gray-400)' }}>Stripe Price IDs για κάθε υπηρεσία</small></div>
         <div className="card-body" style={{ padding: 0 }}>
-          {data.data.filter(s => s.setting_key.startsWith('stripe_price_')).map(s => {
-            const isEditing = s.setting_key in editing
-            return (
-              <div key={s.setting_key} style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '14px 20px', borderBottom: '1px solid var(--gray-100)' }}>
-                <div style={{ flex: 1, minWidth: 0 }}>
-                  <div style={{ fontWeight: 600, fontSize: 14 }}>{esc(LABELS[s.setting_key] || s.setting_key)}</div>
-                  <div style={{ fontSize: 11, color: 'var(--gray-400)', marginTop: 2 }}>{esc(s.setting_key)}</div>
-                </div>
-                {isEditing ? (
-                  <>
-                    <input
-                      type="text"
-                      value={editing[s.setting_key]}
-                      onChange={e => setEditing(prev => ({ ...prev, [s.setting_key]: e.target.value }))}
-                      placeholder="price_..."
-                      style={{ flex: 1, padding: '6px 10px', border: '1px solid var(--gray-200)', borderRadius: 6, fontSize: 13, fontFamily: 'monospace' }}
-                    />
-                    <button className="abtn abtn-primary abtn-sm" onClick={() => save(s.setting_key)}>Αποθήκευση</button>
-                    <button className="abtn abtn-outline abtn-sm" onClick={() => setEditing(prev => { const n = { ...prev }; delete n[s.setting_key]; return n })}>Ακύρωση</button>
-                  </>
-                ) : (
-                  <>
-                    <code style={{ fontSize: 12, color: s.setting_value ? 'var(--gray-700)' : 'var(--red)', background: 'var(--gray-50)', padding: '4px 8px', borderRadius: 4, maxWidth: 240, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-                      {s.setting_value || '(δεν έχει οριστεί)'}
-                    </code>
-                    <button className="abtn abtn-outline abtn-sm" onClick={() => setEditing(prev => ({ ...prev, [s.setting_key]: s.setting_value }))}>Επεξεργασία</button>
-                  </>
-                )}
-              </div>
-            )
-          })}
+          {priceSettings.map(s => renderSettingRow(s, 'price_...'))}
         </div>
       </div>
+
+      {!!portalSettings.length && (
+        <div className="card" style={{ marginTop: 24 }}>
+          <div className="card-header"><h2>Stripe Cancellation Portal</h2><small style={{ color: 'var(--gray-400)' }}>Σύνδεσμος για cancellation / subscription management</small></div>
+          <div className="card-body" style={{ padding: 0 }}>
+            {portalSettings.map(s => renderSettingRow(s, 'https://billing.stripe.com/...'))}
+          </div>
+        </div>
+      )}
     </>
   )
 }
