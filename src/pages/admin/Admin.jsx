@@ -1186,12 +1186,11 @@ function Settings({ toast }) {
     stripe_price_webdesign: 'Web Design & Maintenance',
     stripe_price_invoicing: 'Ηλεκτρονική Τιμολόγηση',
     stripe_price_bundle: 'Πακέτο (και τα δύο)',
-    stripe_portal_url: 'Stripe Cancellation Portal',
     stripe_cancellation_portal_url: 'Stripe Cancellation Portal',
   }
 
   const priceSettings = data.data.filter(s => s.setting_key.startsWith('stripe_price_'))
-  const portalSettings = data.data.filter(s => s.setting_key === 'stripe_cancellation_portal_url' || s.setting_key === 'stripe_portal_url')
+  const portalSetting = data.data.find(s => s.setting_key === 'stripe_cancellation_portal_url')
 
   const startEdit = (key, value) => setEditing(prev => ({ ...prev, [key]: value }))
   const cancelEdit = (key) => setEditing(prev => {
@@ -1243,11 +1242,11 @@ function Settings({ toast }) {
         </div>
       </div>
 
-      {!!portalSettings.length && (
+      {portalSetting && (
         <div className="card" style={{ marginTop: 24 }}>
           <div className="card-header"><h2>Stripe Cancellation Portal</h2><small style={{ color: 'var(--gray-400)' }}>Σύνδεσμος για cancellation / subscription management</small></div>
           <div className="card-body" style={{ padding: 0 }}>
-            {portalSettings.map(s => renderSettingRow(s, 'https://billing.stripe.com/...'))}
+            {renderSettingRow(portalSetting, 'https://billing.stripe.com/...')}
           </div>
         </div>
       )}
