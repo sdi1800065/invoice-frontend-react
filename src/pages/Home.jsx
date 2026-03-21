@@ -124,14 +124,120 @@ export default function Home() {
 
         {/* Ηλεκτρονική Τιμολόγηση highlight */}
         <section className={styles.invoicingHighlight}>
-          <div className={styles.invoicingInner}>
-            <h2 className="fade-up">Ηλεκτρονική Τιμολόγηση</h2>
-            <p className="fade-up">
-              Αυτόματη έκδοση τιμολογίων και αποδείξεων μέσω πιστοποιημένου παρόχου ΑΑΔΕ (etimologiera
-              — ο οικονομικότερος στην αγορά). Stripe πληρωμές, admin dashboard,
-              PDF με QR code και αποστολή email — από <strong>19,99€/μήνα + ΦΠΑ</strong>.
-            </p>
-            <Link to="/ypiresies" className="btn">Μάθετε Περισσότερα</Link>
+          <div className={styles.invoicingSplit}>
+            <div className={styles.invoicingCard}>
+              <span className={`${styles.invoicingLabel} fade-up`}>Νέα Υπηρεσία</span>
+              <h2 className="fade-up">Ηλεκτρονική Τιμολόγηση</h2>
+              <div className={`${styles.invoicingPrice} fade-up`}>
+                <span className={styles.invoicingAmount}>19,99€</span>
+                <span className={styles.invoicingPer}>/μήνα + ΦΠΑ</span>
+              </div>
+              <p className={`${styles.invoicingDesc} fade-up`}>
+                Αυτόματη έκδοση τιμολογίων και αποδείξεων μέσω πιστοποιημένου παρόχου ΑΑΔΕ.
+              </p>
+              <div className={`${styles.invoicingFeatures} fade-up`}>
+                <div className={styles.invoicingFeature}>
+                  <span className={styles.featureCheck}>✓</span>
+                  <span>Πιστοποιημένος Πάροχος ΑΑΔΕ</span>
+                </div>
+                <div className={styles.invoicingFeature}>
+                  <span className={styles.featureCheck}>✓</span>
+                  <span>Stripe Πληρωμές</span>
+                </div>
+                <div className={styles.invoicingFeature}>
+                  <span className={styles.featureCheck}>✓</span>
+                  <span>Admin Dashboard</span>
+                </div>
+                <div className={styles.invoicingFeature}>
+                  <span className={styles.featureCheck}>✓</span>
+                  <span>PDF & Email Αποστολή</span>
+                </div>
+              </div>
+              <Link to="/ypiresies" className="btn fade-up">Μάθετε Περισσότερα</Link>
+            </div>
+            <div className={`${styles.invoicingPreview} fade-up`}>
+              <div className={styles.previewBrowser}>
+                <div className={styles.previewBar}>
+                  <span className={styles.previewDot} />
+                  <span className={styles.previewDot} />
+                  <span className={styles.previewDot} />
+                  <span className={styles.previewUrl}>yourdomain.gr/admin</span>
+                </div>
+                <div className={styles.mockAdmin}>
+                  <div className={styles.mockSidebar}>
+                    <div className={styles.mockSidebarTitle}>Invoice Admin</div>
+                    <div className={styles.mockNavItem}>Επιχειρήσεις</div>
+                    <div className={styles.mockNavItem}>Ιδιώτες</div>
+                    <div className={`${styles.mockNavItem} ${styles.mockNavActive}`}>Παραστατικά</div>
+                    <div className={styles.mockNavItem}>Πληρωμές</div>
+                    <div className={styles.mockNavItem}>Ακυρώσεις</div>
+                    <div className={styles.mockNavItem}>Failed Attempts</div>
+                  </div>
+                  <div className={styles.mockContent}>
+                    <div className={styles.mockPageTitle}>Παραστατικά</div>
+                    <div className={styles.mockTabs}>
+                      <span className={styles.mockTabActive}>Τιμολόγια</span>
+                      <span className={styles.mockTab}>Αποδείξεις</span>
+                    </div>
+                    <table className={styles.mockTable}>
+                      <thead>
+                        <tr>
+                          <th>ΑΡΙΘΜΟΣ</th>
+                          <th>ΠΕΛΑΤΗΣ</th>
+                          <th>ΗΜΕΡΟΜΗΝΙΑ</th>
+                          <th>ΣΥΝΟΛΟ</th>
+                          <th>ΜΑΡΚ</th>
+                          <th>ΚΑΤΑΣΤΑΣΗ</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>A2026-0047</td>
+                          <td>Κωστόπουλος ΙΚΕ</td>
+                          <td>20/03/2026</td>
+                          <td>49,60 €</td>
+                          <td className={styles.mockMark}>400019607...</td>
+                          <td><span className={styles.mockBadgeGreen}>ΕΝΕΡΓΟ</span></td>
+                        </tr>
+                        <tr>
+                          <td>A2026-0046</td>
+                          <td>Νικολάου & Σια ΟΕ</td>
+                          <td>19/03/2026</td>
+                          <td>26,55 €</td>
+                          <td className={styles.mockMark}>400019608...</td>
+                          <td><span className={styles.mockBadgeGreen}>ΕΝΕΡΓΟ</span></td>
+                        </tr>
+                        <tr>
+                          <td>A2026-0045</td>
+                          <td>Παπαδάκης ΕΠΕ</td>
+                          <td>18/03/2026</td>
+                          <td>37,19 €</td>
+                          <td className={styles.mockMark}>400019605...</td>
+                          <td><span className={styles.mockBadgeGreen}>ΕΝΕΡΓΟ</span></td>
+                        </tr>
+                        <tr>
+                          <td>A2026-0044</td>
+                          <td>Δημητρίου ΑΕ</td>
+                          <td>17/03/2026</td>
+                          <td>49,60 €</td>
+                          <td className={styles.mockMark}>400019603...</td>
+                          <td><span className={styles.mockBadgeRed}>ΑΚΥΡΩΘΗΚΕ</span></td>
+                        </tr>
+                        <tr>
+                          <td>A2026-0043</td>
+                          <td>Αντωνίου ΙΚΕ</td>
+                          <td>16/03/2026</td>
+                          <td>26,55 €</td>
+                          <td className={styles.mockMark}>400019601...</td>
+                          <td><span className={styles.mockBadgeGreen}>ΕΝΕΡΓΟ</span></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <div className={styles.mockFooter}>5 τιμολόγια — Σελίδα 1 από 10</div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
