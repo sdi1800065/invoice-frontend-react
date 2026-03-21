@@ -1360,10 +1360,16 @@ function Settings({ toast }) {
     stripe_price_webdesign: 'Web Design & Maintenance',
     stripe_price_invoicing: 'Ηλεκτρονική Τιμολόγηση',
     stripe_price_bundle: 'Πακέτο (και τα δύο)',
+    stripe_price_webdesign_b2b: 'Web Design & Maintenance',
+    stripe_price_invoicing_b2b: 'Ηλεκτρονική Τιμολόγηση',
+    stripe_price_bundle_b2b: 'Πακέτο (και τα δύο)',
     stripe_cancellation_portal_url: 'Stripe Cancellation Portal',
   }
 
-  const priceSettings = data.data.filter(s => s.setting_key.startsWith('stripe_price_'))
+  const b2cKeys = ['stripe_price_webdesign', 'stripe_price_invoicing', 'stripe_price_bundle']
+  const b2bKeys = ['stripe_price_webdesign_b2b', 'stripe_price_invoicing_b2b', 'stripe_price_bundle_b2b']
+  const b2cSettings = data.data.filter(s => b2cKeys.includes(s.setting_key))
+  const b2bSettings = data.data.filter(s => b2bKeys.includes(s.setting_key))
   const portalSetting = data.data.find(s => s.setting_key === 'stripe_cancellation_portal_url')
 
   const startEdit = (key, value) => setEditing(prev => ({ ...prev, [key]: value }))
@@ -1410,9 +1416,16 @@ function Settings({ toast }) {
   return (
     <>
       <div className="card" style={{ marginTop: 24 }}>
-        <div className="card-header"><h2>Stripe Τιμές</h2><small style={{ color: 'var(--gray-400)' }}>Stripe Price IDs για κάθε υπηρεσία</small></div>
+        <div className="card-header"><h2>Stripe Τιμές — B2C (Απόδειξη)</h2><small style={{ color: 'var(--gray-400)' }}>Stripe Price IDs για ιδιώτες (receipt)</small></div>
         <div className="card-body" style={{ padding: 0 }}>
-          {priceSettings.map(s => renderSettingRow(s, 'price_...'))}
+          {b2cSettings.map(s => renderSettingRow(s, 'price_...'))}
+        </div>
+      </div>
+
+      <div className="card" style={{ marginTop: 24 }}>
+        <div className="card-header"><h2>Stripe Τιμές — B2B (Τιμολόγιο)</h2><small style={{ color: 'var(--gray-400)' }}>Stripe Price IDs για επιχειρήσεις (invoice) — ξεχωριστοί σύνδεσμοι με πεδίο ΑΦΜ</small></div>
+        <div className="card-body" style={{ padding: 0 }}>
+          {b2bSettings.map(s => renderSettingRow(s, 'price_...'))}
         </div>
       </div>
 
