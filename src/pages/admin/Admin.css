@@ -141,6 +141,8 @@
 .abtn-danger:hover:not(:disabled) { opacity: .85; }
 .abtn-success { background: var(--green); color: #fff; }
 .abtn-success:hover:not(:disabled) { opacity: .85; }
+.abtn-warning { background: #d97706; color: #fff; }
+.abtn-warning:hover:not(:disabled) { opacity: .85; }
 .abtn-sm { padding: 5px 11px; font-size: 12px; }
 
 /* ── Status badges ───────────────────────────────────────────────────────────── */

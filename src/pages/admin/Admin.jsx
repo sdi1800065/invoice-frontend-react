@@ -62,6 +62,25 @@ function AadeCell({ invoice }) {
   )
 }
 
+// Clearly shows which stage failed for an invoice attempt.
+// error_stage='submission'/'validation' → ΑΑΔΕ itself failed
+// error_stage='pdf'/'db' → ΑΑΔΕ succeeded, downstream step failed
+function AttemptStatusCell({ attempt }) {
+  const { status, error_stage, error_message } = attempt
+  if (status === 'pending') return <StatusPill status="pending" />
+  if (status !== 'failed') return <StatusPill status={status} />
+  const aadeOk = error_stage === 'pdf' || error_stage === 'db'
+  const stageLabel = error_stage === 'pdf' ? 'PDF' : error_stage === 'db' ? 'DB' : error_stage === 'submission' ? 'ΑΑΔΕ' : error_stage || 'Άγνωστο'
+  return (
+    <div style={{ lineHeight: 1.7 }}>
+      {aadeOk
+        ? <div><span style={{ fontSize: 10, fontWeight: 700, color: '#15803d' }}>✓ ΑΑΔΕ</span>&nbsp;<span style={{ fontSize: 10, fontWeight: 700, color: '#b91c1c' }}>✗ {stageLabel}</span></div>
+        : <><StatusPill status="failed" /><div style={{ fontSize: 10, color: 'var(--gray-600)', marginTop: 2 }}>{stageLabel}</div></>}
+      {error_message && <div style={{ fontSize: 10, color: 'var(--red)', marginTop: 1, maxWidth: 180, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }} title={error_message}>{esc(error_message)}</div>}
+    </div>
+  )
+}
+
 function ActionBadge({ action }) {
   const colors = {
     login_success: '#15803d', logout: 'var(--gray-600)',
@@ -476,6 +495,24 @@ function CustomerDetail({ customerId, navigate, toast, loadBadges, lastListView,
     } catch (e) { toast(e.message, 'err') }
   }
 
+  const retryAttemptSubmission = async (id) => {
+    try {
+      const r = await api('POST', `/admin/attempts/${id}/retry-submission`)
+      toast(`\u2713 \u0391\u0391\u0394\u0395 OK \u2014 ${r.invoiceNumber} \u2014 \u039c\u0391\u03a1\u039a ${r.mark}`)
+      loadCustomer(customerId)
+      loadBadges()
+    } catch (e) { toast(e.message, 'err') }
+  }
+
+  const retryAttemptEmail = async (id) => {
+    try {
+      const r = await api('POST', `/admin/attempts/${id}/retry-email`)
+      toast(`\u2713 Email \u03b5\u03c3\u03c4\u03ac\u03bb\u03b7 \u2014 ${r.invoiceNumber}`)
+      loadCustomer(customerId)
+      loadBadges()
+    } catch (e) { toast(e.message, 'err') }
+  }
+
   if (error) return <><button className="back-btn" onClick={() => navigate(lastListView)}>← {backLabel}</button><div className="empty">Error: {error}</div></>
   if (!data) return <><button className="back-btn" onClick={() => navigate(lastListView)}>← {backLabel}</button><div className="empty">Loading\u2026</div></>
 
@@ -546,7 +583,7 @@ function CustomerDetail({ customerId, navigate, toast, loadBadges, lastListView,
           {!invoices.length && !openCustomerAttempts.length ? <div className="empty">Δεν υπάρχουν {docLabel.toLowerCase()} ακόμα.</div> : (
             <table>
               <thead><tr>
-                <th>Τύπος</th><th>Αριθμός</th><th>Ημερομηνία</th><th>Καθαρή</th><th>ΦΠΑ</th><th>Σύνολο</th><th>ΜΑΡΚ</th><th>Κατάσταση</th><th>ΑΑΔΕ</th><th>Email</th><th>Αρχεία</th>
+                <th>Τύπος</th><th>Αριθμός</th><th>Ημερομηνία</th><th>Καθαρή</th><th>ΦΠΑ</th><th>Σύνολο</th><th>ΜΑΡΚ</th><th>Κατάσταση</th><th>ΑΑΔΕ</th><th>Email</th><th>Ενέργειες</th><th>Αρχεία</th>
               </tr></thead>
               <tbody>
                 {openCustomerAttempts.map(a => (
@@ -558,14 +595,23 @@ function CustomerDetail({ customerId, navigate, toast, loadBadges, lastListView,
                     <td style={{ color: 'var(--gray-400)' }}>&mdash;</td>
                     <td><strong>{fmtAmt(a.amount_total)} {esc(a.currency)}</strong></td>
                     <td style={{ color: 'var(--gray-400)' }}>&mdash;</td>
-                    <td>
-                      <StatusPill status={a.status} />
-                      {a.error_stage && <div style={{ fontSize: 10, color: 'var(--gray-600)', marginTop: 2 }}><code>{esc(a.error_stage)}</code></div>}
-                      {a.error_message && <div style={{ fontSize: 10, color: 'var(--red)', marginTop: 1, maxWidth: 160, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }} title={a.error_message}>{esc(a.error_message)}</div>}
-                    </td>
+                    <td><AttemptStatusCell attempt={a} /></td>
                     <td style={{ color: 'var(--gray-400)' }}>&mdash;</td>
                     <td style={{ color: 'var(--gray-400)' }}>&mdash;</td>
-                    <td>{a.status === 'failed' ? <button className="abtn abtn-success abtn-sm" onClick={() => retryAttempt(a.id)}>Retry</button> : <span style={{ color: 'var(--gray-400)' }}>&mdash;</span>}</td>
+                    <td>{(a.status === 'failed' || a.mydata_mark) ? (
+                      <div style={{ display: 'flex', gap: 3, flexWrap: 'wrap' }}>
+                        {a.status === 'failed' && a.error_stage === 'submission' && (
+                          <button className="abtn abtn-primary abtn-sm" onClick={() => retryAttemptSubmission(a.id)} title="Retry ΑΑΔΕ υποβολή (μόνο όταν το submission έχει αποτύχει)">ΑΑΔΕ</button>
+                        )}
+                        {a.mydata_mark && (
+                          <button className="abtn abtn-warning abtn-sm" onClick={() => retryAttemptEmail(a.id)} title={a.email_sent_at ? 'Εστάλη: ' + fmtDate(a.email_sent_at) + ' — κλικ για εκ νέου αποστολή' : 'Αποστολή email'}>Email{a.email_sent_at ? ' ✓' : ''}</button>
+                        )}
+                        {a.status === 'failed' && (
+                          <button className="abtn abtn-success abtn-sm" onClick={() => retryAttempt(a.id)} title="Retry ΑΑΔΕ + Email">Όλα</button>
+                        )}
+                      </div>
+                    ) : <span style={{ color: 'var(--gray-400)' }}>&mdash;</span>}</td>
+                    <td style={{ color: 'var(--gray-400)' }}>&mdash;</td>
                   </tr>
                 ))}
                 {invoices.map(i => (
@@ -589,6 +635,7 @@ function CustomerDetail({ customerId, navigate, toast, loadBadges, lastListView,
                           : i.email_sent_at ? <><span style={{ fontSize: 11, color: '#15803d' }}>✓ {fmtDate(i.email_sent_at)}</span> <button className="abtn abtn-outline abtn-sm" style={{ marginLeft: 6 }} onClick={() => resendEmail(i.id)}>↺</button></>
                             : <button className="abtn abtn-danger abtn-sm" onClick={() => resendEmail(i.id)}>Αποστολή</button>}
                     </td>
+                    <td style={{ color: 'var(--gray-400)' }}>&mdash;</td>
                     <td className="gap-8">
                       <a href={`/admin/invoices/${i.id}/pdf`} target="_blank" rel="noopener noreferrer" className="abtn abtn-outline abtn-sm">PDF</a>
                       <button className="abtn abtn-outline abtn-sm" onClick={() => viewXml(i.id, i.invoice_number)}>XML</button>
@@ -646,6 +693,22 @@ function Documents({ navigate, toast, openXml, loadBadges }) {
     } catch (e) { toast(e.message, 'err') }
   }
 
+  const retrySubmission = async (id) => {
+    try {
+      const r = await api('POST', `/admin/attempts/${id}/retry-submission`)
+      toast(`\u2713 \u0391\u0391\u0394\u0395 OK \u2014 ${r.invoiceNumber} \u2014 \u039c\u0391\u03a1\u039a ${r.mark}`)
+      loadBadges(); load()
+    } catch (e) { toast(e.message, 'err') }
+  }
+
+  const retryEmail = async (id) => {
+    try {
+      const r = await api('POST', `/admin/attempts/${id}/retry-email`)
+      toast(`\u2713 Email \u03b5\u03c3\u03c4\u03ac\u03bb\u03b7 \u2014 ${r.invoiceNumber}`)
+      loadBadges(); load()
+    } catch (e) { toast(e.message, 'err') }
+  }
+
   const viewXml = async (invoiceId, invoiceNumber) => {
     try {
       const d = await api('GET', `/admin/invoices/${invoiceId}/xml`)
@@ -690,7 +753,7 @@ function Documents({ navigate, toast, openXml, loadBadges }) {
           {!error && data && hasRows && (
             <table>
               <thead><tr>
-                <th>Αριθμός</th><th>Πελάτης</th><th>Email</th><th>Ημερομηνία</th><th>Καθαρή</th><th>ΦΠΑ</th><th>Σύνολο</th><th>ΜΑΡΚ</th><th>Κατάσταση</th><th>ΑΑΔΕ</th><th>Αρχεία</th>
+                <th>Αριθμός</th><th>Πελάτης</th><th>Email</th><th>Ημερομηνία</th><th>Καθαρή</th><th>ΦΠΑ</th><th>Σύνολο</th><th>ΜΑΡΚ</th><th>Κατάσταση</th><th>ΑΑΔΕ</th><th>Ενέργειες</th><th>Αρχεία</th>
               </tr></thead>
               <tbody>
                 {openAttempts.map(a => (
@@ -703,13 +766,22 @@ function Documents({ navigate, toast, openXml, loadBadges }) {
                     <td style={{ color: 'var(--gray-400)' }}>&mdash;</td>
                     <td><strong>{fmtAmt(a.amount_total)} {esc(a.currency)}</strong></td>
                     <td style={{ color: 'var(--gray-400)' }}>&mdash;</td>
-                    <td>
-                      <StatusPill status={a.status} />
-                      {a.error_stage && <div style={{ fontSize: 10, color: 'var(--gray-600)', marginTop: 2 }}><code>{esc(a.error_stage)}</code></div>}
-                      {a.error_message && <div style={{ fontSize: 10, color: 'var(--red)', marginTop: 1, maxWidth: 180, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }} title={a.error_message}>{esc(a.error_message)}</div>}
-                    </td>
+                    <td><AttemptStatusCell attempt={a} /></td>
                     <td style={{ color: 'var(--gray-400)' }}>&mdash;</td>
-                    <td>{a.status === 'failed' ? <button className="abtn abtn-success abtn-sm" onClick={() => retry(a.id)}>Retry</button> : <span style={{ color: 'var(--gray-400)' }}>&mdash;</span>}</td>
+                    <td>{(a.status === 'failed' || a.mydata_mark) ? (
+                      <div style={{ display: 'flex', gap: 3, flexWrap: 'wrap' }}>
+                        {a.status === 'failed' && a.error_stage === 'submission' && (
+                          <button className="abtn abtn-primary abtn-sm" onClick={() => retrySubmission(a.id)} title="Retry ΑΑΔΕ υποβολή (μόνο όταν το submission έχει αποτύχει)">ΑΑΔΕ</button>
+                        )}
+                        {a.mydata_mark && (
+                          <button className="abtn abtn-warning abtn-sm" onClick={() => retryEmail(a.id)} title={a.email_sent_at ? 'Εστάλη: ' + fmtDate(a.email_sent_at) + ' — κλικ για εκ νέου αποστολή' : 'Αποστολή email'}>Email{a.email_sent_at ? ' ✓' : ''}</button>
+                        )}
+                        {a.status === 'failed' && (
+                          <button className="abtn abtn-success abtn-sm" onClick={() => retry(a.id)} title="Retry ΑΑΔΕ + Email">Όλα</button>
+                        )}
+                      </div>
+                    ) : <span style={{ color: 'var(--gray-400)' }}>&mdash;</span>}</td>
+                    <td style={{ color: 'var(--gray-400)' }}>&mdash;</td>
                   </tr>
                 ))}
                 {data.data.map(i => (
@@ -724,6 +796,7 @@ function Documents({ navigate, toast, openXml, loadBadges }) {
                     <td><code style={{ fontSize: 11 }}>{esc(i.mydata_mark || '\u2014')}</code>{i.mydata_uid && <><br /><span style={{ fontSize: 9, color: 'var(--gray-400)' }}>UID: {i.mydata_uid.slice(0, 8)}\u2026</span></>}</td>
                     <td><StatusCell invoice={i} /></td>
                     <td><AadeCell invoice={i} /></td>
+                    <td style={{ color: 'var(--gray-400)' }}>&mdash;</td>
                     <td className="gap-8">
                       <a href={`/admin/invoices/${i.id}/pdf`} target="_blank" rel="noopener noreferrer" className="abtn abtn-outline abtn-sm">PDF</a>
                       <button className="abtn abtn-outline abtn-sm" onClick={() => viewXml(i.id, i.invoice_number)}>XML</button>
@@ -857,6 +930,22 @@ function Attempts({ navigate, toast, loadBadges }) {
     } catch (e) { toast(e.message, 'err') }
   }
 
+  const retrySubmission = async (id) => {
+    try {
+      const r = await api('POST', `/admin/attempts/${id}/retry-submission`)
+      toast(`✓ ΑΑΔΕ OK — ${r.invoiceNumber} — ΜΑΡΚ ${r.mark}`)
+      loadBadges(); load()
+    } catch (e) { toast(e.message, 'err') }
+  }
+
+  const retryEmail = async (id) => {
+    try {
+      const r = await api('POST', `/admin/attempts/${id}/retry-email`)
+      toast(`✓ Email εστάλη — ${r.invoiceNumber}`)
+      loadBadges(); load()
+    } catch (e) { toast(e.message, 'err') }
+  }
+
   return (
     <>
       <div className="page-header"><h1>Failed Attempts</h1></div>
@@ -886,7 +975,19 @@ function Attempts({ navigate, toast, loadBadges }) {
                     <td><code style={{ fontSize: 11 }}>{esc(a.mydata_mark || '\u2014')}</code></td>
                     <td>{fmtAmt(a.amount_total)} {esc(a.currency)}</td>
                     <td style={{ maxWidth: 180, fontSize: 11, color: 'var(--red)' }}>{esc(a.error_message || '')}</td>
-                    <td>{a.status === 'failed' && <button className="abtn abtn-success abtn-sm" onClick={() => retry(a.id)}>Retry</button>}</td>
+                    <td>{(a.status === 'failed' || a.mydata_mark) && (
+                      <div style={{ display: 'flex', gap: 3, flexWrap: 'wrap' }}>
+                        {a.status === 'failed' && a.error_stage === 'submission' && (
+                          <button className="abtn abtn-primary abtn-sm" onClick={() => retrySubmission(a.id)} title="Retry ΑΑΔΕ υποβολή (μόνο όταν το submission έχει αποτύχει)">ΑΑΔΕ</button>
+                        )}
+                        {a.mydata_mark && (
+                          <button className="abtn abtn-warning abtn-sm" onClick={() => retryEmail(a.id)} title={a.email_sent_at ? 'Εστάλη: ' + fmtDate(a.email_sent_at) + ' — κλικ για εκ νέου αποστολή' : 'Αποστολή email'}>Email{a.email_sent_at ? ' ✓' : ''}</button>
+                        )}
+                        {a.status === 'failed' && (
+                          <button className="abtn abtn-success abtn-sm" onClick={() => retry(a.id)} title="Retry ΑΑΔΕ + Email">Όλα</button>
+                        )}
+                      </div>
+                    )}</td>
                   </tr>
                 ))}
               </tbody>
