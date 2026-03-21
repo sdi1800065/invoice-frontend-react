@@ -107,7 +107,7 @@ export default function Websites() {
             </div>
             <p>
               Αυτόματη έκδοση τιμολογίων και αποδείξεων μέσω πιστοποιημένου παρόχου
-              (etimologiera), διαβίβαση στο ΑΑΔΕ MyData, δημιουργία PDF και αποστολή email.
+              (etimologiera), διαβίβαση στην ΑΑΔΕ MyData, δημιουργία PDF και αποστολή email.
               Πλήρες admin dashboard για τη διαχείριση πελατών και παραστατικών.
             </p>
             <p className={styles.providerNote}>

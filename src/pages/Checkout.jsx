@@ -228,7 +228,7 @@ export default function Checkout() {
               <div className={styles.typeCard} onClick={() => goToForm('invoice')}>
                 <div className={styles.typeInfo}>
                   <div className={styles.typeName}>Τιμολόγιο</div>
-                  <div className={styles.typeDesc}>Για επιχειρήσεις — εκδίδεται τιμολόγιο στο ΑΑΔΕ</div>
+                  <div className={styles.typeDesc}>Για επιχειρήσεις — εκδίδεται τιμολόγιο στην ΑΑΔΕ</div>
                 </div>
                 <span className={styles.typeIcon}>📄</span>
               </div>
