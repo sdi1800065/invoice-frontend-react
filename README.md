@@ -1,7 +1,7 @@
-# Frameflat Photography — React App
+# Frameflat — React App
 
-Professional real estate and Airbnb photography studio website.
-Transformed from the original [frameflat.gr](https://frameflat.gr) into a self-contained Vite + React application.
+Professional web design and maintenance service company website with integrated invoice automation.
+Built as a Vite + React SPA that is served by the backend (build output emitted to `Invoice-Backend/dist/`).
 
 ## Tech Stack
 
@@ -72,10 +72,4 @@ The contact form (`/epikoinwnia`) sends `POST /api/contact` to the backend with 
 
 ## Deployment
 
-The `dist/` output of `npm run build` is fully self-contained and can be deployed to any static host (Vercel, Netlify, Cloudflare Pages).
-
-For SPA routing (React Router), configure the host to serve `index.html` for all routes.
-Netlify example — add `public/_redirects`:
-```
-/* /index.html 200
-```
+The `npm run build` output is emitted to `../Invoice-Backend/dist/` (configured in `vite.config.js`). The backend serves these as static assets with a catch-all route for client-side routing — no separate static host needed.
