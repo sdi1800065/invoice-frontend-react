@@ -271,6 +271,7 @@ function Sidebar({ view, navigate, badges, lastListView, onLogout }) {
     { key: 'mydata-log', label: 'MyData Log', icon: ICONS.mydataLog },
     { key: 'audit', label: 'Audit Log', icon: ICONS.audit },
   ]
+  const navItems = items.filter(item => !item.divider)
 
   return (
     <div className="admin-sidebar">
@@ -289,6 +290,20 @@ function Sidebar({ view, navigate, badges, lastListView, onLogout }) {
           )
         })}
       </nav>
+      <div className="mobile-nav-select-wrap">
+        <select
+          className="mobile-nav-select"
+          value={sidebarView}
+          onChange={e => navigate(e.target.value)}
+          aria-label="Επιλογή ενότητας admin"
+        >
+          {navItems.map(item => (
+            <option key={item.key} value={item.key}>
+              {item.label}{item.badge > 0 ? ` (${item.badge})` : ''}
+            </option>
+          ))}
+        </select>
+      </div>
       <div className="sidebar-footer">
         <button className="logout-btn" onClick={onLogout}>{ICONS.logout} Logout</button>
       </div>

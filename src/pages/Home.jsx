@@ -43,21 +43,6 @@ export default function Home() {
             Η ιστοσελίδα που χρειάζεται η επιχείρησή σας — σχεδιασμός, κατασκευή και συντήρηση σε ένα πακέτο.
           </h1>
           <div className={styles.heroSplit}>
-            <div className={styles.heroContent}>
-              <div className={styles.heroCard}>
-                <div className={styles.heroPrice}>
-                  <span className={styles.priceAmount}>29,99€</span>
-                  <span className={styles.pricePer}>/μήνα + ΦΠΑ</span>
-                </div>
-                <p className={styles.heroSub}>
-                  Δωρεάν κατασκευή ή redesign. Domain, hosting, SEO και SSL περιλαμβάνονται.
-                </p>
-                <div className={styles.heroBtns}>
-                  <Link to="/ypiresies" className="btn">Δείτε τα Πακέτα</Link>
-                  <Link to="/epikoinwnia" className={`btn ${styles.btnOutline}`}>Επικοινωνία</Link>
-                </div>
-              </div>
-            </div>
             <div className={styles.heroMockup}>
               <Link to="/portfolio" className={styles.mockupLink}>
                 <div className={styles.mockupBrowser}>
@@ -74,6 +59,21 @@ export default function Home() {
                   />
                 </div>
               </Link>
+            </div>
+            <div className={styles.heroContent}>
+              <div className={styles.heroCard}>
+                <div className={styles.heroPrice}>
+                  <span className={styles.priceAmount}>29,99€</span>
+                  <span className={styles.pricePer}>/μήνα + ΦΠΑ</span>
+                </div>
+                <p className={styles.heroSub}>
+                  Δωρεάν κατασκευή ή redesign. Domain, hosting, SEO και SSL περιλαμβάνονται.
+                </p>
+                <div className={styles.heroBtns}>
+                  <Link to="/ypiresies" className="btn">Δείτε τα Πακέτα</Link>
+                  <Link to="/epikoinwnia" className={`btn ${styles.btnOutline}`}>Επικοινωνία</Link>
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -125,36 +125,6 @@ export default function Home() {
         {/* Ηλεκτρονική Τιμολόγηση highlight */}
         <section className={styles.invoicingHighlight}>
           <div className={styles.invoicingSplit}>
-            <div className={styles.invoicingCard}>
-              <span className={`${styles.invoicingLabel} fade-up`}>Νέα Υπηρεσία</span>
-              <h2 className="fade-up">Ηλεκτρονική Τιμολόγηση</h2>
-              <div className={`${styles.invoicingPrice} fade-up`}>
-                <span className={styles.invoicingAmount}>19,99€</span>
-                <span className={styles.invoicingPer}>/μήνα + ΦΠΑ</span>
-              </div>
-              <p className={`${styles.invoicingDesc} fade-up`}>
-                Αυτόματη έκδοση τιμολογίων και αποδείξεων μέσω πιστοποιημένου παρόχου ΑΑΔΕ.
-              </p>
-              <div className={`${styles.invoicingFeatures} fade-up`}>
-                <div className={styles.invoicingFeature}>
-                  <span className={styles.featureCheck}>✓</span>
-                  <span>Πιστοποιημένος Πάροχος ΑΑΔΕ</span>
-                </div>
-                <div className={styles.invoicingFeature}>
-                  <span className={styles.featureCheck}>✓</span>
-                  <span>Stripe Πληρωμές</span>
-                </div>
-                <div className={styles.invoicingFeature}>
-                  <span className={styles.featureCheck}>✓</span>
-                  <span>Admin Dashboard</span>
-                </div>
-                <div className={styles.invoicingFeature}>
-                  <span className={styles.featureCheck}>✓</span>
-                  <span>PDF & Email Αποστολή</span>
-                </div>
-              </div>
-              <Link to="/ypiresies" className="btn fade-up">Μάθετε Περισσότερα</Link>
-            </div>
             <div className={`${styles.invoicingPreview} fade-up`}>
               <div className={styles.previewBrowser}>
                 <div className={styles.previewBar}>
@@ -237,6 +207,36 @@ export default function Home() {
                   </div>
                 </div>
               </div>
+            </div>
+            <div className={styles.invoicingCard}>
+              <span className={`${styles.invoicingLabel} fade-up`}>Νέα Υπηρεσία</span>
+              <h2 className="fade-up">Ηλεκτρονική Τιμολόγηση</h2>
+              <div className={`${styles.invoicingPrice} fade-up`}>
+                <span className={styles.invoicingAmount}>19,99€</span>
+                <span className={styles.invoicingPer}>/μήνα + ΦΠΑ</span>
+              </div>
+              <p className={`${styles.invoicingDesc} fade-up`}>
+                Αυτόματη έκδοση τιμολογίων και αποδείξεων μέσω πιστοποιημένου παρόχου ΑΑΔΕ.
+              </p>
+              <div className={`${styles.invoicingFeatures} fade-up`}>
+                <div className={styles.invoicingFeature}>
+                  <span className={styles.featureCheck}>✓</span>
+                  <span>Πιστοποιημένος Πάροχος ΑΑΔΕ</span>
+                </div>
+                <div className={styles.invoicingFeature}>
+                  <span className={styles.featureCheck}>✓</span>
+                  <span>Stripe Πληρωμές</span>
+                </div>
+                <div className={styles.invoicingFeature}>
+                  <span className={styles.featureCheck}>✓</span>
+                  <span>Admin Dashboard</span>
+                </div>
+                <div className={styles.invoicingFeature}>
+                  <span className={styles.featureCheck}>✓</span>
+                  <span>PDF & Email Αποστολή</span>
+                </div>
+              </div>
+              <Link to="/ypiresies" className="btn fade-up">Μάθετε Περισσότερα</Link>
             </div>
           </div>
         </section>
