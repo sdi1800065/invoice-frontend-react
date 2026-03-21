@@ -63,3 +63,4 @@ All in `public/assets/` — images in `images/`, fonts in `fonts/`. Referenced w
 - **Adding an article**: Append to the array in `src/data/articles.js` → update `sitemap.xml`.
 - **ESLint rule**: Unused vars starting with uppercase or `_` are allowed (`varsIgnorePattern: '^[A-Z_]'`).
 - **Backend integration**: Contact form (`/epikoinwnia`) calls `POST /api/contact` on the backend. Checkout flow (`/checkout`) calls `POST /api/begin-checkout`.
+- **Checkout adaptive fields**: On mount, `Checkout.jsx` fetches `GET /api/checkout-config` to check `aadeValidationEnabled`. When AADE validation is ON, only email + AFM are shown for B2B. When OFF, additional manual company fields appear (Επωνυμία*, ΔΟΥ, Διεύθυνση, Πόλη, Τ.Κ.) and are sent in the `begin-checkout` payload.
