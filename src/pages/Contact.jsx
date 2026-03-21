@@ -45,12 +45,12 @@ export default function Contact() {
         <meta property="og:title" content={seo.title} />
         <meta property="og:description" content={seo.description} />
         <meta property="og:url" content="https://frameflat.gr/epikoinwnia" />
-        <meta property="og:image" content="/assets/images/og-image.png" />
+        <meta property="og:image" content="https://frameflat.gr/assets/images/og-image.png" />
         <meta property="og:locale" content="el_GR" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={seo.title} />
         <meta name="twitter:description" content={seo.description} />
-        <meta name="twitter:image" content="/assets/images/og-image.png" />
+        <meta name="twitter:image" content="https://frameflat.gr/assets/images/og-image.png" />
         <script type="application/ld+json">{JSON.stringify(contactPage)}</script>
       </Helmet>
 

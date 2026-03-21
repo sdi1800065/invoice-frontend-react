@@ -26,12 +26,12 @@ export default function ProjectPage({ title, description, images, seoTitle, seoD
         <meta property="og:title" content={seoTitle} />
         <meta property="og:description" content={seoDescription} />
         <meta property="og:url" content={canonical} />
-        <meta property="og:image" content={images[0]?.src || '/assets/images/og-image.png'} />
+        <meta property="og:image" content={images[0]?.src ? `https://frameflat.gr${images[0].src}` : 'https://frameflat.gr/assets/images/og-image.png'} />
         <meta property="og:locale" content="el_GR" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={seoTitle} />
         <meta name="twitter:description" content={seoDescription} />
-        <meta name="twitter:image" content={images[0]?.src || '/assets/images/og-image.png'} />
+        <meta name="twitter:image" content={images[0]?.src ? `https://frameflat.gr${images[0].src}` : 'https://frameflat.gr/assets/images/og-image.png'} />
       </Helmet>
 
       <Header />

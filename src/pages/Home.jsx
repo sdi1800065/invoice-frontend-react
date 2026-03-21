@@ -23,13 +23,13 @@ export default function Home() {
         <meta property="og:title" content={seo.title} />
         <meta property="og:description" content={seo.description} />
         <meta property="og:url" content="https://frameflat.gr/" />
-        <meta property="og:image" content="/assets/images/og-image.png" />
+        <meta property="og:image" content="https://frameflat.gr/assets/images/og-image.png" />
         <meta property="og:locale" content="el_GR" />
         <meta property="og:locale:alternate" content="en_US" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={seo.title} />
         <meta name="twitter:description" content={seo.description} />
-        <meta name="twitter:image" content="/assets/images/og-image.png" />
+        <meta name="twitter:image" content="https://frameflat.gr/assets/images/og-image.png" />
         <script type="application/ld+json">{JSON.stringify(homeBusiness)}</script>
       </Helmet>
 
