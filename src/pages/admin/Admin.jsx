@@ -583,7 +583,7 @@ function CustomerDetail({ customerId, navigate, toast, loadBadges, lastListView,
           {!invoices.length && !openCustomerAttempts.length ? <div className="empty">Δεν υπάρχουν {docLabel.toLowerCase()} ακόμα.</div> : (
             <table>
               <thead><tr>
-                <th>Τύπος</th><th>Αριθμός</th><th>Ημερομηνία</th><th>Καθαρή</th><th>ΦΠΑ</th><th>Σύνολο</th><th>ΜΑΡΚ</th><th>Κατάσταση</th><th>ΑΑΔΕ</th><th>Email</th><th>Ενέργειες</th><th>Αρχεία</th>
+                <th>Τύπος</th><th>Αριθμός</th><th>Ημερομηνία</th><th>Καθαρή</th><th>ΦΠΑ</th><th>Σύνολο</th><th>ΜΑΡΚ</th><th>Κατάσταση</th><th>ΑΑΔΕ</th><th>Email</th><th>Αρχεία</th><th>Ενέργειες</th>
               </tr></thead>
               <tbody>
                 {openCustomerAttempts.map(a => (
@@ -600,6 +600,7 @@ function CustomerDetail({ customerId, navigate, toast, loadBadges, lastListView,
                       ? <span style={{ fontSize: 11, fontWeight: 700, color: '#15803d' }}>✓</span>
                       : <span style={{ color: 'var(--gray-400)' }}>&mdash;</span>}</td>
                     <td style={{ color: 'var(--gray-400)' }}>&mdash;</td>
+                    <td style={{ color: 'var(--gray-400)' }}>&mdash;</td>
                     <td>{(a.status === 'failed' || a.mydata_mark) ? (
                       <div style={{ display: 'flex', gap: 4, flexWrap: 'wrap', alignItems: 'center' }}>
                         {a.status === 'failed' && a.error_stage === 'submission' && (
@@ -613,7 +614,6 @@ function CustomerDetail({ customerId, navigate, toast, loadBadges, lastListView,
                         )}
                       </div>
                     ) : <span style={{ color: 'var(--gray-400)' }}>&mdash;</span>}</td>
-                    <td style={{ color: 'var(--gray-400)' }}>&mdash;</td>
                   </tr>
                 ))}
                 {invoices.map(i => (
@@ -637,10 +637,11 @@ function CustomerDetail({ customerId, navigate, toast, loadBadges, lastListView,
                           : i.email_sent_at ? <><span style={{ fontSize: 11, color: '#15803d' }}>✓ {fmtDate(i.email_sent_at)}</span> <button className="abtn abtn-outline abtn-sm" style={{ marginLeft: 6 }} onClick={() => resendEmail(i.id)}>↺</button></>
                             : <button className="abtn abtn-danger abtn-sm" onClick={() => resendEmail(i.id)}>Αποστολή</button>}
                     </td>
-                    <td style={{ color: 'var(--gray-400)' }}>&mdash;</td>
                     <td className="gap-8">
                       <a href={`/admin/invoices/${i.id}/pdf`} target="_blank" rel="noopener noreferrer" className="abtn abtn-outline abtn-sm">PDF</a>
                       <button className="abtn abtn-outline abtn-sm" onClick={() => viewXml(i.id, i.invoice_number)}>XML</button>
+                    </td>
+                    <td style={{ color: 'var(--gray-400)' }}>
                       {i.mydata_mark && !i.cancelled_at && <button className="abtn abtn-danger abtn-sm" onClick={() => cancelDocument(i.id, i.invoice_number)}>Ακύρωση</button>}
                     </td>
                   </tr>
@@ -755,7 +756,7 @@ function Documents({ navigate, toast, openXml, loadBadges }) {
           {!error && data && hasRows && (
             <table>
               <thead><tr>
-                <th>Αριθμός</th><th>Πελάτης</th><th>Email</th><th>Ημερομηνία</th><th>Καθαρή</th><th>ΦΠΑ</th><th>Σύνολο</th><th>ΜΑΡΚ</th><th>Κατάσταση</th><th>ΑΑΔΕ</th><th>Ενέργειες</th><th>Αρχεία</th>
+                <th>Αριθμός</th><th>Πελάτης</th><th>Email</th><th>Ημερομηνία</th><th>Καθαρή</th><th>ΦΠΑ</th><th>Σύνολο</th><th>ΜΑΡΚ</th><th>Κατάσταση</th><th>ΑΑΔΕ</th><th>Αρχεία</th><th>Ενέργειες</th>
               </tr></thead>
               <tbody>
                 {openAttempts.map(a => (
@@ -772,6 +773,7 @@ function Documents({ navigate, toast, openXml, loadBadges }) {
                     <td>{a.mydata_mark
                       ? <span style={{ fontSize: 11, fontWeight: 700, color: '#15803d' }}>✓</span>
                       : <span style={{ color: 'var(--gray-400)' }}>&mdash;</span>}</td>
+                    <td style={{ color: 'var(--gray-400)' }}>&mdash;</td>
                     <td>{(a.status === 'failed' || a.mydata_mark) ? (
                       <div style={{ display: 'flex', gap: 4, flexWrap: 'wrap', alignItems: 'center' }}>
                         {a.status === 'failed' && a.error_stage === 'submission' && (
@@ -785,7 +787,6 @@ function Documents({ navigate, toast, openXml, loadBadges }) {
                         )}
                       </div>
                     ) : <span style={{ color: 'var(--gray-400)' }}>&mdash;</span>}</td>
-                    <td style={{ color: 'var(--gray-400)' }}>&mdash;</td>
                   </tr>
                 ))}
                 {data.data.map(i => (
@@ -800,10 +801,11 @@ function Documents({ navigate, toast, openXml, loadBadges }) {
                     <td><code style={{ fontSize: 11 }}>{esc(i.mydata_mark || '\u2014')}</code>{i.mydata_uid && <><br /><span style={{ fontSize: 9, color: 'var(--gray-400)' }}>UID: {i.mydata_uid.slice(0, 8)}\u2026</span></>}</td>
                     <td><StatusCell invoice={i} /></td>
                     <td><AadeCell invoice={i} /></td>
-                    <td style={{ color: 'var(--gray-400)' }}>&mdash;</td>
                     <td className="gap-8">
                       <a href={`/admin/invoices/${i.id}/pdf`} target="_blank" rel="noopener noreferrer" className="abtn abtn-outline abtn-sm">PDF</a>
                       <button className="abtn abtn-outline abtn-sm" onClick={() => viewXml(i.id, i.invoice_number)}>XML</button>
+                    </td>
+                    <td style={{ color: 'var(--gray-400)' }}>
                       {i.mydata_mark && !i.cancelled_at && <button className="abtn abtn-danger abtn-sm" onClick={() => cancelDoc(i.id, i.invoice_number)}>Ακύρωση</button>}
                     </td>
                   </tr>
@@ -877,8 +879,8 @@ function Payments({ navigate }) {
               <tbody>
                 {data.data.map((p, idx) => {
                   const cancelled = !!p.cancelled_at
-                  const invoiceFailed = p.attempt_status === 'failed'
-                  const invoicePending = p.attempt_status === 'pending'
+                  const invoiceFailed = !p.invoice_id && p.attempt_status === 'failed'
+                  const invoicePending = !p.invoice_id && p.attempt_status === 'pending'
                   const rowStyle = cancelled ? { opacity: 0.5, textDecoration: 'line-through' } : invoiceFailed ? { background: '#fef2f2' } : invoicePending ? { background: '#fffbeb' } : {}
                   return (
                     <tr key={idx} style={rowStyle}>
@@ -891,8 +893,8 @@ function Payments({ navigate }) {
                       <td>{esc(p.currency)}</td>
                       <td><span className={`pill pill-${p.payment_source === 'renewal' ? 'pending' : p.payment_source === 'manual_admin' ? 'failed' : 'success'}`} style={{ fontSize: 10 }}>{esc(sourceLabel[p.payment_source] || p.payment_source || '\u2014')}</span></td>
                       <td><StatusPill status="success" /></td>
-                      <td><StatusPill status={p.attempt_status} /></td>
-                      <td style={{ fontSize: 11, maxWidth: 200, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }} title={p.error_message || ''}>{invoiceFailed ? esc(p.error_message || '\u2014') : p.email_sent_at ? <span style={{ color: 'var(--green)' }}>✓ Email</span> : <span style={{ color: 'var(--gray-400)' }}>&mdash;</span>}</td>
+                      <td><StatusPill status={p.invoice_id ? 'success' : p.attempt_status} /></td>
+                      <td style={{ fontSize: 11, maxWidth: 200, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }} title={p.error_message || ''}>{p.invoice_id ? (p.email_sent_at ? <span style={{ color: 'var(--green)' }}>✓ Email</span> : <span style={{ color: 'var(--gray-400)' }}>&mdash;</span>) : (invoiceFailed ? esc(p.error_message || '\u2014') : <span style={{ color: 'var(--gray-400)' }}>&mdash;</span>)}</td>
                       <td>{cancelled ? <span className="pill pill-failed" style={{ fontSize: 10 }}>ΑΚΥΡΩΘΗΚΕ</span> : null}</td>
                     </tr>
                   )
@@ -966,7 +968,7 @@ function Attempts({ navigate, toast, loadBadges }) {
           {!error && data && !data.data.length && <div className="empty">Δεν βρέθηκαν {status || ''} απόπειρες.</div>}
           {!error && data?.data.length > 0 && (
             <table>
-              <thead><tr><th>Τύπος</th><th>Ημερομηνία</th><th>Πελάτης</th><th>Κατάσταση</th><th>Στάδιο</th><th>Αριθμός</th><th>ΜΑΡΚ</th><th>Ποσό</th><th>Σφάλμα</th><th></th></tr></thead>
+              <thead><tr><th>Τύπος</th><th>Ημερομηνία</th><th>Πελάτης</th><th>Κατάσταση</th><th>Στάδιο</th><th>Αριθμός</th><th>ΜΑΡΚ</th><th>Ποσό</th><th>Σφάλμα</th><th>Ενέργειες</th></tr></thead>
               <tbody>
                 {data.data.map(a => (
                   <tr key={a.id}>
