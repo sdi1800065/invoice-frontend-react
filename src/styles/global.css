@@ -45,7 +45,7 @@ html { scroll-behavior: smooth; }
 
 body {
   font-family: var(--font-body);
-  font-weight: 300;
+  font-weight: 400;
   background: var(--color-bg);
   color: var(--color-text);
   line-height: 1.6;
@@ -63,7 +63,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 /* ── Typography ── */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
-  font-weight: 700;
+  font-weight: 600;
   color: var(--color-text-dark);
   line-height: 1.2;
 }
@@ -84,7 +84,7 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: var(--btn-radius);
   border: 1px solid transparent;
   font-family: var(--font-body);
-  font-weight: 300;
+  font-weight: 400;
   font-size: 16px;
   background: var(--btn-bg);
   color: var(--btn-color);

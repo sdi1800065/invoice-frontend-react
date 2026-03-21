@@ -1,7 +1,7 @@
 :root {
   /* Typography */
-  --font-heading: 'Fira Code Bold', 'Fira Code', monospace;
-  --font-body: 'Fira Code Light Regular', 'Fira Code', monospace;
+  --font-heading: 'Outfit', sans-serif;
+  --font-body: 'Inter', sans-serif;
   --font-ui: 'Outfit', sans-serif;
   --font-secondary: 'Inter', sans-serif;
 
