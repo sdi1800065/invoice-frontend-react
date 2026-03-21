@@ -62,4 +62,4 @@ All in `public/assets/` — images in `images/`, fonts in `fonts/`. Referenced w
 - **Adding a page**: Create in `src/pages/` → add route in `App.jsx` → add SEO entry in `meta.js` → add structured data if needed → update `sitemap.xml`.
 - **Adding an article**: Append to the array in `src/data/articles.js` → update `sitemap.xml`.
 - **ESLint rule**: Unused vars starting with uppercase or `_` are allowed (`varsIgnorePattern: '^[A-Z_]'`).
-- **No backend**: Contact form has a TODO placeholder. No API calls exist.
+- **Backend integration**: Contact form (`/epikoinwnia`) calls `POST /api/contact` on the backend. Checkout flow (`/checkout`) calls `POST /api/begin-checkout`.

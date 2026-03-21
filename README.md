@@ -24,13 +24,19 @@ npm run preview   # preview production build locally
 | Route | Component | Description |
 |-------|-----------|-------------|
 | `/` | `Home` | Hero, services, drone section, website promo |
-| `/projects` | `Projects` | Portfolio grid — 3 project cards |
+| `/portfolio` | `Projects` | Portfolio grid — 3 project cards |
 | `/cretan-fleur` | `CretanFleur` | Photo gallery — Elafonisos property |
 | `/urban-suites` | `UrbanSuites` | Photo gallery — Alimos luxury suites |
 | `/athens-view` | `AthensView` | Photo gallery — Athens Acropolis-view Airbnb |
+| `/ypiresies` | `Websites` | Web design services page |
+| `/fotografia` | `Photography` | Photography services page |
 | `/epikoinwnia` | `Contact` | Contact form + social links |
 | `/blog` | `Blog` | Article listing grid |
 | `/blog/:slug` | `BlogPost` | Individual article with full SEO |
+| `/checkout` | `Checkout` | Stripe checkout flow |
+| `/checkout/success` | `CheckoutSuccess` | Post-payment confirmation |
+| `/admin` | `Admin` | Admin dashboard (session-protected) |
+| `*` | `NotFound` | 404 catch-all page |
 
 ## Assets
 
@@ -51,30 +57,18 @@ All assets are stored locally — no external CDN dependencies.
 - Twitter Card tags
 - JSON-LD structured data: `LocalBusiness` (home), `ImageGallery` (projects), `Article` (blog posts), `ItemList` (blog listing)
 - Bilingual coverage: Greek primary + English alternate in `src/seo/meta.js`
-- Static `sitemap.xml` with all 13 routes
+- Static `sitemap.xml` with all routes and blog articles
 - `robots.txt` allowing all crawlers
 
 ## Blog / Articles
 
-5 AI-written articles covering the business's core topics:
-
-1. **Γιατί η επαγγελματική φωτογράφιση αυξάνει την αξία του Airbnb σας** (el)
-2. **Drone φωτογραφία στα ακίνητα: η νέα δημιουργικότητα** (el)
-3. **5 Tips for Staging Your Property Before a Professional Photo Shoot** (en)
-4. **Πώς η επαγγελματική φωτογράφιση βελτιώνει την εκτίμηση ενός ακινήτου** (el)
-5. **The Power of Minimalism in Real Estate Photography** (en)
+12 articles covering web design, SEO, invoicing, and MyData topics (all in Greek).
 
 Article content lives in `src/data/articles.js`.
 
 ## Contact Form
 
-The contact form (`/epikoinwnia`) stubs the submission handler:
-
-```js
-// TODO: connect to backend/email service (e.g. EmailJS, Formspree, or custom API)
-```
-
-Shows a success state for UI demonstration. Wire up a real service before deployment.
+The contact form (`/epikoinwnia`) sends `POST /api/contact` to the backend with `{ email, message }`. The backend validates the input, sends an admin alert email via SMTP, and returns `{ ok: true }`. Rate limited to 5 requests per 15 minutes.
 
 ## Deployment
 

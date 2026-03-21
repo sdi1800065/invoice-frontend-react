@@ -121,14 +121,23 @@ export default function Checkout() {
         return
       }
 
-      if (!data.url || !/^https:\/\/checkout\.stripe\.com\//.test(data.url)) {
+      let stripeUrl
+      try {
+        stripeUrl = new URL(data.url)
+      } catch {
+        stripeUrl = null
+      }
+      if (!stripeUrl || stripeUrl.origin !== 'https://checkout.stripe.com') {
         setError('Κάτι πήγε στραβά. Παρακαλώ δοκιμάστε ξανά.')
         setBusy(false)
         return
       }
       window.location.href = data.url
-    } catch {
-      setError('Κάτι πήγε στραβά. Παρακαλώ δοκιμάστε ξανά.')
+    } catch (err) {
+      const msg = err instanceof TypeError
+        ? 'Αδυναμία σύνδεσης. Ελέγξτε τη σύνδεσή σας στο internet.'
+        : 'Κάτι πήγε στραβά. Παρακαλώ δοκιμάστε ξανά.'
+      setError(msg)
       setBusy(false)
     }
   }, [busy, email, afm, currentType, paymentMode, productKey])

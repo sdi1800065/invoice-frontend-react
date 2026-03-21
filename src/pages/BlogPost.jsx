@@ -1,5 +1,6 @@
 import { Helmet } from 'react-helmet-async'
 import { Link, useParams } from 'react-router-dom'
+import DOMPurify from 'dompurify'
 import Header from '../components/layout/Header'
 import Footer from '../components/layout/Footer'
 import { articles } from '../data/articles'
@@ -80,7 +81,7 @@ export default function BlogPost() {
 
           <div
             className={styles.body}
-            dangerouslySetInnerHTML={{ __html: article.body }}
+            dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(article.body) }}
           />
 
           <Link to="/blog" className={styles.back}>← Πίσω στο Blog</Link>

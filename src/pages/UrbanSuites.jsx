@@ -2,15 +2,13 @@ import ProjectPage from './ProjectPage'
 import { SEO } from '../seo/meta'
 
 const IMAGES = [
-  { src: '/assets/images/urban-suites-1.jpg', alt: 'Urban Suites 1' },
-  { src: '/assets/images/urban-suites-2.jpg', alt: 'Urban Suites 2' },
-  { src: '/assets/images/urban-suites-3.jpg', alt: 'Urban Suites 3' },
-  { src: '/assets/images/urban-suites-4.jpg', alt: 'Urban Suites 4' },
-  { src: '/assets/images/urban-suites-5.jpg', alt: 'Urban Suites 5' },
-  { src: '/assets/images/urban-suites-6.jpg', alt: 'Urban Suites 6' },
-  { src: '/assets/images/urban-suites-7.jpg', alt: 'Urban Suites 7' },
-  { src: '/assets/images/portfolio-hdr-1.jpg', alt: 'Urban Suites interior 1' },
-  { src: '/assets/images/portfolio-hdr-3.jpg', alt: 'Urban Suites interior 2' },
+  { src: '/assets/images/urban-suites-1.jpg', alt: 'Urban Suites luxury living room with modern furnishings' },
+  { src: '/assets/images/urban-suites-2.jpg', alt: 'Urban Suites bright bedroom with city view' },
+  { src: '/assets/images/urban-suites-3.jpg', alt: 'Urban Suites elegant kitchen and dining area' },
+  { src: '/assets/images/urban-suites-4.jpg', alt: 'Urban Suites stylish bathroom with marble finishes' },
+  { src: '/assets/images/urban-suites-5.jpg', alt: 'Urban Suites spacious balcony overlooking Alimos' },
+  { src: '/assets/images/urban-suites-6.jpg', alt: 'Urban Suites exterior building facade' },
+  { src: '/assets/images/urban-suites-7.jpg', alt: 'Urban Suites property entrance and landscaping' },
 ]
 
 export default function UrbanSuites() {
@@ -18,7 +16,7 @@ export default function UrbanSuites() {
   return (
     <ProjectPage
       title="Urban Suites"
-      description="Επαγγελματική φωτογράφιση πολυτελούς ακινήτου στον Άλιμο Αθήνας. Ανάδειξη εσωτερικών χώρων, αρχιτεκτονικής και θέας — υλικό ιδανικό για ιστοσελίδα ή καταχώρηση σε πλατφόρμες ενοικίασης."
+      description="Επαγγελματική φωτογράφιση πολυτελούς ακινήτου στον Άλιμο Αθήνας — ανάδειξη σύγχρονης αρχιτεκτονικής, premium εσωτερικών χώρων και θέας στη θάλασσα."
       images={IMAGES}
       seoTitle={seo.title}
       seoDescription={seo.description}
