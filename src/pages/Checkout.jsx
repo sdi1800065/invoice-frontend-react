@@ -239,12 +239,14 @@ export default function Checkout() {
         {/* Step 3: form */}
         {step === 3 && !alreadySubscribed && (
           <div>
+          <div className={styles.formHeader}>
             <button type="button" className={styles.backLink} onClick={goBack}>
               ← Αλλαγή επιλογής
             </button>
             <div className={styles.chosenBadge}>
               {currentType === 'invoice' ? '📄 Τιμολόγιο' : '🧾 Απόδειξη'}
             </div>
+          </div>
 
             <div className={styles.fieldGroup}>
               <label htmlFor="email">Email</label>
