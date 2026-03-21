@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react'
+import { useState, useCallback, useEffect } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import Header from '../components/layout/Header'
@@ -20,11 +20,24 @@ export default function Checkout() {
   const [currentType, setCurrentType] = useState(null)
   const [email, setEmail] = useState('')
   const [afm, setAfm] = useState('')
+  const [companyName, setCompanyName] = useState('')
+  const [doy, setDoy] = useState('')
+  const [address, setAddress] = useState('')
+  const [city, setCity] = useState('')
+  const [postalCode, setPostalCode] = useState('')
+  const [aadeValidation, setAadeValidation] = useState(true)
   const [error, setError] = useState('')
   const [emailInvalid, setEmailInvalid] = useState(false)
   const [afmInvalid, setAfmInvalid] = useState(false)
   const [busy, setBusy] = useState(false)
   const [alreadySubscribed, setAlreadySubscribed] = useState(false)
+
+  useEffect(() => {
+    fetch('/api/checkout-config')
+      .then(r => r.json())
+      .then(d => setAadeValidation(!!d.aadeValidationEnabled))
+      .catch(() => setAadeValidation(false))
+  }, [])
 
   const pageTitle = paymentMode === 'payment' ? 'Πληρωμή — Frameflat' : 'Συνδρομή — Frameflat'
 
@@ -95,13 +108,28 @@ export default function Checkout() {
         return
       }
       setAfmInvalid(false)
+
+      // When AADE validation is off, company name is required
+      if (!aadeValidation && !companyName.trim()) {
+        setError('Παρακαλώ συμπληρώστε την επωνυμία.')
+        return
+      }
     }
 
     setBusy(true)
 
     try {
       const payload = { email: trimmedEmail, invoiceType: currentType, paymentMode, product: productKey }
-      if (currentType === 'invoice') payload.afm = afm.trim()
+      if (currentType === 'invoice') {
+        payload.afm = afm.trim()
+        if (!aadeValidation) {
+          payload.companyName = companyName.trim()
+          payload.doy = doy.trim()
+          payload.address = address.trim()
+          payload.city = city.trim()
+          payload.postalCode = postalCode.trim()
+        }
+      }
 
       const res = await fetch('/api/begin-checkout', {
         method: 'POST',
@@ -140,7 +168,7 @@ export default function Checkout() {
       setError(msg)
       setBusy(false)
     }
-  }, [busy, email, afm, currentType, paymentMode, productKey])
+  }, [busy, email, afm, companyName, doy, address, city, postalCode, aadeValidation, currentType, paymentMode, productKey])
 
   const handleKeyDown = useCallback((e) => {
     if (e.key === 'Enter') handleSubmit()
@@ -277,6 +305,70 @@ export default function Checkout() {
                   className={afmInvalid ? styles.invalid : ''}
                 />
               </div>
+            )}
+
+            {currentType === 'invoice' && !aadeValidation && (
+              <>
+                <div className={styles.fieldGroup}>
+                  <label htmlFor="companyName">Επωνυμία *</label>
+                  <input
+                    type="text"
+                    id="companyName"
+                    placeholder="Επωνυμία επιχείρησης"
+                    value={companyName}
+                    onChange={(e) => setCompanyName(e.target.value)}
+                    onKeyDown={handleKeyDown}
+                  />
+                </div>
+                <div className={styles.fieldGroup}>
+                  <label htmlFor="doy">ΔΟΥ</label>
+                  <input
+                    type="text"
+                    id="doy"
+                    placeholder="π.χ. Α' Αθηνών"
+                    value={doy}
+                    onChange={(e) => setDoy(e.target.value)}
+                    onKeyDown={handleKeyDown}
+                  />
+                </div>
+                <div className={styles.fieldGroup}>
+                  <label htmlFor="address">Διεύθυνση</label>
+                  <input
+                    type="text"
+                    id="address"
+                    placeholder="Οδός και αριθμός"
+                    value={address}
+                    onChange={(e) => setAddress(e.target.value)}
+                    onKeyDown={handleKeyDown}
+                  />
+                </div>
+                <div className={styles.fieldRow}>
+                  <div className={styles.fieldGroup}>
+                    <label htmlFor="city">Πόλη</label>
+                    <input
+                      type="text"
+                      id="city"
+                      placeholder="Πόλη"
+                      value={city}
+                      onChange={(e) => setCity(e.target.value)}
+                      onKeyDown={handleKeyDown}
+                    />
+                  </div>
+                  <div className={styles.fieldGroup}>
+                    <label htmlFor="postalCode">Τ.Κ.</label>
+                    <input
+                      type="text"
+                      id="postalCode"
+                      maxLength={5}
+                      inputMode="numeric"
+                      placeholder="12345"
+                      value={postalCode}
+                      onChange={(e) => setPostalCode(e.target.value)}
+                      onKeyDown={handleKeyDown}
+                    />
+                  </div>
+                </div>
+              </>
             )}
 
             {error && <div className={styles.globalError}>{error}</div>}

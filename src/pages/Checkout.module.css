@@ -141,6 +141,15 @@
 
 .fieldGroup { margin-bottom: 16px; }
 
+.fieldRow {
+  display: flex;
+  gap: 12px;
+}
+
+.fieldRow .fieldGroup {
+  flex: 1;
+}
+
 .fieldGroup label {
   display: block;
   font-size: 13px;
