@@ -594,19 +594,21 @@ function CustomerDetail({ customerId, navigate, toast, loadBadges, lastListView,
                     <td style={{ color: 'var(--gray-400)' }}>&mdash;</td>
                     <td style={{ color: 'var(--gray-400)' }}>&mdash;</td>
                     <td><strong>{fmtAmt(a.amount_total)} {esc(a.currency)}</strong></td>
-                    <td style={{ color: 'var(--gray-400)' }}>&mdash;</td>
+                    <td>{a.mydata_mark ? <code style={{ fontSize: 12 }}>{esc(a.mydata_mark)}</code> : <span style={{ color: 'var(--gray-400)' }}>&mdash;</span>}</td>
                     <td><AttemptStatusCell attempt={a} /></td>
-                    <td style={{ color: 'var(--gray-400)' }}>&mdash;</td>
+                    <td>{a.mydata_mark
+                      ? <span style={{ fontSize: 11, fontWeight: 700, color: '#15803d' }}>✓</span>
+                      : <span style={{ color: 'var(--gray-400)' }}>&mdash;</span>}</td>
                     <td style={{ color: 'var(--gray-400)' }}>&mdash;</td>
                     <td>{(a.status === 'failed' || a.mydata_mark) ? (
-                      <div style={{ display: 'flex', gap: 3, flexWrap: 'wrap' }}>
+                      <div style={{ display: 'flex', gap: 4, flexWrap: 'wrap', alignItems: 'center' }}>
                         {a.status === 'failed' && a.error_stage === 'submission' && (
                           <button className="abtn abtn-primary abtn-sm" onClick={() => retryAttemptSubmission(a.id)} title="Retry ΑΑΔΕ υποβολή (μόνο όταν το submission έχει αποτύχει)">ΑΑΔΕ</button>
                         )}
                         {a.mydata_mark && (
                           <button className="abtn abtn-warning abtn-sm" onClick={() => retryAttemptEmail(a.id)} title={a.email_sent_at ? 'Εστάλη: ' + fmtDate(a.email_sent_at) + ' — κλικ για εκ νέου αποστολή' : 'Αποστολή email'}>Email{a.email_sent_at ? ' ✓' : ''}</button>
                         )}
-                        {a.status === 'failed' && (
+                        {a.status === 'failed' && !a.mydata_mark && (
                           <button className="abtn abtn-success abtn-sm" onClick={() => retryAttempt(a.id)} title="Retry ΑΑΔΕ + Email">Όλα</button>
                         )}
                       </div>
@@ -765,18 +767,20 @@ function Documents({ navigate, toast, openXml, loadBadges }) {
                     <td style={{ color: 'var(--gray-400)' }}>&mdash;</td>
                     <td style={{ color: 'var(--gray-400)' }}>&mdash;</td>
                     <td><strong>{fmtAmt(a.amount_total)} {esc(a.currency)}</strong></td>
-                    <td style={{ color: 'var(--gray-400)' }}>&mdash;</td>
+                    <td>{a.mydata_mark ? <code style={{ fontSize: 11 }}>{esc(a.mydata_mark)}</code> : <span style={{ color: 'var(--gray-400)' }}>&mdash;</span>}</td>
                     <td><AttemptStatusCell attempt={a} /></td>
-                    <td style={{ color: 'var(--gray-400)' }}>&mdash;</td>
+                    <td>{a.mydata_mark
+                      ? <span style={{ fontSize: 11, fontWeight: 700, color: '#15803d' }}>✓</span>
+                      : <span style={{ color: 'var(--gray-400)' }}>&mdash;</span>}</td>
                     <td>{(a.status === 'failed' || a.mydata_mark) ? (
-                      <div style={{ display: 'flex', gap: 3, flexWrap: 'wrap' }}>
+                      <div style={{ display: 'flex', gap: 4, flexWrap: 'wrap', alignItems: 'center' }}>
                         {a.status === 'failed' && a.error_stage === 'submission' && (
                           <button className="abtn abtn-primary abtn-sm" onClick={() => retrySubmission(a.id)} title="Retry ΑΑΔΕ υποβολή (μόνο όταν το submission έχει αποτύχει)">ΑΑΔΕ</button>
                         )}
                         {a.mydata_mark && (
                           <button className="abtn abtn-warning abtn-sm" onClick={() => retryEmail(a.id)} title={a.email_sent_at ? 'Εστάλη: ' + fmtDate(a.email_sent_at) + ' — κλικ για εκ νέου αποστολή' : 'Αποστολή email'}>Email{a.email_sent_at ? ' ✓' : ''}</button>
                         )}
-                        {a.status === 'failed' && (
+                        {a.status === 'failed' && !a.mydata_mark && (
                           <button className="abtn abtn-success abtn-sm" onClick={() => retry(a.id)} title="Retry ΑΑΔΕ + Email">Όλα</button>
                         )}
                       </div>
@@ -983,7 +987,7 @@ function Attempts({ navigate, toast, loadBadges }) {
                         {a.mydata_mark && (
                           <button className="abtn abtn-warning abtn-sm" onClick={() => retryEmail(a.id)} title={a.email_sent_at ? 'Εστάλη: ' + fmtDate(a.email_sent_at) + ' — κλικ για εκ νέου αποστολή' : 'Αποστολή email'}>Email{a.email_sent_at ? ' ✓' : ''}</button>
                         )}
-                        {a.status === 'failed' && (
+                        {a.status === 'failed' && !a.mydata_mark && (
                           <button className="abtn abtn-success abtn-sm" onClick={() => retry(a.id)} title="Retry ΑΑΔΕ + Email">Όλα</button>
                         )}
                       </div>
