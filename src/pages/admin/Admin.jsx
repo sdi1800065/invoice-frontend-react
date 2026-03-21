@@ -467,10 +467,20 @@ function CustomerDetail({ customerId, navigate, toast, loadBadges, lastListView,
     } catch (e) { toast(e.message, 'err') }
   }
 
+  const retryAttempt = async (id) => {
+    try {
+      const r = await api('POST', `/admin/attempts/${id}/retry`)
+      toast(`\u2713 ${r.invoiceNumber} \u2014 \u039c\u0391\u03a1\u039a ${r.mark}`)
+      loadCustomer(customerId)
+      loadBadges()
+    } catch (e) { toast(e.message, 'err') }
+  }
+
   if (error) return <><button className="back-btn" onClick={() => navigate(lastListView)}>← {backLabel}</button><div className="empty">Error: {error}</div></>
   if (!data) return <><button className="back-btn" onClick={() => navigate(lastListView)}>← {backLabel}</button><div className="empty">Loading\u2026</div></>
 
-  const { customer: c, invoices } = data
+  const { customer: c, invoices, attempts: customerAttempts = [] } = data
+  const openCustomerAttempts = customerAttempts.filter(a => a.status !== 'success')
   const hasInvoices = invoices.length > 0
   const isBusiness = c.customer_type === 'BUSINESS'
   const docLabel = isBusiness ? 'Τιμολόγια' : 'Αποδείξεις'
@@ -526,19 +536,38 @@ function CustomerDetail({ customerId, navigate, toast, loadBadges, lastListView,
       {/* Documents */}
       <div className="card mt24">
         <div className="card-header">
-          <h2>{docLabel} ({invoices.length})</h2>
+          <h2>{docLabel} ({invoices.length}){openCustomerAttempts.length > 0 && <span style={{ marginLeft: 8, fontSize: 12, fontWeight: 700, color: 'var(--red)' }}>&#9888; {openCustomerAttempts.length} εκκρεμεί</span>}</h2>
           <div className="gap-8">
             {invoices.length > 0 && <a href={`/admin/customers/${c.id}/invoices/zip`} className="abtn abtn-outline abtn-sm">↓ Λήψη Όλων (ZIP)</a>}
             <button className="abtn abtn-primary abtn-sm" onClick={manualIssue}>+ Χειροκίνητη Έκδοση</button>
           </div>
         </div>
         <div className="table-wrap">
-          {!invoices.length ? <div className="empty">Δεν υπάρχουν {docLabel.toLowerCase()} ακόμα.</div> : (
+          {!invoices.length && !openCustomerAttempts.length ? <div className="empty">Δεν υπάρχουν {docLabel.toLowerCase()} ακόμα.</div> : (
             <table>
               <thead><tr>
                 <th>Τύπος</th><th>Αριθμός</th><th>Ημερομηνία</th><th>Καθαρή</th><th>ΦΠΑ</th><th>Σύνολο</th><th>ΜΑΡΚ</th><th>Κατάσταση</th><th>ΑΑΔΕ</th><th>Email</th><th>Αρχεία</th>
               </tr></thead>
               <tbody>
+                {openCustomerAttempts.map(a => (
+                  <tr key={`att-${a.id}`} style={{ background: a.status === 'failed' ? '#fef2f2' : '#fffbeb' }}>
+                    <td><DocTypePill type={a.document_type} /></td>
+                    <td>{a.invoice_number ? <strong>{esc(a.invoice_number)}</strong> : <span style={{ color: 'var(--gray-400)' }}>&mdash;</span>}</td>
+                    <td style={{ whiteSpace: 'nowrap' }}>{fmtDate(a.attempted_at)}</td>
+                    <td style={{ color: 'var(--gray-400)' }}>&mdash;</td>
+                    <td style={{ color: 'var(--gray-400)' }}>&mdash;</td>
+                    <td><strong>{fmtAmt(a.amount_total)} {esc(a.currency)}</strong></td>
+                    <td style={{ color: 'var(--gray-400)' }}>&mdash;</td>
+                    <td>
+                      <StatusPill status={a.status} />
+                      {a.error_stage && <div style={{ fontSize: 10, color: 'var(--gray-600)', marginTop: 2 }}><code>{esc(a.error_stage)}</code></div>}
+                      {a.error_message && <div style={{ fontSize: 10, color: 'var(--red)', marginTop: 1, maxWidth: 160, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }} title={a.error_message}>{esc(a.error_message)}</div>}
+                    </td>
+                    <td style={{ color: 'var(--gray-400)' }}>&mdash;</td>
+                    <td style={{ color: 'var(--gray-400)' }}>&mdash;</td>
+                    <td>{a.status === 'failed' ? <button className="abtn abtn-success abtn-sm" onClick={() => retryAttempt(a.id)}>Retry</button> : <span style={{ color: 'var(--gray-400)' }}>&mdash;</span>}</td>
+                  </tr>
+                ))}
                 {invoices.map(i => (
                   <tr key={i.id}>
                     <td><DocTypePill type={i.document_type} /></td>
@@ -585,13 +614,22 @@ function Documents({ navigate, toast, openXml, loadBadges }) {
   const [search, setSearch] = useState('')
   const [searchInput, setSearchInput] = useState('')
   const [data, setData] = useState(null)
+  const [openAttempts, setOpenAttempts] = useState([])
   const [error, setError] = useState('')
 
   const load = useCallback(async () => {
     setError('')
     try {
       const q = new URLSearchParams({ page, limit: 20, documentType: docType, ...(search && { search }) })
-      setData(await api('GET', `/admin/invoices?${q}`))
+      const aq = new URLSearchParams({ limit: 100, documentType: docType })
+      const [inv, att] = await Promise.allSettled([
+        api('GET', `/admin/invoices?${q}`),
+        api('GET', `/admin/attempts?${aq}`),
+      ])
+      if (inv.status === 'fulfilled') setData(inv.value)
+      else throw new Error(inv.reason?.message || 'Error loading invoices')
+      if (att.status === 'fulfilled') setOpenAttempts((att.value.data || []).filter(a => a.status !== 'success'))
+      else setOpenAttempts([])
     } catch (e) { setError(e.message) }
   }, [page, search, docType])
 
@@ -599,6 +637,14 @@ function Documents({ navigate, toast, openXml, loadBadges }) {
 
   const switchType = (t) => { setDocType(t); setPage(1); setSearch(''); setSearchInput('') }
   const doSearch = () => { setPage(1); setSearch(searchInput) }
+
+  const retry = async (id) => {
+    try {
+      const r = await api('POST', `/admin/attempts/${id}/retry`)
+      toast(`\u2713 ${r.invoiceNumber} \u2014 \u039c\u0391\u03a1\u039a ${r.mark}`)
+      loadBadges(); load()
+    } catch (e) { toast(e.message, 'err') }
+  }
 
   const viewXml = async (invoiceId, invoiceNumber) => {
     try {
@@ -620,6 +666,7 @@ function Documents({ navigate, toast, openXml, loadBadges }) {
 
   const isInvoice = docType === 'invoice'
   const tabLabel = isInvoice ? 'τιμολόγια' : 'αποδείξεις'
+  const hasRows = openAttempts.length > 0 || (data?.data?.length > 0)
 
   return (
     <>
@@ -639,15 +686,34 @@ function Documents({ navigate, toast, openXml, loadBadges }) {
         <div className="table-wrap">
           {error && <div className="empty">Error: {error}</div>}
           {!error && !data && <div className="empty">Loading\u2026</div>}
-          {!error && data && !data.data.length && <div className="empty">Δεν βρέθηκαν {tabLabel}.</div>}
-          {!error && data?.data.length > 0 && (
+          {!error && data && !hasRows && <div className="empty">Δεν βρέθηκαν {tabLabel}.</div>}
+          {!error && data && hasRows && (
             <table>
               <thead><tr>
                 <th>Αριθμός</th><th>Πελάτης</th><th>Email</th><th>Ημερομηνία</th><th>Καθαρή</th><th>ΦΠΑ</th><th>Σύνολο</th><th>ΜΑΡΚ</th><th>Κατάσταση</th><th>ΑΑΔΕ</th><th>Αρχεία</th>
               </tr></thead>
               <tbody>
+                {openAttempts.map(a => (
+                  <tr key={`att-${a.id}`} style={{ background: a.status === 'failed' ? '#fef2f2' : '#fffbeb' }}>
+                    <td>{a.invoice_number ? <strong>{esc(a.invoice_number)}</strong> : <span style={{ color: 'var(--gray-400)' }}>&mdash;</span>}</td>
+                    <td>{a.customer_id ? <span className="clickable" onClick={() => navigate('customer', a.customer_id)}>{esc(a.customer_name || '\u2014')}</span> : esc(a.stripe_customer_id || '\u2014')}</td>
+                    <td style={{ fontSize: 12, color: 'var(--gray-600)' }}>{esc(a.customer_email || '\u2014')}</td>
+                    <td style={{ whiteSpace: 'nowrap' }}>{fmtDate(a.attempted_at)}</td>
+                    <td style={{ color: 'var(--gray-400)' }}>&mdash;</td>
+                    <td style={{ color: 'var(--gray-400)' }}>&mdash;</td>
+                    <td><strong>{fmtAmt(a.amount_total)} {esc(a.currency)}</strong></td>
+                    <td style={{ color: 'var(--gray-400)' }}>&mdash;</td>
+                    <td>
+                      <StatusPill status={a.status} />
+                      {a.error_stage && <div style={{ fontSize: 10, color: 'var(--gray-600)', marginTop: 2 }}><code>{esc(a.error_stage)}</code></div>}
+                      {a.error_message && <div style={{ fontSize: 10, color: 'var(--red)', marginTop: 1, maxWidth: 180, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }} title={a.error_message}>{esc(a.error_message)}</div>}
+                    </td>
+                    <td style={{ color: 'var(--gray-400)' }}>&mdash;</td>
+                    <td>{a.status === 'failed' ? <button className="abtn abtn-success abtn-sm" onClick={() => retry(a.id)}>Retry</button> : <span style={{ color: 'var(--gray-400)' }}>&mdash;</span>}</td>
+                  </tr>
+                ))}
                 {data.data.map(i => (
-                  <tr key={i.id}>
+                  <tr key={`inv-${i.id}`}>
                     <td><strong>{esc(i.invoice_number)}</strong></td>
                     <td>{i.customer_id ? <span className="clickable" onClick={() => navigate('customer', i.customer_id)}>{esc(i.customer_name || '\u2014')}</span> : esc(i.customer_name || '\u2014')}</td>
                     <td style={{ fontSize: 12, color: 'var(--gray-600)' }}>{esc(i.customer_email || '\u2014')}</td>
@@ -729,14 +795,14 @@ function Payments({ navigate }) {
           {!error && data?.data.length > 0 && (
             <table>
               <thead><tr>
-                <th>Ημερομηνία</th><th>Πελάτης</th><th>Email</th><th>Τύπος</th><th>Αριθμός</th><th style={{ textAlign: 'right' }}>Ποσό</th><th>Νόμ.</th><th>Πηγή</th><th>Κατάσταση</th><th>Λεπτομέρειες</th><th></th>
+                <th>Ημερομηνία</th><th>Πελάτης</th><th>Email</th><th>Τύπος</th><th>Αριθμός</th><th style={{ textAlign: 'right' }}>Ποσό</th><th>Νόμ.</th><th>Πηγή</th><th>Πληρωμή</th><th>Παραστατικό</th><th>Λεπτομέρειες</th><th></th>
               </tr></thead>
               <tbody>
                 {data.data.map((p, idx) => {
                   const cancelled = !!p.cancelled_at
-                  const failed = p.attempt_status === 'failed'
-                  const pending = p.attempt_status === 'pending'
-                  const rowStyle = cancelled ? { opacity: 0.5, textDecoration: 'line-through' } : failed ? { background: '#fef2f2' } : pending ? { background: '#fffbeb' } : {}
+                  const invoiceFailed = p.attempt_status === 'failed'
+                  const invoicePending = p.attempt_status === 'pending'
+                  const rowStyle = cancelled ? { opacity: 0.5, textDecoration: 'line-through' } : invoiceFailed ? { background: '#fef2f2' } : invoicePending ? { background: '#fffbeb' } : {}
                   return (
                     <tr key={idx} style={rowStyle}>
                       <td>{fmtDate(p.attempted_at)}</td>
@@ -747,8 +813,9 @@ function Payments({ navigate }) {
                       <td style={{ textAlign: 'right' }}><strong>{fmtAmt(p.amount_total)}</strong></td>
                       <td>{esc(p.currency)}</td>
                       <td><span className={`pill pill-${p.payment_source === 'renewal' ? 'pending' : p.payment_source === 'manual_admin' ? 'failed' : 'success'}`} style={{ fontSize: 10 }}>{esc(sourceLabel[p.payment_source] || p.payment_source || '\u2014')}</span></td>
+                      <td><StatusPill status="success" /></td>
                       <td><StatusPill status={p.attempt_status} /></td>
-                      <td style={{ fontSize: 11, maxWidth: 200, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }} title={p.error_message || ''}>{failed ? esc(p.error_message || '\u2014') : p.email_sent_at ? <span style={{ color: 'var(--green)' }}>✓ Email</span> : <span style={{ color: 'var(--gray-400)' }}>&mdash;</span>}</td>
+                      <td style={{ fontSize: 11, maxWidth: 200, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }} title={p.error_message || ''}>{invoiceFailed ? esc(p.error_message || '\u2014') : p.email_sent_at ? <span style={{ color: 'var(--green)' }}>✓ Email</span> : <span style={{ color: 'var(--gray-400)' }}>&mdash;</span>}</td>
                       <td>{cancelled ? <span className="pill pill-failed" style={{ fontSize: 10 }}>ΑΚΥΡΩΘΗΚΕ</span> : null}</td>
                     </tr>
                   )
