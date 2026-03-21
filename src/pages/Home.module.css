@@ -6,6 +6,20 @@
   overflow: hidden;
 }
 
+.scrollHint {
+  display: flex;
+  justify-content: center;
+  padding: 8px 0 16px;
+  background: var(--color-bg-alt, #f7f5f2);
+  color: var(--color-accent, #c9a96e);
+  animation: scrollBounce 1.8s ease-in-out infinite;
+}
+
+@keyframes scrollBounce {
+  0%, 100% { transform: translateY(0); opacity: 0.6; }
+  50% { transform: translateY(6px); opacity: 1; }
+}
+
 .heroTag {
   font-family: var(--font-body);
   font-size: clamp(14px, 1.5vw, 18px);
