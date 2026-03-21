@@ -204,6 +204,7 @@
 /* ── What's included ── */
 .included {
   padding: var(--section-padding);
+  background: var(--color-bg-cream);
 }
 
 .includedInner {
@@ -592,14 +593,20 @@
 /* ── How it works ── */
 .process {
   padding: var(--section-padding);
+  background: #66605c;
+  text-align: center;
+}
+
+.processInner {
   max-width: var(--max-width);
   margin: 0 auto;
-  text-align: center;
+  padding: 0 24px;
 }
 
 .process h2 {
   font-size: clamp(20px, 2.5vw, 32px);
   margin-bottom: 48px;
+  color: var(--color-text-light);
 }
 
 .processGrid {
@@ -617,7 +624,7 @@
   font-family: var(--font-heading);
   font-size: 36px;
   font-weight: 700;
-  color: var(--color-accent, #c9a96e);
+  color: var(--color-accent);
   margin-bottom: 16px;
 }
 
@@ -625,12 +632,13 @@
   font-family: var(--font-heading);
   font-size: 18px;
   margin-bottom: 10px;
+  color: var(--color-text-light);
 }
 
 .processStep p {
   font-size: 14px;
   line-height: 1.7;
-  color: var(--color-text);
+  color: rgba(255, 255, 255, 0.7);
 }
 
 /* ── Portfolio showcase ── */
@@ -727,6 +735,7 @@
 /* ── CTA Section ── */
 .ctaSection {
   padding: var(--section-padding);
+  background: var(--color-bg-cream);
 }
 
 .ctaContent {

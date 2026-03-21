@@ -36,9 +36,11 @@ export default function Blog() {
       <Header />
 
       <div className={styles.page}>
-        <div className={styles.hero}>
-          <h1>Άρθρα</h1>
-          <p>Συμβουλές και γνώσεις για ιστοσελίδες, SEO, web design και online παρουσία επιχειρήσεων.</p>
+        <div className={styles.heroWrap}>
+          <div className={styles.hero}>
+            <h1>Άρθρα</h1>
+            <p>Συμβουλές και γνώσεις για ιστοσελίδες, SEO, web design και online παρουσία επιχειρήσεων.</p>
+          </div>
         </div>
 
         <div className={styles.grid}>
@@ -57,6 +59,12 @@ export default function Blog() {
               </time>
             </article>
           ))}
+        </div>
+
+        <div className={`${styles.cta} fade-up`}>
+          <h2>Χρειάζεστε ιστοσελίδα;</h2>
+          <p>Δείτε τα πακέτα μας ή επικοινωνήστε μαζί μας — ξεκινάμε χωρίς αρχικό κόστος.</p>
+          <Link to="/istoselides" className="btn">Ιστοσελίδες</Link>
         </div>
       </div>
 

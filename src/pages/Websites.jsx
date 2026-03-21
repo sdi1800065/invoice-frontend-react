@@ -68,12 +68,14 @@ export default function Websites() {
       <Header />
 
       <div className={styles.page}>
-        <div className={styles.hero}>
-          <h1 className="fade-up">Υπηρεσίες</h1>
-          <p className="fade-up">
-            Αποκτήστε επαγγελματική ιστοσελίδα με συνδρομητικό πακέτο — κατασκευή ή
-            ανανέωση δωρεάν, domain, hosting και συντήρηση περιλαμβάνονται.
-          </p>
+        <div className={styles.heroWrap}>
+          <div className={styles.hero}>
+            <h1 className="fade-up">Υπηρεσίες</h1>
+            <p className="fade-up">
+              Αποκτήστε επαγγελματική ιστοσελίδα με συνδρομητικό πακέτο — κατασκευή ή
+              ανανέωση δωρεάν, domain, hosting και συντήρηση περιλαμβάνονται.
+            </p>
+          </div>
         </div>
 
         {/* Pricing cards — side by side */}

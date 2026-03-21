@@ -250,22 +250,24 @@ export default function Home() {
 
         {/* How it works */}
         <section className={styles.process}>
-          <h2 className="fade-up">Πώς δουλεύουμε</h2>
-          <div className={styles.processGrid}>
-            <div className={`${styles.processStep} fade-up`}>
-              <span className={styles.stepNum}>01</span>
-              <h3>Συζήτηση & Σχεδιασμός</h3>
-              <p>Μαθαίνουμε τις ανάγκες της επιχείρησής σας και σχεδιάζουμε τη δομή και την αισθητική της ιστοσελίδας.</p>
-            </div>
-            <div className={`${styles.processStep} fade-up`}>
-              <span className={styles.stepNum}>02</span>
-              <h3>Κατασκευή & Ανάπτυξη</h3>
-              <p>Δημιουργούμε την ιστοσελίδα σας με καθαρό κώδικα, responsive σχεδιασμό και βελτιστοποίηση SEO.</p>
-            </div>
-            <div className={`${styles.processStep} fade-up`}>
-              <span className={styles.stepNum}>03</span>
-              <h3>Παράδοση & Συντήρηση</h3>
-              <p>Η ιστοσελίδα σας γίνεται live και εμείς αναλαμβάνουμε τη συνεχή συντήρηση.</p>
+          <div className={styles.processInner}>
+            <h2 className="fade-up">Πώς δουλεύουμε</h2>
+            <div className={styles.processGrid}>
+              <div className={`${styles.processStep} fade-up`}>
+                <span className={styles.stepNum}>01</span>
+                <h3>Συζήτηση & Σχεδιασμός</h3>
+                <p>Μαθαίνουμε τις ανάγκες της επιχείρησής σας και σχεδιάζουμε τη δομή και την αισθητική της ιστοσελίδας.</p>
+              </div>
+              <div className={`${styles.processStep} fade-up`}>
+                <span className={styles.stepNum}>02</span>
+                <h3>Κατασκευή & Ανάπτυξη</h3>
+                <p>Δημιουργούμε την ιστοσελίδα σας με καθαρό κώδικα, responsive σχεδιασμό και βελτιστοποίηση SEO.</p>
+              </div>
+              <div className={`${styles.processStep} fade-up`}>
+                <span className={styles.stepNum}>03</span>
+                <h3>Παράδοση & Συντήρηση</h3>
+                <p>Η ιστοσελίδα σας γίνεται live και εμείς αναλαμβάνουμε τη συνεχή συντήρηση.</p>
+              </div>
             </div>
           </div>
         </section>

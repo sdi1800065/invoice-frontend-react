@@ -1,8 +1,8 @@
 :root {
   /* Typography */
-  --font-heading: 'Outfit', sans-serif;
+  --font-heading: 'EB Garamond', 'Georgia', serif;
   --font-body: 'Inter', sans-serif;
-  --font-ui: 'Outfit', sans-serif;
+  --font-ui: 'Inter', sans-serif;
   --font-secondary: 'Inter', sans-serif;
 
   /* Colours — extracted from Zyrosite computed styles */
@@ -14,6 +14,7 @@
   --color-accent: #c9a96e;
   --color-accent-dark: #b8934d;
   --color-accent-light: #e8d9b8;
+  --color-bg-cream: #faf6ef;
   --color-border: #dadce0;
   --color-gray: #727586;
   --color-gray-light: #f2f3f6;

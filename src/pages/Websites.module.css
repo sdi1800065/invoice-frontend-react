@@ -3,6 +3,10 @@
   min-height: 100vh;
 }
 
+.heroWrap {
+  background: var(--color-bg-cream);
+}
+
 .hero {
   padding: 60px 24px 40px;
   max-width: var(--max-width);

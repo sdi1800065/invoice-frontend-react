@@ -54,12 +54,14 @@ export default function Photography() {
       <Header />
 
       <div className={styles.page}>
-        <div className={styles.hero}>
-          <h1 className="fade-up">Επαγγελματική Φωτογράφιση</h1>
-          <p className="fade-up">
-            Αναδεικνύουμε τον χώρο, το προϊόν ή την επιχείρησή σας
-            με φωτογραφίες υψηλής ποιότητας και drone λήψεις.
-          </p>
+        <div className={styles.heroWrap}>
+          <div className={styles.hero}>
+            <h1 className="fade-up">Επαγγελματική Φωτογράφιση</h1>
+            <p className="fade-up">
+              Αναδεικνύουμε τον χώρο, το προϊόν ή την επιχείρησή σας
+              με φωτογραφίες υψηλής ποιότητας και drone λήψεις.
+            </p>
+          </div>
         </div>
 
         {/* Pricing */}

@@ -57,12 +57,17 @@ export default function Contact() {
       <Header />
 
       <div className={styles.page}>
+        <div className={styles.heroWrap}>
+          <div className={styles.hero}>
+            <h1>Επικοινωνία</h1>
+            <p className={styles.subtitle}>
+              Μη διστάσετε να επικοινωνήσετε μαζί μας για κατασκευή ιστοσελίδας, συντήρηση,
+              redesign ή φωτογράφιση ακινήτων. Είμαστε εδώ για να βοηθήσουμε!
+            </p>
+          </div>
+        </div>
+
         <div className={styles.inner}>
-          <h1>Επικοινωνία</h1>
-          <p className={styles.subtitle}>
-            Μη διστάσετε να επικοινωνήσετε μαζί μας για κατασκευή ιστοσελίδας, συντήρηση,
-            redesign ή φωτογράφιση ακινήτων. Είμαστε εδώ για να βοηθήσουμε!
-          </p>
 
           {status === 'sent' ? (
             <div className={styles.success}>

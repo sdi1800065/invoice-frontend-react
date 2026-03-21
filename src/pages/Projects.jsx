@@ -52,9 +52,11 @@ export default function Projects() {
       <Header />
 
       <div className={styles.page}>
-        <div className={styles.hero}>
-          <h1>Portfolio</h1>
-          <p>Ιστοσελίδες που έχουμε σχεδιάσει, κατασκευάσει και συντηρούμε για πελάτες μας.</p>
+        <div className={styles.heroWrap}>
+          <div className={styles.hero}>
+            <h1>Τα έργα μας</h1>
+            <p>Ιστοσελίδες που έχουμε σχεδιάσει, κατασκευάσει και συντηρούμε για πελάτες μας.</p>
+          </div>
         </div>
 
         <div className={styles.websiteGrid}>
