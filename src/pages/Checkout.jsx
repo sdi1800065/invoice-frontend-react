@@ -1,13 +1,22 @@
 import { useState, useCallback } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
+import Header from '../components/layout/Header'
+import Footer from '../components/layout/Footer'
 import styles from './Checkout.module.css'
+
+const PRODUCTS = {
+  webdesign: { label: 'Web Design & Maintenance', net: 29.99, gross: 37.19 },
+  invoicing: { label: 'Ηλεκτρονική Τιμολόγηση', net: 19.99, gross: 24.79 },
+}
+const BUNDLE_GROSS = 61.98
 
 export default function Checkout() {
   const [searchParams] = useSearchParams()
   const paymentMode = searchParams.get('mode') === 'payment' ? 'payment' : 'subscription'
 
   const [step, setStep] = useState(1)
+  const [selectedProducts, setSelectedProducts] = useState({ webdesign: false, invoicing: false })
   const [currentType, setCurrentType] = useState(null)
   const [email, setEmail] = useState('')
   const [afm, setAfm] = useState('')
@@ -17,19 +26,54 @@ export default function Checkout() {
   const [busy, setBusy] = useState(false)
   const [alreadySubscribed, setAlreadySubscribed] = useState(false)
 
-  const pageTitle = paymentMode === 'payment' ? 'Πληρωμή — Frameflat' : 'Εγγραφή — Frameflat'
+  const pageTitle = paymentMode === 'payment' ? 'Πληρωμή — Frameflat' : 'Συνδρομή — Frameflat'
+
+  const hasSelection = selectedProducts.webdesign || selectedProducts.invoicing
+  const bothSelected = selectedProducts.webdesign && selectedProducts.invoicing
+
+  const totalGross = bothSelected
+    ? BUNDLE_GROSS
+    : selectedProducts.webdesign
+      ? PRODUCTS.webdesign.gross
+      : selectedProducts.invoicing
+        ? PRODUCTS.invoicing.gross
+        : 0
+
+  const productKey = bothSelected
+    ? 'bundle'
+    : selectedProducts.webdesign
+      ? 'webdesign'
+      : 'invoicing'
+
+  const toggleProduct = useCallback((key) => {
+    setSelectedProducts(prev => ({ ...prev, [key]: !prev[key] }))
+    setError('')
+  }, [])
+
+  const goToDocType = useCallback(() => {
+    if (!hasSelection) {
+      setError('Παρακαλώ επιλέξτε τουλάχιστον μία υπηρεσία.')
+      return
+    }
+    setStep(2)
+    setError('')
+  }, [hasSelection])
 
   const goToForm = useCallback((type) => {
     setCurrentType(type)
-    setStep(2)
+    setStep(3)
     setError('')
   }, [])
 
   const goBack = useCallback(() => {
-    setStep(1)
-    setCurrentType(null)
+    if (step === 3) {
+      setStep(2)
+      setCurrentType(null)
+    } else {
+      setStep(1)
+    }
     setError('')
-  }, [])
+  }, [step])
 
   const handleSubmit = useCallback(async () => {
     if (busy) return
@@ -56,7 +100,7 @@ export default function Checkout() {
     setBusy(true)
 
     try {
-      const payload = { email: trimmedEmail, invoiceType: currentType, paymentMode }
+      const payload = { email: trimmedEmail, invoiceType: currentType, paymentMode, product: productKey }
       if (currentType === 'invoice') payload.afm = afm.trim()
 
       const res = await fetch('/api/begin-checkout', {
@@ -87,26 +131,82 @@ export default function Checkout() {
       setError('Κάτι πήγε στραβά. Παρακαλώ δοκιμάστε ξανά.')
       setBusy(false)
     }
-  }, [busy, email, afm, currentType, paymentMode])
+  }, [busy, email, afm, currentType, paymentMode, productKey])
 
   const handleKeyDown = useCallback((e) => {
     if (e.key === 'Enter') handleSubmit()
   }, [handleSubmit])
 
   return (
-    <div className={styles.wrapper}>
+    <div className="page">
       <Helmet>
         <title>{pageTitle}</title>
       </Helmet>
+      <Header />
+      <main className={styles.wrapper}>
+        <div className={styles.checkout}>
 
-      <div className={styles.checkout}>
-        <div className={styles.logo}>
-          <img src="/assets/images/logo.png" alt="Frameflat" />
-        </div>
-
-        {/* Step 1: type selection */}
+        {/* Step 1: product selection */}
         {step === 1 && (
           <div>
+            <div className={styles.stepTitle}>Επιλέξτε υπηρεσίες</div>
+            <div className={styles.productCards}>
+              <label className={`${styles.productCard} ${selectedProducts.webdesign ? styles.productCardSelected : ''}`}>
+                <input
+                  type="checkbox"
+                  checked={selectedProducts.webdesign}
+                  onChange={() => toggleProduct('webdesign')}
+                  className={styles.productCheckbox}
+                />
+                <div className={styles.productInfo}>
+                  <div className={styles.productName}>{PRODUCTS.webdesign.label}</div>
+                  <div className={styles.productPrice}>
+                    {PRODUCTS.webdesign.net.toFixed(2).replace('.', ',')}€ + 24% ΦΠΑ = <strong>{PRODUCTS.webdesign.gross.toFixed(2).replace('.', ',')}€</strong> / μήνα
+                  </div>
+                </div>
+              </label>
+              <label className={`${styles.productCard} ${selectedProducts.invoicing ? styles.productCardSelected : ''}`}>
+                <input
+                  type="checkbox"
+                  checked={selectedProducts.invoicing}
+                  onChange={() => toggleProduct('invoicing')}
+                  className={styles.productCheckbox}
+                />
+                <div className={styles.productInfo}>
+                  <div className={styles.productName}>{PRODUCTS.invoicing.label}</div>
+                  <div className={styles.productPrice}>
+                    {PRODUCTS.invoicing.net.toFixed(2).replace('.', ',')}€ + 24% ΦΠΑ = <strong>{PRODUCTS.invoicing.gross.toFixed(2).replace('.', ',')}€</strong> / μήνα
+                  </div>
+                </div>
+              </label>
+            </div>
+
+            {hasSelection && (
+              <div className={styles.totalBar}>
+                <span>Σύνολο:</span>
+                <strong>{totalGross.toFixed(2).replace('.', ',')}€ / μήνα</strong>
+              </div>
+            )}
+
+            {error && <div className={styles.globalError}>{error}</div>}
+
+            <button
+              type="button"
+              className={styles.submitBtn}
+              onClick={goToDocType}
+              disabled={!hasSelection}
+            >
+              Συνέχεια →
+            </button>
+          </div>
+        )}
+
+        {/* Step 2: document type selection */}
+        {step === 2 && (
+          <div>
+            <button type="button" className={styles.backLink} onClick={goBack}>
+              ← Αλλαγή υπηρεσιών
+            </button>
             <div className={styles.stepTitle}>Τύπος παραστατικού</div>
             <div className={styles.typeCards}>
               <div className={styles.typeCard} onClick={() => goToForm('receipt')}>
@@ -127,8 +227,8 @@ export default function Checkout() {
           </div>
         )}
 
-        {/* Step 2: form */}
-        {step === 2 && !alreadySubscribed && (
+        {/* Step 3: form */}
+        {step === 3 && !alreadySubscribed && (
           <div>
             <button type="button" className={styles.backLink} onClick={goBack}>
               ← Αλλαγή επιλογής
@@ -195,7 +295,9 @@ export default function Checkout() {
             </div>
           </div>
         )}
-      </div>
+        </div>
+      </main>
+      <Footer />
     </div>
   )
 }

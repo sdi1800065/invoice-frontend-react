@@ -9,8 +9,8 @@ export default function CheckoutSuccess() {
   const mode = searchParams.get('mode')
   const isSubscription = mode === 'subscription'
 
-  const heading = isSubscription ? 'Η εγγραφή ολοκληρώθηκε!' : 'Η πληρωμή ολοκληρώθηκε!'
-  const title = isSubscription ? 'Εγγραφή ολοκληρώθηκε — Frameflat' : 'Πληρωμή ολοκληρώθηκε — Frameflat'
+  const heading = isSubscription ? 'Η συνδρομή ολοκληρώθηκε!' : 'Η πληρωμή ολοκληρώθηκε!'
+  const title = isSubscription ? 'Συνδρομή ολοκληρώθηκε — Frameflat' : 'Πληρωμή ολοκληρώθηκε — Frameflat'
 
   const [countdown, setCountdown] = useState(5)
 
