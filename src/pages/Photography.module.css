@@ -63,7 +63,7 @@
   font-family: var(--font-heading);
   font-size: 42px;
   font-weight: 700;
-  color: var(--color-text-dark, #1a1a1a);
+  color: var(--color-accent);
   line-height: 1;
 }
 

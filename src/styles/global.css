@@ -105,6 +105,17 @@ h1, h2, h3, h4, h5, h6 {
   border-color: var(--color-accent);
 }
 
+/* Accent-filled button */
+.btn--accent {
+  background: var(--color-accent);
+  color: #fff;
+  border-color: var(--color-accent);
+}
+.btn--accent:hover {
+  background: var(--color-accent-dark);
+  border-color: var(--color-accent-dark);
+}
+
 /* ── Page layout ── */
 .page { min-height: 100vh; display: flex; flex-direction: column; }
 main { flex: 1; }

@@ -91,6 +91,7 @@
 
 .mockupLink:hover .mockupBrowser {
   box-shadow: 0 20px 56px rgba(0,0,0,0.2);
+  border-color: var(--color-accent);
 }
 
 .mockupCaption {
@@ -165,7 +166,7 @@
   font-family: var(--font-heading);
   font-size: clamp(32px, 4vw, 46px);
   font-weight: 700;
-  color: var(--color-text-dark, #1a1a1a);
+  color: var(--color-accent);
   line-height: 1;
 }
 
@@ -192,11 +193,12 @@
 
 .btnOutline {
   background: transparent !important;
-  border: 1.5px solid var(--color-text-dark, #1a1a1a) !important;
-  color: var(--color-text-dark, #1a1a1a) !important;
+  border: 1.5px solid var(--color-accent) !important;
+  color: var(--color-accent) !important;
 }
 .btnOutline:hover {
-  background: rgba(0,0,0,0.04) !important;
+  background: rgba(201, 169, 110, 0.08) !important;
+  color: var(--color-accent-dark) !important;
 }
 
 /* ── What's included ── */
@@ -494,8 +496,8 @@
   font-size: 11px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--color-text);
-  border: 1px solid var(--color-border, #dadce0);
+  color: var(--color-accent);
+  border: 1px solid var(--color-accent);
   border-radius: 20px;
   padding: 5px 16px;
   margin-bottom: 20px;
@@ -518,7 +520,7 @@
   font-family: var(--font-heading);
   font-size: clamp(32px, 4vw, 42px);
   font-weight: 700;
-  color: var(--color-text-dark, #1a1a1a);
+  color: var(--color-accent);
   line-height: 1;
 }
 
@@ -666,6 +668,7 @@
 .portfolioCard:hover {
   box-shadow: 0 8px 32px rgba(0,0,0,0.12);
   transform: translateY(-3px);
+  border-color: var(--color-accent);
 }
 
 .browserBar {

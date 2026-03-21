@@ -61,7 +61,7 @@
   font-family: var(--font-heading);
   font-size: 42px;
   font-weight: 700;
-  color: var(--color-text-dark, #1a1a1a);
+  color: var(--color-accent);
   line-height: 1;
 }
 
@@ -141,6 +141,7 @@
 .card:hover {
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.14);
   transform: translateY(-4px);
+  border-color: var(--color-accent);
 }
 
 /* Browser chrome */
@@ -212,13 +213,13 @@
   margin-top: 18px;
   font-size: 13px;
   font-weight: 500;
-  color: var(--color-text-dark);
+  color: var(--color-accent);
   letter-spacing: 0.03em;
-  transition: opacity var(--transition);
+  transition: color var(--transition);
 }
 
 .card:hover .visitLink {
-  opacity: 0.6;
+  color: var(--color-accent-dark);
 }
 
 /* CTA strip */

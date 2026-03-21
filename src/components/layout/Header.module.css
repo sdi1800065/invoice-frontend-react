@@ -53,10 +53,14 @@
   color: var(--color-text-dark);
 }
 
-.navLink:hover { opacity: 0.7; }
+.navLink:hover {
+  color: var(--color-accent);
+  opacity: 1;
+}
 
 .navLink.active {
-  opacity: 0.7;
+  color: var(--color-accent);
+  opacity: 1;
 }
 
 /* CTA button */
@@ -64,16 +68,16 @@
   display: inline-flex;
   align-items: center;
   padding: 8px 20px;
-  background: var(--color-text-dark);
+  background: var(--color-accent);
   color: #fff;
   font-family: var(--font-body);
   font-size: 14px;
   font-weight: 500;
   border-radius: 6px;
   letter-spacing: 0.02em;
-  transition: opacity var(--transition);
+  transition: background var(--transition);
 }
-.ctaBtn:hover { opacity: 0.85; }
+.ctaBtn:hover { background: var(--color-accent-dark); }
 
 /* Hamburger */
 .hamburger {
@@ -137,14 +141,14 @@
   white-space: nowrap;
   transition: opacity var(--transition);
 }
-.dropdownLink:hover { opacity: 0.6; }
-.dropdownLink.active { opacity: 0.6; }
+.dropdownLink:hover { color: var(--color-accent); opacity: 1; }
+.dropdownLink.active { color: var(--color-accent); opacity: 1; }
 
 .dropdownCta {
   display: block;
   margin: 8px 16px 0;
   padding: 10px 20px;
-  background: var(--color-text-dark);
+  background: var(--color-accent);
   color: #fff;
   font-family: var(--font-body);
   font-size: 14px;
