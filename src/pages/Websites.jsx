@@ -2,6 +2,8 @@ import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import Header from '../components/layout/Header'
 import Footer from '../components/layout/Footer'
+import { SEO } from '../seo/meta'
+import { websiteService } from '../seo/structuredData'
 import { useScrollReveal } from '../hooks/useScrollReveal'
 import styles from './Websites.module.css'
 
@@ -22,149 +24,178 @@ const PORTFOLIO = [
   },
 ]
 
-const FEATURES = [
-  { title: 'Κατασκευή από το Μηδέν', desc: 'Σχεδιάζουμε και αναπτύσσουμε την ιστοσελίδα σας εξ ολοκλήρου — δωρεάν στο πλαίσιο της συνδρομής σας.' },
-  { title: 'Ανανέωση & Redesign', desc: 'Έχετε ήδη ιστοσελίδα αλλά δείχνει παλιά; Την εκσυγχρονίζουμε πλήρως χωρίς επιπλέον κόστος.' },
-  { title: 'Domain & Hosting', desc: 'Δικό σας domain (.gr ή .com) και hosting υψηλής ταχύτητας — όλα περιλαμβάνονται στη συνδρομή.' },
-  { title: 'SSL & Ασφάλεια', desc: 'Πιστοποιητικό SSL, τακτικά backups και προστασία από απειλές — χωρίς κρυφές χρεώσεις.' },
-  { title: 'SEO Βελτιστοποίηση', desc: 'On-page SEO, δομημένα δεδομένα και τεχνική βελτιστοποίηση ώστε να σας βρίσκουν στο Google.' },
+const CHECKLIST = [
+  'MyData integration',
+  'Stripe payments',
+  'Automated Reporting',
+  'API Connectivity',
+]
+
+const STATS = [
+  { value: '99.9%', label: 'Uptime' },
+  { value: 'SEO', label: 'Optimized' },
+  { value: '7 Days', label: 'Delivery' },
+  { value: 'SSL+', label: 'Security' },
 ]
 
 export default function Websites() {
+  const seo = SEO.websites.el
   useScrollReveal()
 
   return (
     <div className="page">
       <Helmet>
         <html lang="el" />
-        <title>Υπηρεσίες — Ιστοσελίδες & Ηλεκτρονική Τιμολόγηση | Frameflat</title>
-        <meta
-          name="description"
-          content="Κατασκευή ιστοσελίδων από 29,99€/μήνα + ΦΠΑ και ηλεκτρονική τιμολόγηση από 19,99€/μήνα + ΦΠΑ. Domain, hosting, SSL, ΑΑΔΕ MyData, admin dashboard."
-        />
-        <meta
-          name="keywords"
-          content="κατασκευή ιστοσελίδων, κατασκευή website, ιστοσελίδα τιμή, φθηνή ιστοσελίδα, ηλεκτρονική τιμολόγηση, e-invoicing, ΑΑΔΕ MyData, etimologiera, web design Ελλάδα, frameflat"
-        />
-        <link rel="canonical" href="https://frameflat.gr/ypiresies" />
+        <title>{seo.title}</title>
+        <meta name="description" content={seo.description} />
+        <meta name="keywords" content={seo.keywords} />
+        <link rel="canonical" href="https://Everyweb.gr/ypiresies" />
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="Υπηρεσίες — Ιστοσελίδες & Ηλεκτρονική Τιμολόγηση | Frameflat" />
-        <meta
-          property="og:description"
-          content="Ιστοσελίδες από 29,99€/μήνα και ηλεκτρονική τιμολόγηση από 19,99€/μήνα + ΦΠΑ."
-        />
-        <meta property="og:url" content="https://frameflat.gr/ypiresies" />
-        <meta property="og:image" content="/assets/images/kastoria-preview.jpg" />
+        <meta property="og:title" content={seo.title} />
+        <meta property="og:description" content={seo.description} />
+        <meta property="og:url" content="https://Everyweb.gr/ypiresies" />
+        <meta property="og:image" content="https://Everyweb.gr/assets/images/kastoria-preview.jpg" />
         <meta property="og:locale" content="el_GR" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Υπηρεσίες — Ιστοσελίδες & Ηλεκτρονική Τιμολόγηση | Frameflat" />
-        <meta
-          name="twitter:description"
-          content="Ιστοσελίδες από 29,99€/μήνα και ηλεκτρονική τιμολόγηση από 19,99€/μήνα + ΦΠΑ."
-        />
-        <meta name="twitter:image" content="/assets/images/kastoria-preview.jpg" />
+        <meta name="twitter:title" content={seo.title} />
+        <meta name="twitter:description" content={seo.description} />
+        <meta name="twitter:image" content="https://Everyweb.gr/assets/images/kastoria-preview.jpg" />
+        <script type="application/ld+json">{JSON.stringify(websiteService)}</script>
       </Helmet>
 
       <Header />
 
-      <div className={styles.page}>
-        <div className={styles.heroWrap}>
-          <div className={styles.hero}>
-            <h1 className="fade-up">Υπηρεσίες</h1>
+      <main className={styles.page}>
+        {/* ── Hero ── */}
+        <section className={`${styles.hero} pixel-grid`}>
+          <div className={styles.heroInner}>
+            <span className={`${styles.label} fade-up`}>Digital Presence</span>
+            <h1 className="fade-up">
+              Σχεδιασμένο για <span className={styles.accent}>Επιτυχία.</span>
+            </h1>
             <p className="fade-up">
-              Αποκτήστε επαγγελματική ιστοσελίδα με συνδρομητικό πακέτο — κατασκευή ή
-              ανανέωση δωρεάν, domain, hosting και συντήρηση περιλαμβάνονται.
+              Αναβαθμίστε την ψηφιακή σας παρουσία με tailor-made υπηρεσίες
+              σχεδιασμένες για σύγχρονες επιχειρήσεις.
             </p>
           </div>
-        </div>
+        </section>
 
-        {/* Pricing cards — side by side */}
-        <div className={`${styles.pricingGrid} fade-up`}>
-          <div className={styles.priceCard}>
-            <h2>Κατασκευή Ιστοσελίδας</h2>
-            <div className={styles.priceRow}>
-              <span className={styles.priceAmount}>29,99€</span>
-              <span className={styles.pricePer}>/μήνα + ΦΠΑ</span>
-            </div>
-            <p>
-              Δωρεάν κατασκευή ιστοσελίδας από το μηδέν ή πλήρης ανανέωση (redesign) της υπάρχουσας.
-              Domain, hosting υψηλής ταχύτητας, SSL και SEO βελτιστοποίηση — όλα
-              μέσα στη μηνιαία συνδρομή σας.
-            </p>
-            <ul className={styles.priceFeatures}>
-              {FEATURES.map((f) => (
-                <li key={f.title}>{f.title}</li>
-              ))}
-            </ul>
-            <Link to="/checkout" className="btn">Ξεκινήστε Τώρα</Link>
-          </div>
-
-          <div className={styles.priceCard}>
-            <h2>Ηλεκτρονική Τιμολόγηση</h2>
-            <div className={styles.priceRow}>
-              <span className={styles.priceAmount}>19,99€</span>
-              <span className={styles.pricePer}>/μήνα + ΦΠΑ</span>
-            </div>
-            <p>
-              Αυτόματη έκδοση τιμολογίων και αποδείξεων μέσω πιστοποιημένου παρόχου
-              (etimologiera), διαβίβαση στην ΑΑΔΕ MyData, δημιουργία PDF και αποστολή email.
-              Πλήρες admin dashboard για τη διαχείριση πελατών και παραστατικών.
-            </p>
-            <p className={styles.providerNote}>
-              * Η etimologiera χρεώνει ξεχωριστά ως πιστοποιημένος πάροχος — είναι η οικονομικότερη επιλογή στην αγορά.
-            </p>
-            <ul className={styles.priceFeatures}>
-              <li>Αυτόματη Τιμολόγηση</li>
-              <li>Πιστοποιημένος Πάροχος ΑΑΔΕ</li>
-              <li>Stripe Πληρωμές</li>
-              <li>Admin Dashboard</li>
-              <li>PDF & Email Αποστολή</li>
-            </ul>
-            <Link to="/epikoinwnia" className="btn">Ξεκινήστε Τώρα</Link>
-          </div>
-        </div>
-
-        {/* Portfolio section */}
-        <div className={styles.sectionHeader}>
-          <h2 className="fade-up">Δουλειές μας</h2>
-          <p className="fade-up">Ιστοσελίδες που έχουμε σχεδιάσει και κατασκευάσει για πελάτες μας.</p>
-        </div>
-
-        <div className={styles.grid}>
-          {PORTFOLIO.map((site) => (
-            <a
-              key={site.domain}
-              href={site.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`${styles.card} fade-up`}
-            >
-              <div className={styles.frame}>
-                <div className={styles.bar}>
-                  <span className={styles.dot} />
-                  <span className={styles.dot} />
-                  <span className={styles.dot} />
-                  <span className={styles.domain}>{site.domain}</span>
-                </div>
-                <img src={site.image} alt={site.name} loading="lazy" />
+        {/* ── Bento Grid ── */}
+        <section className={styles.bento}>
+          {/* Card 1 — Website Design & Maintenance (full width) */}
+          <div className={`${styles.cardHero} fade-up`}>
+            <div className={styles.cardHeroText}>
+              <span className={styles.label}>Flagship Service</span>
+              <h2>Website Design &amp; Maintenance</h2>
+              <div className={styles.tags}>
+                <span className={styles.tag}>MOBILE-FIRST</span>
+                <span className={styles.tag}>CUSTOM BUILD</span>
+                <span className={styles.tag}>ENTERPRISE HOSTING</span>
               </div>
-              <div className={styles.info}>
-                <h2>{site.name}</h2>
-                <p>{site.description}</p>
-                <span className={styles.visitLink}>
-                  Επίσκεψη →
-                </span>
+              <p>
+                Αποκτήστε επαγγελματική ιστοσελίδα χωρίς αρχικό κόστος κατασκευής.
+                Domain, hosting, SSL, SEO και συνεχής συντήρηση — όλα σε μία μηνιαία συνδρομή.
+              </p>
+              <div className={styles.priceRow}>
+                <span className={styles.price}>€29.99</span>
+                <span className={styles.pricePer}>/mo</span>
               </div>
-            </a>
-          ))}
-        </div>
+              <Link to="/epikoinwnia" className="btn">Consultation</Link>
+            </div>
+            <Link to="/portfolio" className={styles.cardHeroImage}>
+              <div className={styles.mockupBar}>
+                <span className={styles.mockupDot} />
+                <span className={styles.mockupDot} />
+                <span className={styles.mockupDot} />
+                <span className={styles.mockupUrl}>edrano.gr</span>
+              </div>
+              <div className={styles.mockupScreen}>
+                <img
+                  src="/assets/images/edrano-preview.jpg"
+                  alt="Προεπισκόπηση ιστοσελίδας — Έδρανο"
+                  loading="lazy"
+                />
+              </div>
+              <div className={styles.mockupLabel}>
+                <span>Δείτε τα έργα μας</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M5 12h14" />
+                  <path d="M12 5l7 7-7 7" />
+                </svg>
+              </div>
+            </Link>
+          </div>
 
-        <div className={`${styles.cta} fade-up`}>
-          <h2>Θέλετε επαγγελματική ιστοσελίδα ή αυτόματη τιμολόγηση;</h2>
-          <p>Επικοινωνήστε μαζί μας και ξεκινάμε αμέσως — χωρίς αρχικό κόστος κατασκευής.</p>
-          <Link to="/epikoinwnia" className="btn">Επικοινωνία</Link>
-        </div>
-      </div>
+          {/* Bottom row — two cards side by side */}
+          <div className={styles.bentoRow}>
+            {/* Card 2 — Electronic Invoicing (7/12) */}
+            <div className={`${styles.cardInvoice} fade-up`}>
+              <div className={styles.cardIcon}>
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M4 2v20l3-2 3 2 3-2 3 2 3-2 3 2V2l-3 2-3-2-3 2-3-2-3 2-3-2z" />
+                  <path d="M8 10h8" />
+                  <path d="M8 14h4" />
+                </svg>
+              </div>
+              <h2>Ηλεκτρονική Πληρωμή &amp; Τιμολόγηση</h2>
+              <p>
+                Πλήρης ενσωμάτωση με ΑΑΔΕ myDATA. Αυτοματοποιημένη έκδοση
+                παραστατικών, online πληρωμές και αναφορές σε πραγματικό χρόνο.
+              </p>
+              <ul className={styles.checklist}>
+                {CHECKLIST.map((item) => (
+                  <li key={item}>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                      <path d="M3.5 8.5L6.5 11.5L12.5 4.5" stroke="var(--color-primary)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <div className={styles.priceRow}>
+                <span className={styles.price}>€19.99</span>
+                <span className={styles.pricePer}>/mo</span>
+              </div>
+              <Link to="/ilektroniki-timologisi" className="btn">
+                Ενεργοποίηση
+              </Link>
+            </div>
+
+            {/* Card 3 — Φωτογράφιση & Drone (5/12) */}
+            <Link to="/portfolio#fotografia" className={`${styles.cardPhoto} fade-up`} style={{ textDecoration: 'none', color: 'inherit' }}>
+              <span className={styles.label}>Visual Arts</span>
+              <h2>Φωτογράφιση &amp; Drone</h2>
+              <p>
+                Επαγγελματική φωτογράφιση ακινήτων, χώρων Airbnb και
+                επιχειρήσεων. Aerial θέα με drone για μοναδικό content.
+              </p>
+              <div className={styles.photoPreview}>
+                <img
+                  src="/assets/images/hero-front.jpg"
+                  alt="Επαγγελματική φωτογράφιση & Drone"
+                  loading="lazy"
+                />
+              </div>
+              <div className={styles.priceRow}>
+                <span className={styles.price}>€90</span>
+                <span className={styles.pricePer}>starting</span>
+              </div>
+            </Link>
+          </div>
+        </section>
+
+        {/* ── Tech Specs ── */}
+        <section className={styles.specs}>
+          <div className={styles.specsGrid}>
+            {STATS.map((stat) => (
+              <div key={stat.label} className={`${styles.specCard} pixel-grid fade-up`}>
+                <span className={styles.specValue}>{stat.value}</span>
+                <span className={styles.specLabel}>{stat.label}</span>
+              </div>
+            ))}
+          </div>
+        </section>
+      </main>
 
       <Footer />
     </div>

@@ -38,17 +38,17 @@ export default function Photography() {
         <title>{seo.title}</title>
         <meta name="description" content={seo.description} />
         <meta name="keywords" content={seo.keywords} />
-        <link rel="canonical" href="https://frameflat.gr/fotografia" />
+        <link rel="canonical" href="https://Everyweb.gr/fotografia" />
         <meta property="og:type" content="website" />
         <meta property="og:title" content={seo.title} />
         <meta property="og:description" content={seo.description} />
-        <meta property="og:url" content="https://frameflat.gr/fotografia" />
-        <meta property="og:image" content="https://frameflat.gr/assets/images/og-image.png" />
+        <meta property="og:url" content="https://Everyweb.gr/fotografia" />
+        <meta property="og:image" content="https://Everyweb.gr/assets/images/og-image.png" />
         <meta property="og:locale" content="el_GR" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={seo.title} />
         <meta name="twitter:description" content={seo.description} />
-        <meta name="twitter:image" content="https://frameflat.gr/assets/images/og-image.png" />
+        <meta name="twitter:image" content="https://Everyweb.gr/assets/images/og-image.png" />
       </Helmet>
 
       <Header />

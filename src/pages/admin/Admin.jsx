@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback, useRef } from 'react'
+import { Helmet } from 'react-helmet-async'
 import { api } from './api'
 import { fmtDate, fmtAmt, esc } from './helpers'
 import './Admin.css'
@@ -179,6 +180,9 @@ export default function Admin() {
 
   return (
     <div className="admin-root">
+      <Helmet>
+        <meta name="robots" content="noindex, nofollow" />
+      </Helmet>
       <div className="admin-app">
         <Sidebar view={view} navigate={navigate} badges={badges} lastListView={lastListView}
           onLogout={async () => { await api('POST', '/admin/logout').catch(() => {}); setAuthed(false) }} />

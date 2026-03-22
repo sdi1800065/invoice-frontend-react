@@ -39,7 +39,7 @@ export default function Checkout() {
       .catch(() => setAadeValidation(false))
   }, [])
 
-  const pageTitle = paymentMode === 'payment' ? 'Πληρωμή — Frameflat' : 'Συνδρομή — Frameflat'
+  const pageTitle = paymentMode === 'payment' ? 'Πληρωμή — Everyweb' : 'Συνδρομή — Everyweb'
 
   const hasSelection = selectedProducts.webdesign || selectedProducts.invoicing
   const bothSelected = selectedProducts.webdesign && selectedProducts.invoicing
@@ -178,6 +178,7 @@ export default function Checkout() {
     <div className="page">
       <Helmet>
         <title>{pageTitle}</title>
+        <meta name="robots" content="noindex, nofollow" />
       </Helmet>
       <Header />
       <main className={styles.wrapper}>

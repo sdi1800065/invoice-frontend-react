@@ -10,7 +10,7 @@ export default function CheckoutSuccess() {
   const isSubscription = mode === 'subscription'
 
   const heading = isSubscription ? 'Η συνδρομή ολοκληρώθηκε!' : 'Η πληρωμή ολοκληρώθηκε!'
-  const title = isSubscription ? 'Συνδρομή ολοκληρώθηκε — Frameflat' : 'Πληρωμή ολοκληρώθηκε — Frameflat'
+  const title = isSubscription ? 'Συνδρομή ολοκληρώθηκε — Everyweb' : 'Πληρωμή ολοκληρώθηκε — Everyweb'
 
   const [countdown, setCountdown] = useState(5)
 
@@ -32,11 +32,12 @@ export default function CheckoutSuccess() {
     <div className={styles.wrapper}>
       <Helmet>
         <title>{title}</title>
+        <meta name="robots" content="noindex, nofollow" />
       </Helmet>
 
       <div className={styles.card}>
         <div className={styles.logo}>
-          <img src="/assets/images/logo.png" alt="Frameflat" />
+          <img src="/assets/images/logo.png" alt="Everyweb" />
         </div>
         <div className={styles.icon}>✓</div>
         <h1 className={styles.heading}>{heading}</h1>

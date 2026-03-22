@@ -5,8 +5,7 @@ import styles from './Header.module.css'
 const NAV_LINKS = [
   { to: '/', label: 'Αρχική' },
   { to: '/ypiresies', label: 'Υπηρεσίες' },
-  { to: '/portfolio', label: 'Έργα μας' },
-  { to: '/fotografia', label: 'Φωτογράφιση' },
+  { to: '/portfolio', label: 'Τα Έργα μας' },
   { to: '/blog', label: 'Άρθρα' },
   { to: '/epikoinwnia', label: 'Επικοινωνία' },
 ]
@@ -21,15 +20,11 @@ export default function Header() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-return (
+  return (
     <header className={`${styles.header} ${isSticky ? styles.sticky : ''}`}>
       <div className={styles.inner}>
         <Link to="/" className={styles.logo} onClick={() => setMenuOpen(false)}>
-          <img
-            src="/assets/images/logo.png"
-            alt="frameflat"
-            loading="eager"
-          />
+          EveryWeb
         </Link>
 
         <nav className={styles.nav}>
@@ -45,7 +40,7 @@ return (
               {label}
             </NavLink>
           ))}
-          <Link to="/checkout" className={styles.ctaBtn}>Συνδρομή</Link>
+          <Link to="/checkout" className={styles.ctaBtn}>Ξεκινήστε τώρα</Link>
         </nav>
 
         <button
@@ -76,7 +71,7 @@ return (
           </NavLink>
         ))}
         <Link to="/checkout" className={styles.dropdownCta} onClick={() => setMenuOpen(false)}>
-          Συνδρομή
+          Ξεκινήστε τώρα
         </Link>
       </div>
     </header>

@@ -21,7 +21,7 @@ export default function UrbanSuites() {
       seoTitle={seo.title}
       seoDescription={seo.description}
       seoKeywords={seo.keywords}
-      canonical="https://frameflat.gr/urban-suites"
+      canonical="https://Everyweb.gr/urban-suites"
     />
   )
 }

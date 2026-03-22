@@ -1,36 +1,54 @@
 :root {
-  /* Typography */
-  --font-heading: 'EB Garamond', 'Georgia', serif;
+  /* Typography — EveryWeb design system */
+  --font-heading: 'Inter', sans-serif;
   --font-body: 'Inter', sans-serif;
   --font-ui: 'Inter', sans-serif;
-  --font-secondary: 'Inter', sans-serif;
+  --font-label: 'Space Grotesk', sans-serif;
+  --font-secondary: 'Space Grotesk', sans-serif;
 
-  /* Colours — extracted from Zyrosite computed styles */
-  --color-bg: #fafafa;
-  --color-bg-dark: #1d1e20;
-  --color-text: #66605c;
-  --color-text-dark: #1d1e20;
+  /* Colours — EveryWeb "Kyanos Matrix" palette */
+  --color-primary: #003ec7;
+  --color-primary-container: #0052ff;
+  --color-secondary: #006688;
+  --color-secondary-container: #00c1fd;
+
+  --color-bg: #fef8f8;
+  --color-bg-alt: #f8f2f2;
+  --color-bg-cream: #f8f2f2;
+  --color-bg-dark: #1d1b1b;
+
+  --color-surface: #fef8f8;
+  --color-surface-low: #f8f2f2;
+  --color-surface-high: #ece7e6;
+  --color-surface-highest: #e6e1e1;
+  --color-surface-lowest: #ffffff;
+  --color-surface-container: #f2edec;
+
+  --color-text: #434656;
+  --color-text-dark: #1d1b1b;
   --color-text-light: #ffffff;
-  --color-accent: #c9a96e;
-  --color-accent-dark: #b8934d;
-  --color-accent-light: #e8d9b8;
-  --color-bg-cream: #faf6ef;
-  --color-border: #dadce0;
-  --color-gray: #727586;
-  --color-gray-light: #f2f3f6;
+  --color-accent: #003ec7;
+  --color-accent-dark: #0052ff;
+  --color-accent-light: #b7c4ff;
+
+  --color-border: #c3c5d9;
+  --color-outline: #737688;
+  --color-outline-variant: #c3c5d9;
+  --color-gray: #737688;
+  --color-gray-light: #f2edec;
 
   /* Layout */
-  --header-height: 73px;
-  --header-height-mobile: 39px;
-  --max-width: 1240px;
-  --section-padding: 80px 16px;
-  --section-padding-mobile: 48px 16px;
+  --header-height: 80px;
+  --header-height-mobile: 64px;
+  --max-width: 1280px;
+  --section-padding: 96px 24px;
+  --section-padding-mobile: 64px 16px;
 
   /* Button */
-  --btn-radius: 28px;
-  --btn-bg: #fafafa;
-  --btn-color: #66605c;
-  --btn-bg-hover: var(--color-accent);
+  --btn-radius: 4px;
+  --btn-bg: #003ec7;
+  --btn-color: #ffffff;
+  --btn-bg-hover: #0052ff;
   --btn-color-hover: #ffffff;
 
   /* Transitions */

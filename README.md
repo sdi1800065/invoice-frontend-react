@@ -1,4 +1,4 @@
-# Frameflat — React App
+# Everyweb — React App
 
 Professional web design and maintenance service company website with integrated invoice automation.
 Built as a Vite + React SPA that is served by the backend (build output emitted to `Invoice-Backend/dist/`).

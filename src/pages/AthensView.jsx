@@ -26,7 +26,7 @@ export default function AthensView() {
       seoTitle={seo.title}
       seoDescription={seo.description}
       seoKeywords={seo.keywords}
-      canonical="https://frameflat.gr/athens-view"
+      canonical="https://Everyweb.gr/athens-view"
     />
   )
 }

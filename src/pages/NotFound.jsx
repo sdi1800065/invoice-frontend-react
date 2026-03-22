@@ -7,7 +7,7 @@ export default function NotFound() {
   return (
     <div className="page">
       <Helmet>
-        <title>404 — Η σελίδα δεν βρέθηκε | Frameflat</title>
+        <title>404 — Η σελίδα δεν βρέθηκε | Everyweb</title>
         <meta name="robots" content="noindex" />
       </Helmet>
       <Header />

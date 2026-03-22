@@ -36,19 +36,19 @@ export default function BlogPost() {
     <div className="page">
       <Helmet>
         <html lang={article.lang} />
-        <title>{article.title} | Frameflat Blog</title>
+        <title>{article.title} | Everyweb Blog</title>
         <meta name="description" content={article.excerpt} />
-        <link rel="canonical" href={`https://frameflat.gr/blog/${article.slug}`} />
+        <link rel="canonical" href={`https://Everyweb.gr/blog/${article.slug}`} />
         <meta property="og:type" content="article" />
         <meta property="og:title" content={article.title} />
         <meta property="og:description" content={article.excerpt} />
-        <meta property="og:url" content={`https://frameflat.gr/blog/${article.slug}`} />
-        <meta property="og:image" content={`https://frameflat.gr${article.coverImage}`} />
+        <meta property="og:url" content={`https://Everyweb.gr/blog/${article.slug}`} />
+        <meta property="og:image" content={`https://Everyweb.gr${article.coverImage}`} />
         <meta property="article:published_time" content={article.datePublished} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={article.title} />
         <meta name="twitter:description" content={article.excerpt} />
-        <meta name="twitter:image" content={`https://frameflat.gr${article.coverImage}`} />
+        <meta name="twitter:image" content={`https://Everyweb.gr${article.coverImage}`} />
         <script type="application/ld+json">{JSON.stringify(schema)}</script>
       </Helmet>
 

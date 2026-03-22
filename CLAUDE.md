@@ -15,7 +15,7 @@ No test framework is configured.
 
 ## Architecture
 
-**Frameflat** — a web design & maintenance subscription service website. Vite 8 + React 19 SPA, primarily in Greek.
+**Everyweb** — a web design & maintenance subscription service website. Vite 8 + React 19 SPA, primarily in Greek.
 
 ### Routing (`src/App.jsx`)
 

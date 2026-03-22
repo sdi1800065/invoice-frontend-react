@@ -12,7 +12,9 @@
 }
 
 .hero h1 {
+  font-family: var(--font-heading);
   font-size: clamp(24px, 3vw, 42px);
+  color: var(--color-text-dark);
   margin-bottom: 16px;
 }
 
@@ -27,24 +29,27 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-size: 14px;
-  color: var(--color-text);
+  font-family: var(--font-label);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--color-primary);
   margin-bottom: 20px;
-  opacity: 0.7;
   transition: opacity var(--transition);
 }
-.backLink:hover { opacity: 1; }
+.backLink:hover { opacity: 0.7; }
 
 .badge {
   display: inline-block;
+  font-family: var(--font-label);
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  padding: 5px 14px;
-  border: 1px solid var(--color-accent, #c9a96e);
-  color: var(--color-accent, #c9a96e);
-  border-radius: 3px;
+  padding: 6px 16px;
+  border: 1px solid var(--color-primary);
+  color: var(--color-primary);
+  border-radius: 100px;
   margin-bottom: 16px;
 }
 
@@ -60,6 +65,7 @@
 .galleryItem {
   aspect-ratio: 1;
   overflow: hidden;
+  border-radius: 8px;
   cursor: pointer;
 }
 
